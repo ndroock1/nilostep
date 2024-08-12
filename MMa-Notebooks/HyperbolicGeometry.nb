@@ -1,0 +1,297 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11468,        289]
+NotebookOptionsPosition[      9256,        241]
+NotebookOutlinePosition[      9734,        259]
+CellTagsIndexPosition[      9691,        256]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Hyperbolic Geometry", "Chapter",
+ CellChangeTimes->{{3.9029044636353207`*^9, 3.9029044765456266`*^9}, {
+   3.90307913997933*^9, 3.903079168234905*^9}, 3.9035135564000483`*^9, {
+   3.911278861311721*^9, 3.9112788741509595`*^9}},
+ FontWeight->"Bold",ExpressionUUID->"c92fd8e9-36eb-4525-8f22-31b281f241db"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Preamble",
+ FontWeight->"Bold"]], "Section",
+ CellChangeTimes->{{3.8413694899352517`*^9, 3.8413694986561213`*^9}, {
+  3.8994509941661067`*^9, 3.8994509965303183`*^9}, {3.902562007209113*^9, 
+  3.9025620074453325`*^9}},ExpressionUUID->"1159b96f-801f-425a-9d98-\
+b7fc4ef0b834"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{
+   "$Path", ",", 
+    "\"\<C:\\\\Users\\\\deroo\\\\__DATA\\\\MEGA\\\\DATA\\\\git\\\\MFDSNT\\\\\
+Mathematica Notebooks\>\""}], "]"}], ";"}], "\n", 
+ RowBox[{"<<", "Geometry`"}]}], "Input",
+ CellChangeTimes->{{3.899451006936943*^9, 3.899451006939944*^9}, 
+   3.899558509661508*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"653061c7-7849-4b71-89f6-4a79d0c163dd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Hyperbolic Distance",
+ FontWeight->"Bold"]], "Section",
+ CellChangeTimes->{{3.911295582923005*^9, 3.9112955852990017`*^9}, {
+  3.911296144411997*^9, 
+  3.911296151420998*^9}},ExpressionUUID->"2403a918-7680-4e3b-8c80-\
+b0dfd01d8af5"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Note",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsubsection",
+ CellChangeTimes->{{3.902553441649083*^9, 3.902553444201406*^9}, {
+  3.911296196365018*^9, 3.9112961970689983`*^9}, {3.911307260522216*^9, 
+  3.9113072616362247`*^9}},ExpressionUUID->"81c6c3f5-d2cb-4e99-ae31-\
+48e3a9fac828"],
+
+Cell[TextData[{
+ StyleBox["Procedure suggested by Bing Chat:",
+  FontWeight->"Bold"],
+ "\[LineSeparator]\nIn Mathematica, you can calculate the hyperbolic distance \
+between two points `P(p1,p2)` and `Q(q1,q2)` in the Poincar\[EAcute] Disk \
+model using the following steps:\n\n1. Define the points `P` and `Q` in the \
+complex plane:\n```mathematica\nP = p1 + I*p2;\nQ = q1 + I*q2;\n```\n2. \
+Calculate the cross-ratio of the four points involved (two points and two \
+ideal points):\n```mathematica\ncrossRatio = Abs[(1 - Conjugate[P])*(Q - \
+1)/((1 - P)*(Conjugate[Q] - 1))];\n```\n3. The hyperbolic distance is then \
+given by:\n```mathematica\ndistance = Log[crossRatio]/2;\n```\n\nThis \
+procedure uses the formula for the hyperbolic distance in terms of the \
+cross-ratio of the four points involved\.b9\.b2. The ideal points in the \
+Poincar\[EAcute] Disk model are `1` and `-1` on the real axis\.b2.\n\nPlease \
+note that this is a simplified procedure and assumes that `P` and `Q` are \
+within the unit disk. If they are not, you would need to map them to the unit \
+disk first\:2074. Also, this procedure uses the natural logarithm (`Log` in \
+Mathematica), so the distance is dimensionless and in natural units. If you \
+want the distance in other units, you would need to adjust the formula \
+accordingly\.b2. \n\nI hope this helps! If you have any other questions, feel \
+free to ask. \|01f60a\n\nSource: Conversation with Bing, 11/12/2023\n(1) \
+Distance in the Poincare Disk model of hyperbolic geometry. \
+https://math.stackexchange.com/questions/175927/distance-in-the-poincare-disk-\
+model-of-hyperbolic-geometry.\n(2) Distance between points in hyperbolic disk \
+models. https://math.stackexchange.com/questions/619155/distance-between-\
+points-in-hyperbolic-disk-models.\n(3) Hyperbolic distance between two \
+coordinates - Mathematics Stack Exchange. \
+https://math.stackexchange.com/questions/2160773/hyperbolic-distance-between-\
+two-coordinates.\n(4) 5.5: The Upper Half-Plane Model - Mathematics \
+LibreTexts. \
+https://math.libretexts.org/Bookshelves/Geometry/Geometry_with_an_\
+Introduction_to_Cosmic_Topology_%28Hitchman%29/05%3A_Hyperbolic_Geometry/5.05%\
+3A_The_Upper_Half-Plane_Model."
+}], "Text",
+ CellChangeTimes->{{3.9113065594637785`*^9, 
+  3.9113065953666296`*^9}},ExpressionUUID->"9cd0f95f-42fe-4468-9270-\
+ece2d5b460cc"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Test",
+ FontWeight->"Bold",
+ FontColor->GrayLevel[0]]], "Subsubsection",
+ CellChangeTimes->{{3.902553441649083*^9, 3.902553444201406*^9}, {
+  3.911296196365018*^9, 
+  3.9112961970689983`*^9}},ExpressionUUID->"5e485c8e-6390-4750-af3f-\
+b0ece7d2848b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f0", "[", 
+   RowBox[{"p_", ",", "q_"}], "]"}], ":=", 
+  RowBox[{"2", 
+   RowBox[{"ArcTanh", "[", 
+    RowBox[{"Abs", "[", 
+     RowBox[{"p", "+", 
+      RowBox[{"I", " ", "q"}]}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f1", "[", 
+   RowBox[{"p_", ",", "q_"}], "]"}], ":=", 
+  RowBox[{"Log", "[", 
+   FractionBox[
+    RowBox[{"1", "+", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["p", "2"], "+", 
+       SuperscriptBox["q", "2"]}]]}], 
+    RowBox[{"1", "-", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["p", "2"], "+", 
+       SuperscriptBox["q", "2"]}]]}]], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f2", "[", 
+   RowBox[{"p_", ",", "q_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"ResourceFunction", "[", "\"\<HyperbolicDistance\>\"", "]"}], "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"p", ",", "q"}], "}"}], ",", "\"\<Poincare\>\""}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9112956000179996`*^9, 3.911295650331012*^9}, {
+   3.911295735140023*^9, 3.9112957657160006`*^9}, 3.9113061006285944`*^9, {
+   3.911309084493203*^9, 3.9113091398572254`*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"9ddd2544-0613-4090-8288-41d217453584"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"f0", "[", 
+  RowBox[{"0.2", ",", "0.8"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"f1", "[", 
+  RowBox[{"0.2", ",", "0.8"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"f2", "[", 
+  RowBox[{"0.2", ",", "0.8"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9112957715740223`*^9, 3.911295858923023*^9}, {
+  3.911306107185021*^9, 3.911306128766781*^9}, {3.9113091474652023`*^9, 
+  3.911309150721201*^9}},
+ CellLabel->"In[54]:=",ExpressionUUID->"d96a26be-18f0-4def-aeb9-f52169e6f8e8"],
+
+Cell[BoxData["2.342179008808365`"], "Output",
+ CellChangeTimes->{{3.911295801376*^9, 3.911295859813002*^9}, {
+   3.911306103717556*^9, 3.911306129612561*^9}, 3.9113091515402074`*^9},
+ CellLabel->"Out[54]=",ExpressionUUID->"ce6da097-1df6-44ac-8346-b4480851fddd"],
+
+Cell[BoxData["2.3421790088083654`"], "Output",
+ CellChangeTimes->{{3.911295801376*^9, 3.911295859813002*^9}, {
+   3.911306103717556*^9, 3.911306129612561*^9}, 3.911309151547206*^9},
+ CellLabel->"Out[55]=",ExpressionUUID->"40619d29-6ca5-4e4d-bb61-ae96edab28fc"],
+
+Cell[BoxData["2.3421790088083654`"], "Output",
+ CellChangeTimes->{{3.911295801376*^9, 3.911295859813002*^9}, {
+   3.911306103717556*^9, 3.911306129612561*^9}, 3.9113091515522203`*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"e2bbe221-5d9a-4a8e-abfa-d53df3bbd8e1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"m", "[", "z_", "]"}], ":=", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"2", 
+     SqrtBox["2"], "z"}], "+", 
+    SqrtBox["2"]}], "z"]}], "\[IndentingNewLine]", 
+ RowBox[{"m", "[", 
+  RowBox[{"1", "+", "I"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"m", "[", "I", "]"}]}], "Input",
+ CellChangeTimes->{{3.911323046075183*^9, 3.9113230872671833`*^9}, {
+  3.911358132228695*^9, 3.9113581358746853`*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"ff1c9d41-11a8-4a27-b514-b4fc234f762b"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"5", "-", "\[ImaginaryI]"}], 
+  SqrtBox["2"]]], "Output",
+ CellChangeTimes->{{3.911323080967185*^9, 3.911323088437165*^9}, 
+   3.911358137176692*^9},
+ CellLabel->"Out[64]=",ExpressionUUID->"17288404-bb6e-4761-9a7b-920ce58dfa40"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"2", "-", "\[ImaginaryI]"}], ")"}], " ", 
+  SqrtBox["2"]}]], "Output",
+ CellChangeTimes->{{3.911323080967185*^9, 3.911323088437165*^9}, 
+   3.9113581371886797`*^9},
+ CellLabel->"Out[65]=",ExpressionUUID->"31154e23-0963-4081-95d0-577147e57150"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["temp", "Chapter",
+ CellChangeTimes->{{3.9029044636353207`*^9, 3.9029044765456266`*^9}, {
+   3.90307913997933*^9, 3.903079168234905*^9}, 3.9035135564000483`*^9, {
+   3.911278861311721*^9, 3.9112788741509595`*^9}, {3.9112955733619967`*^9, 
+   3.911295574114008*^9}},
+ FontWeight->"Bold",ExpressionUUID->"84f0b303-c5ee-4a87-9c85-2239f9e84702"],
+
+Cell["tmp-1", "Section",
+ CellChangeTimes->{{3.911295582923005*^9, 
+  3.9112955852990017`*^9}},ExpressionUUID->"e1490171-2034-4c44-8d5e-\
+befc038b6197"]
+}, Closed]]
+},
+WindowSize->{962.25, 628.5},
+WindowMargins->{{Automatic, 33}, {Automatic, 14.25}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+Magnification:>0.75 Inherited,
+FrontEndVersion->"13.3 for Microsoft Windows (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"30f1b17d-22fa-4160-b050-3c2e8d4fe69a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 309, 4, 51, "Chapter",ExpressionUUID->"c92fd8e9-36eb-4525-8f22-31b281f241db"],
+Cell[CellGroupData[{
+Cell[914, 30, 299, 5, 50, "Section",ExpressionUUID->"1159b96f-801f-425a-9d98-b7fc4ef0b834"],
+Cell[1216, 37, 422, 10, 91, "Input",ExpressionUUID->"653061c7-7849-4b71-89f6-4a79d0c163dd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1675, 52, 256, 5, 50, "Section",ExpressionUUID->"2403a918-7680-4e3b-8c80-b0dfd01d8af5"],
+Cell[CellGroupData[{
+Cell[1956, 61, 321, 6, 34, "Subsubsection",ExpressionUUID->"81c6c3f5-d2cb-4e99-ae31-48e3a9fac828"],
+Cell[2280, 69, 2359, 36, 629, "Text",ExpressionUUID->"9cd0f95f-42fe-4468-9270-ece2d5b460cc"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4676, 110, 273, 6, 29, "Subsubsection",ExpressionUUID->"5e485c8e-6390-4750-af3f-b0ece7d2848b"],
+Cell[4952, 118, 1286, 38, 80, "Input",ExpressionUUID->"9ddd2544-0613-4090-8288-41d217453584"],
+Cell[CellGroupData[{
+Cell[6263, 160, 497, 10, 50, "Input",ExpressionUUID->"d96a26be-18f0-4def-aeb9-f52169e6f8e8"],
+Cell[6763, 172, 261, 3, 24, "Output",ExpressionUUID->"ce6da097-1df6-44ac-8346-b4480851fddd"],
+Cell[7027, 177, 260, 3, 24, "Output",ExpressionUUID->"40619d29-6ca5-4e4d-bb61-ae96edab28fc"],
+Cell[7290, 182, 262, 3, 24, "Output",ExpressionUUID->"e2bbe221-5d9a-4a8e-abfa-d53df3bbd8e1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7589, 190, 511, 13, 69, "Input",ExpressionUUID->"ff1c9d41-11a8-4a27-b514-b4fc234f762b"],
+Cell[8103, 205, 266, 6, 41, "Output",ExpressionUUID->"17288404-bb6e-4761-9a7b-920ce58dfa40"],
+Cell[8372, 213, 294, 7, 25, "Output",ExpressionUUID->"31154e23-0963-4081-95d0-577147e57150"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8739, 228, 346, 5, 51, "Chapter",ExpressionUUID->"84f0b303-c5ee-4a87-9c85-2239f9e84702"],
+Cell[9088, 235, 152, 3, 50, "Section",ExpressionUUID->"e1490171-2034-4c44-8d5e-befc038b6197"]
+}, Closed]]
+}
+]
+*)
+
