@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.texlipse.builder.TexlipseNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>references.bib</name>
+			<type>1</type>
+			<location>C:/Users/User/AppData/Local/Programs/MiKTeX/bibtex/bib/feupphdteses/references.bib</location>
+		</link>
+	</linkedResources>
 </projectDescription>

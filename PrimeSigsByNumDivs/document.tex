@@ -1,23 +1,20 @@
 %%This is a very basic article template.
 %%There is just one section and two subsections.
+
 \documentclass{article}
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{references.bib} % Import the bibliography file
 
 \begin{document}
 
-\section{Title}
+\title{Your Title}
+\author{Your Name}
+\date{\today}
+\maketitle
 
-\subsection{Subtitle}
+\section{Introduction}
+This is a citation example \cite{apostol1976}.
 
-Plain text. 
+\printbibliography % Prints the bibliography
 
-\subsection{Uit}
-
-wiens koker komt dit dan ?
-
-
-And we'll note that $x^2 - 2 x = x ( x-2 )$.
-
-En zo zien we het vanzelf, mensense
-
-ten onwelle
 \end{document}
