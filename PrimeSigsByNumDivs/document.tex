@@ -1,20 +1,54 @@
-%%This is a very basic article template.
-%%There is just one section and two subsections.
+\documentclass[oneside]{book}
 
-\documentclass{article}
-\usepackage[backend=biber, style=alphabetic]{biblatex}
-\addbibresource{references.bib} % Import the bibliography file
+%standalone class ?? http://www.ctan.org/pkg/standalone
+% %
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{parskip}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{observation}{Observation}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\newcommand\myeq{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+
+\parskip=1ex
+
+\allowdisplaybreaks
+
+\setcounter{secnumdepth}{1} % levels under \section are not numbered
 
 \begin{document}
 
-\title{Arithmetic Functions}
-\author{Nilo de Roock}
-\date{\today}
-\maketitle
+	\tableofcontents
 
-\section{Introduction}
-This is a citation example \cite{apostol1976}.
+    \chapter{TBD-1}
+    \newpage
+   	\input{chapters/chp01.tex}
 
-\printbibliography % Prints the bibliography
+    \chapter{TBD-1}
+    \newpage
+   	\input{chapters/chp02.tex}
+
+\newpage
+
+\nocite{}
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
 
 \end{document}
