@@ -1,0 +1,209 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4633,        200]
+NotebookOptionsPosition[      2912,        135]
+NotebookOutlinePosition[      3427,        156]
+CellTagsIndexPosition[      3384,        153]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Package Template", "Section",
+ InitializationGroup->True],
+
+Cell[TextData[{
+ "Support for ",
+ StyleBox["Programming with Mathematica: An Introduction.",
+  FontSlant->"Italic"],
+ " Cambridge University Press, 2012."
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell["BeginPackage", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"BeginPackage", "[", "\"\<packageName`\>\"", "]"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Usage messages for public functions", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"functionName", "::", "usage"}], "=", 
+   "\"\<functionName[x] computes the\[Ellipsis]\>\""}], ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Warning messages", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"functionName", "::", "messname"}], "=", 
+   "\"\<Argument `1`\[Ellipsis]\>\""}], ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Options", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "functionName", "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"opt1", "\[Rule]", "value1"}], ",", 
+     RowBox[{"opt2", "\[Rule]", "value2"}]}], "}"}]}], ";"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Private context", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Function definitions (public and private)", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"functionName", "[", "x_", "]"}], ":=", "\[Ellipsis]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fun", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", "\[Ellipsis]"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["End private context", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"End", "[", "]"}]], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["EndPackage", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"EndPackage", "[", "]"}]], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Section"],
+
+Cell["Load package:", "Text"],
+
+Cell[BoxData[
+ RowBox[{"<<", "packageName`"}]], "Input"],
+
+Cell["Test usage message for functions:", "Text"],
+
+Cell[BoxData[
+ RowBox[{"?", "functionName"}]], "Input"],
+
+Cell["Exercise the functions and options for the functions:", "Text"],
+
+Cell[BoxData[
+ RowBox[{"functionName", "[", "x", "]"}]], "Input"]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Working",
+WindowSize->{
+  Scaled[0.5], 
+  Scaled[0.75]},
+WindowMargins->{{15, Automatic}, {Automatic, 15}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+Magnification->1.25,
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September 9, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 63, 1, 80, "Section",
+ InitializationGroup->True],
+Cell[645, 25, 166, 5, 61, "Text"],
+Cell[CellGroupData[{
+Cell[836, 34, 34, 0, 54, "Subsection"],
+Cell[873, 36, 84, 1, 36, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[994, 42, 57, 0, 54, "Subsection"],
+Cell[1054, 44, 157, 4, 36, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1248, 53, 38, 0, 54, "Subsection"],
+Cell[1289, 55, 144, 4, 36, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1470, 64, 29, 0, 54, "Subsection"],
+Cell[1502, 66, 242, 7, 36, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1781, 78, 37, 0, 54, "Subsection"],
+Cell[1821, 80, 74, 1, 36, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1932, 86, 63, 0, 54, "Subsection"],
+Cell[1998, 88, 100, 2, 36, "Input"],
+Cell[2101, 92, 116, 3, 36, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2254, 100, 41, 0, 54, "Subsection"],
+Cell[2298, 102, 51, 1, 35, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2386, 108, 32, 0, 54, "Subsection"],
+Cell[2421, 110, 58, 1, 36, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2528, 117, 27, 0, 80, "Section"],
+Cell[2558, 119, 29, 0, 37, "Text"],
+Cell[2590, 121, 56, 1, 36, "Input"],
+Cell[2649, 124, 49, 0, 37, "Text"],
+Cell[2701, 126, 55, 1, 35, "Input"],
+Cell[2759, 129, 69, 0, 37, "Text"],
+Cell[2831, 131, 65, 1, 35, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

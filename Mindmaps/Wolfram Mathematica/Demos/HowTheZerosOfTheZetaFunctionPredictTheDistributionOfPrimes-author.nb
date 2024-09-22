@@ -1,0 +1,3999 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    175184,       3991]
+NotebookOptionsPosition[    167891,       3760]
+NotebookOutlinePosition[    169714,       3819]
+CellTagsIndexPosition[    169378,       3807]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+How the Zeros of the Zeta Function Predict the Distribution of Primes\
+\>", "DemoTitle",
+ CellID->700863240],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"lengthOfZetaZeroList", "=", "100"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"length", " ", "of", " ", "zetaZeroList"}], ",", " ", "below"}], 
+   " ", "*)"}]}]], "Input",
+ InitializationCell->True,
+ CellID->24470059],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"fastRiemannR", "[", "x_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{
+       "this", " ", "is", " ", "a", " ", "fast", " ", "version", " ", "of", 
+        " ", 
+        RowBox[{"Riemann", "'"}], "s", " ", "prime", " ", "counting", " ", 
+        "function"}], ",", 
+       RowBox[{"R", 
+        RowBox[{
+         RowBox[{"(", "x", ")"}], ".", " ", "this"}], " ", "is", " ", "less", 
+        " ", "accurate", " ", "than", " ", 
+        RowBox[{"RiemannR", "[", "x", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+         "introduced", " ", "in", " ", "Mathematica", " ", "version", " ", 
+          "7"}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"but", " ", "is", " ", "good", " ", "enough", " ", "for", " ", 
+         RowBox[{"graphing", ".", " ", "for"}], " ", ".001"}], "\[LessEqual]",
+         "x", "\[LessEqual]", "1000"}], ",", 
+       RowBox[{
+        RowBox[{"this", " ", "is", " ", "within", " ", ".001", " ", "of", " ", 
+         RowBox[{
+          RowBox[{"RiemannR", "[", "x", "]"}], ".", " ", "for"}], " ", "x"}], 
+        ">", "1000"}], ",", 
+       RowBox[{
+        RowBox[{"more", " ", "terms", " ", "are", " ", 
+         RowBox[{"needed", ".", " ", "R"}], 
+         RowBox[{"(", "x", ")"}], " ", "can", " ", "also", " ", "be", " ", 
+         "computed", " ", 
+         RowBox[{"from", ":", "\[IndentingNewLine]", " ", 
+          RowBox[{"R", 
+           RowBox[{"(", "x", ")"}]}]}]}], "=", 
+        RowBox[{"1", "+", 
+         RowBox[{
+          RowBox[{"Sum", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"Log", "[", "x", "]"}], "^", "n"}], "/", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"n", "!"}], "*", "n", "*", 
+               RowBox[{"Zeta", "[", 
+                RowBox[{"n", "+", "1"}], "]"}]}], ")"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "1", ",", "Infinity"}], "}"}]}], "]"}], 
+          "."}]}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"n", ",", "lgx", ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"coeffs", "[", 
+            RowBox[{"[", "n", "]"}], "]"}], "=", 
+           RowBox[{"1", "/", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"n", "!"}], "*", "n", "*", 
+              RowBox[{"Zeta", "[", 
+               RowBox[{"n", "+", "1"}], "]"}]}], ")"}]}]}], ",", " ", 
+          RowBox[{"pre", "-", 
+           RowBox[{"computed", " ", "for", " ", "speed"}]}]}], " ", "*)"}], 
+        RowBox[{"coeffs", "=", 
+         RowBox[{"{", 
+          RowBox[{
+          "0.6079271019", ",", "0.2079768431", ",", "0.05132991127", ",", 
+           "0.01004570146", ",", "0.00163825432", ",", "0.0002295647814", ",",
+            "0.00002822956919", ",", 
+           RowBox[{"3.093984476", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "6"}]}]}], ",", 
+           RowBox[{"3.05888207", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "7"}]}]}], ",", 
+           RowBox[{"2.754370744", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "8"}]}]}], ",", 
+           RowBox[{"2.276904083", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "9"}]}]}], ",", 
+           RowBox[{"1.739516287", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "10"}]}]}], ",", 
+           RowBox[{"1.235235409", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "11"}]}]}], ",", 
+           RowBox[{"8.193139099", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "13"}]}]}], ",", 
+           RowBox[{"5.098031245", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "14"}]}]}], ",", 
+           RowBox[{"2.987150519", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "15"}]}]}], ",", 
+           RowBox[{"1.653792072", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "16"}]}]}], ",", 
+           RowBox[{"8.677320647", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "18"}]}]}], ",", 
+           RowBox[{"4.326646002", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "19"}]}]}], ",", 
+           RowBox[{"2.055157831", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "20"}]}]}]}], "}"}]}]}], "\[IndentingNewLine]", 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"x", "<", ".001"}], ")"}], "||", 
+          RowBox[{"(", 
+           RowBox[{"x", ">", "1000"}], ")"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "x", "]"}]}], " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{"warning", ":", " ", 
+          RowBox[{"not", " ", "the", " ", "correct", " ", "value"}]}], " ", 
+         "*)"}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lgx", "=", 
+        RowBox[{"Log", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1.0", "+", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"lgx", "^", "n"}], "*", 
+           RowBox[{"coeffs", "[", 
+            RowBox[{"[", "n", "]"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"n", ",", 
+            RowBox[{"Length", "[", "coeffs", "]"}]}], "}"}]}], "]"}]}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"end", " ", "of", " ", "fastRiemannR"}], " ", "*)"}]}]], "Input",
+ InitializationCell->True,
+ CellID->739018755],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"fastExpIntegralEi", "=", 
+    RowBox[{"Compile", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}], ",", 
+      RowBox[{"Module", "[", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{
+         "this", " ", "is", " ", "a", " ", "fast", " ", "version", " ", "of", 
+          " ", 
+          RowBox[{
+           RowBox[{"Re", "[", 
+            RowBox[{"ExpIntegralEi", "[", 
+             RowBox[{"x", "*", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"1", "/", "2"}], "+", 
+                RowBox[{"y", " ", "I"}]}], ")"}]}], "]"}], "]"}], ".", " ", 
+           "this"}], " ", "is", " ", "less", " ", "accurate", " ", "than", 
+          " ", "ExpIntegralEi"}], ",", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "but", " ", "is", " ", "good", " ", "enough", " ", "for", " ", 
+            RowBox[{"graphing", ".", " ", "the"}], " ", "expression", " ", 
+            "below", " ", "comes", " ", "from", " ", "this", " ", "series", 
+            " ", 
+            RowBox[{"expansion", ":", "\[IndentingNewLine]", "expr0"}]}], "=", 
+           RowBox[{"Normal", "[", 
+            RowBox[{"Series", "[", 
+             RowBox[{
+              RowBox[{"ExpIntegralEi", "[", 
+               RowBox[{"x", "*", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"1", "/", "2"}], "+", 
+                  RowBox[{"y", " ", "I"}]}], ")"}]}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"y", ",", "Infinity", ",", "3"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"x", ",", "Infinity", ",", "3"}], "}"}], ",", 
+              RowBox[{"Assumptions", "\[Rule]", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"x", ">", "0"}], "&&", 
+                 RowBox[{"y", ">", "10"}]}], ")"}]}]}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"expr", "=", 
+           RowBox[{"Collect", "[", 
+            RowBox[{"expr0", ",", 
+             RowBox[{"E", "^", "_"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{
+          "this", " ", "returns", " ", "only", " ", "the", " ", "real", " ", 
+           "part"}]}], ",", " ", 
+         RowBox[{"so", " ", "the", " ", "I", "*", "Pi", " ", "is", " ", 
+          RowBox[{"omitted", "."}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"b", ",", "c"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"b", "=", 
+          RowBox[{"1.0", "/", "y"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"c", "=", 
+          RowBox[{"b", "/", "x"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Re", "[", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"I", "*", "Pi"}], " ", "+"}], " ", "*)"}], 
+          RowBox[{
+           RowBox[{"E", "^", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{".5", " ", "x"}], "+", 
+              RowBox[{"I", " ", "x", " ", "y"}]}], ")"}]}], "*", "c", "*", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"I", "*", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"c", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"2", " ", "c"}], "-", "b"}], ")"}]}], "+", 
+                RowBox[{".25", " ", 
+                 RowBox[{"b", "^", "2"}]}], "-", "1"}], ")"}]}], "-", "c", 
+             "+", 
+             RowBox[{".5", " ", "b"}]}], ")"}]}], "]"}]}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"end", " ", "of", " ", "fastExpIntegralEi"}], " ", 
+   "*)"}]}]], "Input",
+ InitializationCell->True,
+ CellID->157795905],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"riemannCorrection", "=", 
+    RowBox[{"Compile", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"{", 
+         RowBox[{"nZeros", ",", "_Integer"}], "}"}]}], "}"}], ",", 
+      RowBox[{"Module", "[", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{
+         "this", " ", "is", " ", "the", " ", "correction", " ", "term", " ", 
+          "added", " ", "to", " ", 
+          RowBox[{
+           RowBox[{"RiemannR", "[", "x", "]"}], ".", " ", "this"}], " ", 
+          "takes", " ", "into", " ", "account", " ", "the", " ", "first", " ", 
+          RowBox[{"(", "nZeros", ")"}], " ", "conjugate", " ", "pairs", " ", 
+          "of", " ", "zeros", " ", "of", " ", "the", " ", "Riemann", " ", 
+          "zeta", " ", 
+          RowBox[{"function", ".", " ", "the"}], " ", "larger", " ", "nZeros",
+           " ", "is"}], ",", 
+         RowBox[{
+          RowBox[{"the", " ", "closer", " ", "the", " ", "sum", " ", 
+           RowBox[{"RiemannR", "[", "x", "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"riemannCorrection", "[", 
+            RowBox[{"x", ",", "nZeros"}], "]"}], " ", "will", " ", "be", " ", 
+           "to", " ", "the", " ", "step", " ", "function", " ", 
+           RowBox[{"PrimePi", "[", "x", "]"}]}]}], ",", " ", 
+         RowBox[{
+          RowBox[{"especially", " ", "for", " ", "larger", " ", 
+           RowBox[{"x", ".", " ", "for"}], " ", "x"}], "<", "5"}], ",", 
+         RowBox[{
+         "the", " ", "approximations", " ", "are", " ", "not", " ", "very", 
+          " ", "close", " ", "to", " ", 
+          RowBox[{
+           RowBox[{"PrimePi", "[", "x", "]"}], ".", " ", "also"}]}], ",", 
+         RowBox[{
+          RowBox[{"ExpIntegralEi", "[", 
+           RowBox[{"a", "+", 
+            RowBox[{"b", "*", "I"}]}], "]"}], "+", 
+          RowBox[{
+           RowBox[{"ExpIntegralEi", "[", 
+            RowBox[{"a", "-", 
+             RowBox[{"b", "*", "I"}]}], "]"}], " ", "is", " ", "just", 
+           "\[IndentingNewLine]", " ", "2", "*", 
+           RowBox[{"Re", "[", 
+            RowBox[{"ExpIntegralEi", "[", 
+             RowBox[{"a", "+", 
+              RowBox[{"b", "*", "I"}]}], "]"}], "]"}], " ", "because", " ", 
+           "the", " ", "imaginary", " ", "parts", " ", 
+           RowBox[{"cancel", "."}]}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"nZeros2", ",", "lastn", ",", "n", ",", "s2", ",", "i", ",", 
+          RowBox[{"s", "=", "0.0"}], ",", "lgx", ",", "\[IndentingNewLine]", 
+          RowBox[{"lg2Inverse", "=", "1.442695041"}], " ", 
+          RowBox[{"(*", " ", 
+           RowBox[{"=", " ", 
+            RowBox[{"1", "/", 
+             RowBox[{"Log", "[", "2", "]"}]}]}], " ", "*)"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{"zetaZeroList", " ", "=", " ", 
+             RowBox[{
+             "list", " ", "of", " ", "imaginary", " ", "parts", " ", "of", 
+              " ", "first", " ", "few", " ", "zeros", " ", "of", " ", "zeta", 
+              " ", "function"}]}], ";", " ", 
+            RowBox[{
+            "length", " ", "of", " ", "this", " ", "list", " ", "is", " ", 
+             "lengthOfZetaZeroList"}]}], " ", "*)"}], 
+          RowBox[{"zetaZeroList", "=", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "imaginary", " ", "part", " ", "of", " ", "kth", " ", "zero", " ",
+              "of", " ", "the", " ", "zeta", " ", "function"}], " ", "*)"}], 
+           RowBox[{"{", 
+            RowBox[{
+            "14.13472514", ",", "21.02203964", ",", "25.01085758", ",", 
+             "30.42487613", ",", "32.93506159", ",", "37.58617816", ",", 
+             "40.91871901", ",", "43.32707328", ",", "48.00515088", ",", 
+             "49.77383248", ",", "52.97032148", ",", "56.4462477", ",", 
+             "59.347044", ",", "60.83177852", ",", "65.11254405", ",", 
+             "67.07981053", ",", "69.54640171", ",", "72.06715767", ",", 
+             "75.7046907", ",", "77.14484007", ",", "79.33737502", ",", 
+             "82.91038085", ",", "84.73549298", ",", "87.42527461", ",", 
+             "88.80911121", ",", "92.49189927", ",", "94.65134404", ",", 
+             "95.87063423", ",", "98.83119422", ",", "101.317851", ",", 
+             "103.725538", ",", "105.4466231", ",", "107.1686112", ",", 
+             "111.0295355", ",", "111.8746592", ",", "114.3202209", ",", 
+             "116.2266803", ",", "118.7907829", ",", "121.370125", ",", 
+             "122.9468293", ",", "124.2568186", ",", "127.5166839", ",", 
+             "129.5787042", ",", "131.0876885", ",", "133.4977372", ",", 
+             "134.7565098", ",", "138.1160421", ",", "139.736209", ",", 
+             "141.1237074", ",", "143.1118458", ",", "146.0009825", ",", 
+             "147.4227653", ",", "150.0535204", ",", "150.9252576", ",", 
+             "153.0246938", ",", "156.1129093", ",", "157.5975918", ",", 
+             "158.8499882", ",", "161.1889641", ",", "163.0307097", ",", 
+             "165.5370692", ",", "167.18444", ",", "169.0945154", ",", 
+             "169.9119765", ",", "173.4115365", ",", "174.7541915", ",", 
+             "176.4414343", ",", "178.3774078", ",", "179.916484", ",", 
+             "182.2070785", ",", "184.8744678", ",", "185.5987837", ",", 
+             "187.2289226", ",", "189.4161587", ",", "192.0266564", ",", 
+             "193.0797266", ",", "195.2653967", ",", "196.8764818", ",", 
+             "198.0153097", ",", "201.2647519", ",", "202.4935945", ",", 
+             "204.1896718", ",", "205.3946972", ",", "207.9062589", ",", 
+             "209.5765097", ",", "211.6908626", ",", "213.3479194", ",", 
+             "214.5470448", ",", "216.1695385", ",", "219.0675963", ",", 
+             "220.7149188", ",", "221.4307056", ",", "224.0070003", ",", 
+             "224.9833247", ",", "227.4214443", ",", "229.3374133", ",", 
+             "231.2501887", ",", "231.9872353", ",", "233.6934042", ",", 
+             "236.5242297"}], "}"}]}]}], "\[IndentingNewLine]", "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"nZeros", "<", "1"}], ",", 
+           RowBox[{"Return", "[", "0.0", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"nZeros2", "=", 
+          RowBox[{"Min", "[", 
+           RowBox[{"nZeros", ",", "lengthOfZetaZeroList"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"lgx", "=", 
+          RowBox[{"N", "[", 
+           RowBox[{"Log", "[", "x", "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"lastn", "=", 
+          RowBox[{"Ceiling", "[", 
+           RowBox[{"lgx", "*", "lg2Inverse"}], "]"}]}], ";", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"so", " ", "that", " ", 
+            RowBox[{"x", "^", 
+             RowBox[{"(", 
+              RowBox[{"1", "/", "lastn"}], ")"}]}]}], " ", "<", " ", "2"}], 
+          " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"n", "=", "1"}], ",", 
+           RowBox[{"n", "\[LessEqual]", 
+            RowBox[{"lastn", "-", "1"}]}], ",", 
+           RowBox[{"n", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"s2", "=", 
+             RowBox[{"Sum", "[", 
+              RowBox[{
+               RowBox[{"fastExpIntegralEi", "[", 
+                RowBox[{
+                 RowBox[{"lgx", "/", "n"}], ",", 
+                 RowBox[{"zetaZeroList", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "1", ",", "nZeros2"}], "}"}]}], "]"}]}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"s", "=", 
+             RowBox[{"s", "+", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"MoebiusMu", "[", "n", "]"}], "/", "n"}], "*", 
+               "s2"}]}]}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"-", "2"}], "*", "s"}]}]}], " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{"return", " ", "this", " ", "value"}], " ", "*)"}], 
+       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+  " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"end", " ", "of", " ", "riemannCorrection"}], " ", 
+   "*)"}]}]], "Input",
+ InitializationCell->True,
+ CellID->482792338],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"formatTitle", "[", 
+     RowBox[{"showRiemannR_", ",", "nZeros_"}], "]"}], ":=", 
+    RowBox[{"Text", "@", 
+     RowBox[{"TraditionalForm", "@", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"nZeros", "\[Equal]", "0"}], ",", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"PrimePi", "[", "x", "]"}], ",", "\"\<; \>\"", ",", 
+           RowBox[{"R", "[", "x", "]"}], ",", "\"\< (dashed)\>\""}], "}"}], 
+         "]"}], ",", 
+        RowBox[{"Row", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"PrimePi", "[", "x", "]"}], ",", "\"\<; \>\"", ",", 
+           RowBox[{"If", "[", 
+            RowBox[{"showRiemannR", ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"R", "[", "x", "]"}], ",", "\"\< (dashed)\>\"", ",", 
+                "\"\<; \>\""}], "}"}], "]"}], ",", "\"\<\>\""}], "]"}], ",", 
+           RowBox[{"R", "[", "x", "]"}], ",", "\"\< corrected with \>\"", ",",
+            "nZeros", ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"nZeros", "\[Equal]", "1"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", "\"\< pair of zeta zeros\>\"", "}"}], "]"}], ",", 
+             RowBox[{"Row", "[", 
+              RowBox[{"{", "\"\< pairs of zeta zeros\>\"", "}"}], "]"}]}], 
+            "]"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "]"}]}]}]}], 
+   ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"end", " ", "of", " ", "formatTitle"}], " ", "*)"}]}]], "Input",
+ InitializationCell->True,
+ CellID->46232695],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"plotPrimeGraphs", "[", 
+     RowBox[{
+     "xMin_", ",", "xLength_", ",", "nZeros_", ",", "showRiemannR_", ",", 
+      "showTooltip_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "xMin2", ",", "xMax", ",", "xInc", ",", "xi", ",", "nxi", ",", 
+        "uncorrectedY", ",", "correctedY", ",", "i", ",", "correctedXY", ",", 
+        "uncorrectedXY", ",", "correctedStyle", ",", "xPlotRange1", ",", 
+        "xPlotRange2", ",", "yPlotRange1", ",", "yPlotRange2", ",", "pix1", 
+        ",", "piOfxList1", ",", "piOfxList2", ",", "piOfxList", ",", 
+        RowBox[{"plotAll", "=", "showRiemannR"}], ",", "funcList", ",", 
+        "styleList", ",", "\[IndentingNewLine]", 
+        RowBox[{"nPlotPoints", "=", "120"}], ",", 
+        RowBox[{"fontSize", "=", "16"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"imgSize", "=", 
+         RowBox[{"{", 
+          RowBox[{"500", ",", "300"}], "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "image", " ", "padding", " ", "keeps", " ", "the", " ", "graph", " ",
+           "stationary", " ", "as", " ", "the", " ", "axes", " ", "limits", 
+          " ", "change"}], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"imgPadding", "=", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"20", ",", "10"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"25", ",", "10"}], "}"}]}], "}"}]}]}], 
+       "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"xMin2", "=", 
+        RowBox[{"Max", "[", 
+         RowBox[{"1", ",", "xMin"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xMax", "=", 
+        RowBox[{"xMin", "+", "xLength"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"xMin2", ">", "1"}], ",", 
+         RowBox[{"xPlotRange1", "=", "xMin2"}], ",", 
+         RowBox[{"xPlotRange1", "=", "0"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"xPlotRange2", "=", "xMax"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"yPlotRange1", "=", 
+        RowBox[{"PrimePi", "[", "xPlotRange1", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"xMin2", ">", "2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"yPlotRange1", "=", 
+          RowBox[{"Min", "[", 
+           RowBox[{"yPlotRange1", ",", 
+            RowBox[{"fastRiemannR", "[", "xPlotRange1", "]"}]}], "]"}]}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"yPlotRange1", "=", 
+        RowBox[{"Floor", "[", "yPlotRange1", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"yPlotRange2", "=", 
+        RowBox[{"Ceiling", "[", 
+         RowBox[{"Max", "[", 
+          RowBox[{
+           RowBox[{"PrimePi", "[", "xMax", "]"}], ",", 
+           RowBox[{"fastRiemannR", "[", "xMax", "]"}]}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"set", " ", "the", " ", "x"}], ",", " ", 
+         RowBox[{"y", " ", "pairs", " ", "for", " ", "the", " ", "pi", 
+          RowBox[{"(", "x", ")"}], " ", "graph"}]}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"pix1", "=", 
+        RowBox[{"Max", "[", 
+         RowBox[{"2", ",", "xMin2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"piOfxList1", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Prime", "[", "i", "]"}], ",", 
+            RowBox[{"i", "-", "1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{"PrimePi", "[", "pix1", "]"}], ",", 
+            RowBox[{"PrimePi", "[", "xMax", "]"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"piOfxList2", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Prime", "[", "i", "]"}], ",", "i"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", 
+            RowBox[{"PrimePi", "[", "pix1", "]"}], ",", 
+            RowBox[{"PrimePi", "[", "xMax", "]"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{
+         "combine", " ", "the", " ", "lists", " ", "and", " ", "include", " ",
+           "the", " ", "final", " ", "point"}], ",", " ", 
+         RowBox[{"x", " ", "=", " ", "xMax"}]}], " ", "*)"}], 
+       RowBox[{"piOfxList", "=", 
+        RowBox[{"Union", "[", 
+         RowBox[{"piOfxList1", ",", "piOfxList2", ",", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{"xMax", ",", 
+             RowBox[{"PrimePi", "[", "xMax", "]"}]}], "}"}], "}"}]}], "]"}]}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{"showTooltip", ",", 
+         RowBox[{"piOfxList", "=", 
+          RowBox[{"Tooltip", "[", "piOfxList", "]"}]}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"set", " ", "xi"}], " ", "=", " ", 
+         RowBox[{
+         "list", " ", "of", " ", "x", " ", "values", " ", "for", " ", "the", 
+          " ", "other", " ", "graph", 
+          RowBox[{"(", "s", ")"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"xInc", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"xMax", "-", "xMin2"}], ")"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"nPlotPoints", "-", "1"}], ")"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"xi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "xMin2", ",", "xMax", ",", "xInc"}], "}"}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"nxi", "=", 
+        RowBox[{"Length", "[", "xi", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"set", " ", "uncorrectedY"}], " ", "=", " ", 
+         RowBox[{
+         "y", " ", "values", " ", "for", " ", "uncorrected", " ", "Riemann", 
+          " ", "R", 
+          RowBox[{"(", "x", ")"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"uncorrectedY", "=", 
+        RowBox[{"fastRiemannR", "[", "xi", "]"}]}], ";", " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{"list", ",", " ", 
+         RowBox[{"same", " ", "length", " ", "as", " ", "xi"}]}], " ", "*)"}],
+        "\[IndentingNewLine]", 
+       RowBox[{"correctedY", "=", "uncorrectedY"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"nZeros", ">", "0"}], ",", " ", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+          "compute", " ", "Riemann", " ", "R", " ", "with", " ", "correction",
+            " ", "term"}], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "\[LessEqual]", "nxi"}], ",", 
+           RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"correctedY", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "=", 
+            RowBox[{
+             RowBox[{"uncorrectedY", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "+", 
+             RowBox[{"riemannCorrection", "[", 
+              RowBox[{
+               RowBox[{"xi", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", "nZeros"}], "]"}]}]}]}], 
+          "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"make", " ", "x"}], ",", " ", 
+         RowBox[{"y", " ", "pairs"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"correctedXY", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"xi", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], ",", 
+            RowBox[{"correctedY", "[", 
+             RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "nxi"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"nZeros", "\[Equal]", "0"}], ",", " ", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{
+           "no", " ", "need", " ", "to", " ", "plot", " ", "both", " ", 
+            "uncorrected", " ", "R"}], ",", " ", 
+           RowBox[{
+           "and", " ", "R", " ", "corrected", " ", "with", " ", "no", " ", 
+            "zeros"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"plotAll", "=", "False"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"correctedStyle", "=", "Dashed"}]}], " ", ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"correctedStyle", "=", "Automatic"}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{"plotAll", ",", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+          "also", " ", "plot", " ", "the", " ", "uncorrected", " ", 
+           "estimate", " ", "with", " ", "no", " ", "zeros"}], " ", "*)"}], 
+         RowBox[{
+          RowBox[{"uncorrectedXY", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"xi", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", 
+               RowBox[{"uncorrectedY", "[", 
+                RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "nxi"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"funcList", "=", 
+           RowBox[{"{", 
+            RowBox[{"piOfxList", ",", "correctedXY", ",", "uncorrectedXY"}], 
+            "}"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"styleList", "=", 
+           RowBox[{"{", 
+            RowBox[{"Automatic", ",", "Automatic", ",", "Dashed"}], "}"}]}]}],
+          "  ", ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"funcList", "=", 
+           RowBox[{"{", 
+            RowBox[{"piOfxList", ",", "correctedXY"}], "}"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"styleList", "=", 
+           RowBox[{"{", 
+            RowBox[{"Automatic", ",", "correctedStyle"}], "}"}]}]}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{"funcList", ",", "\[IndentingNewLine]", 
+         RowBox[{"PlotStyle", "\[Rule]", "styleList"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+         RowBox[{"Axes", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"True", ",", "False"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"True", ",", "False"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"xPlotRange1", ",", "xPlotRange2"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"yPlotRange1", ",", "yPlotRange2"}], "}"}]}], "}"}]}], 
+         ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"Text", "[", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"formatTitle", "[", 
+              RowBox[{"showRiemannR", ",", "nZeros"}], "]"}], ",", 
+             "fontSize"}], "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "\[Rule]", "imgSize"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"ImagePadding", "\[Rule]", "imgPadding"}]}], 
+        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+   ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"end", " ", "of", " ", "plotPrimeGraphs"}], " ", "*)"}]}]], "Input",
+ InitializationCell->True,
+ CellID->74134368]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"plotPrimeGraphs", "[", 
+    RowBox[{
+    "xMin", ",", "xLength", ",", "nZeros", ",", "showRiemannR", ",", 
+     "showTooltip"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "xMin", ",", "0", ",", "\"\<start x axis at (from 0 to 400)\>\""}], 
+      "}"}], ",", "0", ",", "400", ",", "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "xLength", ",", "30", ",", 
+       "\"\<length of x axis (from 10 to 100)\>\""}], "}"}], ",", "10", ",", 
+     "100", ",", "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"nZeros", ",", "0", ",", 
+       RowBox[{"\"\<pairs of zeta zeros (from 0 to \>\"", "<>", 
+        RowBox[{"ToString", "[", "lengthOfZetaZeroList", "]"}], "<>", 
+        "\"\<)\>\""}]}], "}"}], ",", "0", ",", "lengthOfZetaZeroList", ",", 
+     "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Control", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "showRiemannR", ",", "True", ",", 
+           "\"\<always show Riemann's R(x)\>\""}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "]"}], ",", 
+      RowBox[{"Control", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "showTooltip", ",", "True", ",", 
+           "\"\<     display \[Pi](x) values in a tooltip\>\""}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "]"}]}], 
+     "\[IndentingNewLine]", "}"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", "3", "}"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellID->1496021318],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`nZeros$$ = 0, $CellContext`showRiemannR$$ = 
+    True, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+    30, $CellContext`xMin$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xMin$$], 0, "start x axis at (from 0 to 400)"}, 0, 
+      400, 10}, {{
+       Hold[$CellContext`xLength$$], 30, "length of x axis (from 10 to 100)"},
+       10, 100, 10}, {{
+       Hold[$CellContext`nZeros$$], 0, "pairs of zeta zeros (from 0 to 100)"},
+       0, 100, 5}, {{
+       Hold[$CellContext`showRiemannR$$], True, 
+       "always show Riemann's R(x)"}, {True, False}}, {{
+       Hold[$CellContext`showTooltip$$], True, 
+       "     display \[Pi](x) values in a tooltip"}, {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xMin$19248$$ = 0, $CellContext`xLength$19249$$ = 
+    0, $CellContext`nZeros$19250$$ = 0, $CellContext`showRiemannR$19251$$ = 
+    False, $CellContext`showTooltip$19252$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`nZeros$$ = 0, $CellContext`showRiemannR$$ = 
+        True, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+        30, $CellContext`xMin$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`xMin$$, $CellContext`xMin$19248$$, 0], 
+        Hold[$CellContext`xLength$$, $CellContext`xLength$19249$$, 0], 
+        Hold[$CellContext`nZeros$$, $CellContext`nZeros$19250$$, 0], 
+        Hold[$CellContext`showRiemannR$$, $CellContext`showRiemannR$19251$$, 
+         False], 
+        Hold[$CellContext`showTooltip$$, $CellContext`showTooltip$19252$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plotPrimeGraphs[$CellContext`xMin$$, \
+$CellContext`xLength$$, $CellContext`nZeros$$, $CellContext`showRiemannR$$, \
+$CellContext`showTooltip$$], 
+      "Specifications" :> {{{$CellContext`xMin$$, 0, 
+          "start x axis at (from 0 to 400)"}, 0, 400, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`xLength$$, 30, 
+          "length of x axis (from 10 to 100)"}, 10, 100, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`nZeros$$, 0, 
+          "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`showRiemannR$$, True, 
+          "always show Riemann's R(x)"}, {True, False}, ControlPlacement -> 
+         1}, {{$CellContext`showTooltip$$, True, 
+          "     display \[Pi](x) values in a tooltip"}, {True, False}, 
+         ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}]}, "Options" :> {AutorunSequencing -> {3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{549., {230., 235.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`showTooltip, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, $CellContext`xInc, \
+$CellContext`xi, $CellContext`nxi, $CellContext`uncorrectedY, \
+$CellContext`correctedY, $CellContext`i, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY, $CellContext`correctedStyle, \
+$CellContext`xPlotRange1, $CellContext`xPlotRange2, $CellContext`yPlotRange1, \
+$CellContext`yPlotRange2, $CellContext`pix1, $CellContext`piOfxList1, \
+$CellContext`piOfxList2, $CellContext`piOfxList, $CellContext`plotAll = \
+$CellContext`showRiemannR, $CellContext`funcList, $CellContext`styleList, \
+$CellContext`nPlotPoints = 120, $CellContext`fontSize = 
+          16, $CellContext`imgSize = {500, 300}, $CellContext`imgPadding = {{
+           20, 10}, {25, 10}}}, $CellContext`xMin2 = 
+          Max[1, $CellContext`xMin]; $CellContext`xMax = $CellContext`xMin + \
+$CellContext`xLength; 
+         If[$CellContext`xMin2 > 
+           1, $CellContext`xPlotRange1 = $CellContext`xMin2, \
+$CellContext`xPlotRange1 = 
+           0]; $CellContext`xPlotRange2 = $CellContext`xMax; \
+$CellContext`yPlotRange1 = PrimePi[$CellContext`xPlotRange1]; 
+         If[$CellContext`xMin2 > 2, $CellContext`yPlotRange1 = 
+           Min[$CellContext`yPlotRange1, 
+             $CellContext`fastRiemannR[$CellContext`xPlotRange1]]]; \
+$CellContext`yPlotRange1 = 
+          Floor[$CellContext`yPlotRange1]; $CellContext`yPlotRange2 = Ceiling[
+            Max[
+             PrimePi[$CellContext`xMax], 
+             $CellContext`fastRiemannR[$CellContext`xMax]]]; \
+$CellContext`pix1 = Max[2, $CellContext`xMin2]; $CellContext`piOfxList1 = 
+          Table[{
+             Prime[$CellContext`i], $CellContext`i - 1}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList2 = Table[{
+             Prime[$CellContext`i], $CellContext`i}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList = 
+          Union[$CellContext`piOfxList1, $CellContext`piOfxList2, \
+{{$CellContext`xMax, 
+              PrimePi[$CellContext`xMax]}}]; 
+         If[$CellContext`showTooltip, $CellContext`piOfxList = 
+           
+           Tooltip[$CellContext`piOfxList]]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`uncorrectedY = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`correctedY = \
+$CellContext`uncorrectedY; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`correctedY, $CellContext`i] = 
+            Part[$CellContext`uncorrectedY, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`correctedY, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`nZeros == 
+           0, $CellContext`plotAll = False; $CellContext`correctedStyle = 
+            Dashed, $CellContext`correctedStyle = Automatic]; 
+         If[$CellContext`plotAll, $CellContext`uncorrectedXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`uncorrectedY, $CellContext`i]}, \
+{$CellContext`i, $CellContext`nxi}]; $CellContext`funcList = \
+{$CellContext`piOfxList, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY}; $CellContext`styleList = {
+             Automatic, Automatic, 
+              Dashed}, $CellContext`funcList = {$CellContext`piOfxList, \
+$CellContext`correctedXY}; $CellContext`styleList = {
+             Automatic, $CellContext`correctedStyle}]; 
+         ListPlot[$CellContext`funcList, PlotStyle -> $CellContext`styleList, 
+           Joined -> True, Axes -> False, 
+           Frame -> {{True, False}, {True, False}}, 
+           PlotRange -> {{$CellContext`xPlotRange1, \
+$CellContext`xPlotRange2}, {$CellContext`yPlotRange1, \
+$CellContext`yPlotRange2}}, PlotLabel -> Text[
+             Style[
+              $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+           ImageSize -> $CellContext`imgSize, 
+           ImagePadding -> $CellContext`imgPadding]], \
+$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, \
+$CellContext`pixValues1, $CellContext`pixPairsXY, $CellContext`nPlotPoints = 
+          120, $CellContext`xInc, $CellContext`fontSize = 
+          16, $CellContext`xi, $CellContext`nxi, $CellContext`r0Values, \
+$CellContext`rnValues, $CellContext`i, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY, $CellContext`imgSize = {500, 300}}, 
+         If[$CellContext`xMin < 1, $CellContext`xMin2 = 
+           1, $CellContext`xMin2 = $CellContext`xMin]; $CellContext`xMax = \
+$CellContext`xMin + $CellContext`xLength; $CellContext`pixValues1 = N[
+            Flatten[
+             
+             Table[{$CellContext`x - 1/
+               100, $CellContext`x}, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax}]]]; $CellContext`pixPairsXY = Table[{
+             Part[$CellContext`pixValues1, $CellContext`i], 
+             PrimePi[
+              
+              Part[$CellContext`pixValues1, $CellContext`i]]}, \
+{$CellContext`i, 
+             
+             Length[$CellContext`pixValues1]}]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`r0Values = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`rnValues = \
+$CellContext`r0Values; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`rnValues, $CellContext`i] = 
+            Part[$CellContext`r0Values, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedPairsXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`rnValues, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`showRiemannR, $CellContext`r0PairsXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`r0Values, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY}, Joined -> {True, True, True}, PlotLabel -> Text[
+               Style[
+                $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+             ImageSize -> $CellContext`imgSize, 
+             ImagePadding -> {{25, 10}, {35, 10}}], 
+           
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY}, 
+            Joined -> {True, True}, PlotLabel -> Text[
+              Style[
+               $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+            ImageSize -> $CellContext`imgSize, 
+            ImagePadding -> {{25, 10}, {35, 10}}]]], $CellContext`fastRiemannR[
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       Module[{$CellContext`n, $CellContext`lgx, $CellContext`coeffs = {
+           0.6079271019, 0.2079768431, 0.05132991127, 0.01004570146, 
+            0.00163825432, 0.0002295647814, 0.00002822956919, 3.093984476/
+            10^6, 3.05888207/10^7, 2.754370744/10^8, 2.276904083/10^9, 
+            1.739516287/10^10, 1.235235409/10^11, 8.193139099/10^13, 
+            5.098031245/10^14, 2.987150519/10^15, 1.653792072/10^16, 
+            8.677320647/10^18, 4.326646002/10^19, 2.055157831/10^20}}, If[
+           Or[$CellContext`x < 0.001, $CellContext`x > 1000], 
+           Return[$CellContext`x]]; $CellContext`lgx = Log[$CellContext`x]; 
+         1. + Sum[$CellContext`lgx^$CellContext`n 
+            Part[$CellContext`coeffs, $CellContext`n], {$CellContext`n, 
+             Length[$CellContext`coeffs]}]], $CellContext`riemannCorrection = 
+       CompiledFunction[{
+          Blank[Real], 
+          Blank[Integer]}, {{3, 0, 0}, {2, 0, 0}, {3, 0, 3}}, {1, 8, 12, 0, 
+         5}, {{1, 7}, {8, 0., 1}, {8, 1.442695041, 2}, {45, CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+           "], 3, 100, 0}, {7, 1, 1}, {36, 0, 1, 0}, {3, 0, 4}, {8, 0., 3}, {
+          2}, {4, 1}, {67, 0, 2, 1}, {54, 
+           
+           Function[{$CellContext`x, $CellContext`nZeros}, \
+$CellContext`lengthOfZetaZeroList], 3, 0, 0, 2, 0, 0, 3, 0, 5}, {67, 5, 3, 
+          2}, {47, 0, 1, 3}, {95, 0, 3, 2, 4}, {7, 1, 1}, {70, 4, 0, 1, 0, 
+          5}, {44, 4, 3}, {7, 0, 4}, {4, 6}, {70, 4, 0, 4, 0, 6}, {37, 6, 5, 
+          0}, {3, 0, 3}, {12, 6, 5}, {4, 1}, {5, 4, 3, -5}, {93, 35, 3, 0, 0, 
+          3, 0, 4}, {21, 4, 2, 6}, {93, 51, 3, 0, 6, 2, 0, 1}, {7, 1, 2}, {
+          7, -1, 3}, {17, 1, 3, 4}, {38, 2, 4, 0}, {3, 0, 30}, {8, 0., 6}, {
+          28, 5, 3}, {7, 0, 6}, {4, 10}, {7, 1, 7}, {15, 0, 7, 9}, {15, 0, 2, 
+          10}, {94, 260, 3, 0, 9, 3, 0, 10, 3, 0, 11}, {21, 4, 11, 9}, {70, 0,
+           0, 6, 0, 11}, {
+          55, $CellContext`fastExpIntegralEi, 3, 0, 9, 3, 0, 11, 3, 0, 10}, {
+          18, 6, 10, 9}, {12, 9, 6}, {5, 6, 3, -9}, {54, 
+           Function[{$CellContext`x, $CellContext`nZeros}, 
+            MoebiusMu[$CellContext`n]], {$CellContext`n, 2, 0, 2, Module}, 3, 
+           0, 0, 2, 0, 0, 2, 0, 5}, {7, 1, 3}, {15, 0, 3, 7}, {15, 0, 2, 8}, {
+          94, 260, 3, 0, 7, 3, 0, 8, 3, 0, 9}, {15, 1, 5, 7}, {21, 7, 9, 7}, {
+          21, 7, 6, 7}, {18, 1, 7, 9}, {12, 9, 1}, {11, 2, 4}, {7, 1, 3}, {17,
+           4, 3, 5}, {11, 5, 2}, {4, -32}, {7, -2, 4}, {15, 1, 4, 9}, {21, 9, 
+          1, 9}, {12, 9, 3}, {2}}, 
+         Function[{$CellContext`x, $CellContext`nZeros}, 
+          
+          Module[{$CellContext`nZeros2, $CellContext`lastn, $CellContext`n, \
+$CellContext`s2, $CellContext`i, $CellContext`s = 
+            0., $CellContext`lgx, $CellContext`lg2Inverse = 
+            1.442695041, $CellContext`zetaZeroList = CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+             "]}, If[$CellContext`nZeros < 1, 
+             Return[0.]]; $CellContext`nZeros2 = 
+            Min[$CellContext`nZeros, $CellContext`lengthOfZetaZeroList]; \
+$CellContext`lgx = N[
+              Log[$CellContext`x]]; $CellContext`lastn = 
+            Ceiling[$CellContext`lgx $CellContext`lg2Inverse]; 
+           For[$CellContext`n = 1, $CellContext`n <= $CellContext`lastn - 1, 
+             Increment[$CellContext`n], $CellContext`s2 = Sum[
+                $CellContext`fastExpIntegralEi[$CellContext`lgx/$CellContext`\
+n, 
+                 
+                 Part[$CellContext`zetaZeroList, $CellContext`i]], \
+{$CellContext`i, 
+                 1, $CellContext`nZeros2}]; $CellContext`s = $CellContext`s + \
+(MoebiusMu[$CellContext`n]/$CellContext`n) $CellContext`s2]; (-2) \
+$CellContext`s]], Evaluate], $CellContext`lengthOfZetaZeroList = 
+       100, $CellContext`fastExpIntegralEi = CompiledFunction[{
+          Blank[Real], 
+          Blank[Real]}, {{3, 0, 0}, {3, 0, 1}, {3, 0, 5}}, {0, 1, 8, 4, 
+         0}, {{1, 7}, {8, 1., 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 1, 3, 0,
+           3}, {21, 2, 3, 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 0, 3, 0, 
+          3}, {21, 2, 3, 4}, {8, 0.5, 3}, {21, 3, 0, 3}, {9, 0., 1., 0}, {
+          8, 0., 5}, {16, 0, 5, 1}, {8, 0., 6}, {16, 1, 6, 2}, {22, 0, 1, 2, 
+          0}, {8, 0., 5}, {16, 3, 5, 1}, {19, 1, 0, 1}, {93, 34, 4, 0, 1, 4, 
+          0, 0}, {9, 0., 1., 1}, {7, 2, 0}, {15, 1, 0, 3}, {21, 3, 4, 3}, {24,
+           2, 5}, {18, 3, 5, 3}, {21, 4, 3, 5}, {8, 0.25, 3}, {7, 2, 0}, {94, 
+          264, 3, 0, 2, 2, 0, 0, 3, 0, 6}, {21, 3, 6, 3}, {7, -1, 0}, {15, 0, 
+          0, 6}, {18, 5, 3, 6, 5}, {8, 0., 3}, {16, 5, 3, 2}, {22, 1, 2, 1}, {
+          24, 4, 5}, {8, 0.5, 3}, {21, 3, 2, 3}, {8, 0., 6}, {16, 5, 6, 2}, {
+          8, 0., 7}, {16, 3, 7, 3}, {19, 1, 2, 3, 1}, {8, 0., 5}, {16, 4, 5, 
+          2}, {22, 0, 2, 1, 0}, {29, 0, 5}, {2}}, 
+         Function[{$CellContext`x, $CellContext`y}, 
+          
+          Module[{$CellContext`b, $CellContext`c}, $CellContext`b = 
+            1./$CellContext`y; $CellContext`c = $CellContext`b/$CellContext`x; 
+           Re[(E^(0.5 $CellContext`x + (
+                  I $CellContext`x) $CellContext`y) $CellContext`c) (
+              I ($CellContext`c (2 $CellContext`c - $CellContext`b) + 
+                0.25 $CellContext`b^2 - 1) - $CellContext`c + 
+              0.5 $CellContext`b)]]], 
+         Evaluate], $CellContext`zetaZeroList = CompressedData["
+1:eJwBnQFi/iFib1JlAQAAADIAAACAf4yx+kQsQP8DzWOkBTVAggP3j8cCOUB4
+M5uuxGw+QNtlIhmwd0BALGrN4gfLQkDtFKOVmHVEQGt/iIndqUVApJK2yKgA
+SEBfF1XxDONIQGmah34zfEpAJrUGpR45TEDyIhPwa6xNQCh18rd3ak5AAIf1
+6zNHUEB+DqCdG8VQQGy74D74YlFA1hSvT0wEUkDnkgWnGe1SQDnzSA9FSVNA
+ylhljZfVU0DmaQquQ7pUQGjiJVESL1VAOnH/sjfbVUC6cWJ6yDNWQOJkE0d7
+H1dApo/pnq+pV0AzKKJ4uPdXQI3hPUkytVhAD4C4q1dUWUBWgO82b+5ZQNcI
+DnmVXFpAUW+hhsrKWkCLpN3o48FbQFDJlGr691tAuT/Nf36UXEBwyRbugQ5d
+QBtv4S+csl1AppvEILBXXkBBmevZmLxeQEoASLdvEF9AqjdZWRHhX0Daoau+
+hDJgQIj3HFjOYmBAFYCQdu2vYEBQQwpUNdhgQLEO7J22Q2FAq0AtBo93YUC+
+qDhp9aNhQD2mpD2U42FA/1G1Rg==
+        "], Attributes[PlotRange] = {ReadProtected}, $CellContext`formatTitle[
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]]] := Text[
+         TraditionalForm[
+          If[$CellContext`nZeros == 0, 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             $CellContext`R[$CellContext`x], " (dashed)"}], 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             If[$CellContext`showRiemannR, 
+              Row[{
+                $CellContext`R[$CellContext`x], " (dashed)", "; "}], ""], 
+             $CellContext`R[$CellContext`x], 
+             " corrected with ", $CellContext`nZeros, 
+             If[$CellContext`nZeros == 1, 
+              Row[{" pair of zeta zeros"}], 
+              Row[{" pairs of zeta zeros"}]]}]]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->316684161]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "In number theory, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " is the number of primes less than or equal to ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ ". Primes occur seemingly at random, so the graph of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " is quite irregular. This Demonstration shows how to use the zeros (roots) \
+of the Riemann zeta function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Zeta]", "(", "s", ")"}], TraditionalForm]], "InlineMath",
+  FormatType->"TraditionalForm"],
+ " to get a smooth function that closely tracks the jumps and irregularities \
+of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ ". This illustrates the deep connection between the zeros of the zeta \
+function and the distribution of primes."
+}], "ManipulateCaption",
+ CellID->1044312921]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`nZeros$$ = 30, $CellContext`showRiemannR$$ =
+     False, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+    40, $CellContext`xMin$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xMin$$], 0, "start x axis at (from 0 to 400)"}, 0, 
+      400, 10}, {{
+       Hold[$CellContext`xLength$$], 40, "length of x axis (from 10 to 100)"},
+       10, 100, 10}, {{
+       Hold[$CellContext`nZeros$$], 30, 
+       "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5}, {{
+       Hold[$CellContext`showRiemannR$$], False, 
+       "always show Riemann's R(x)"}, {True, False}}, {{
+       Hold[$CellContext`showTooltip$$], True, 
+       "     display \[Pi](x) values in a tooltip"}, {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xMin$64064$$ = 0, $CellContext`xLength$64065$$ = 
+    0, $CellContext`nZeros$64066$$ = 0, $CellContext`showRiemannR$64067$$ = 
+    False, $CellContext`showTooltip$64068$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`nZeros$$ = 30, $CellContext`showRiemannR$$ = 
+        False, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+        40, $CellContext`xMin$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`xMin$$, $CellContext`xMin$64064$$, 0], 
+        Hold[$CellContext`xLength$$, $CellContext`xLength$64065$$, 0], 
+        Hold[$CellContext`nZeros$$, $CellContext`nZeros$64066$$, 0], 
+        Hold[$CellContext`showRiemannR$$, $CellContext`showRiemannR$64067$$, 
+         False], 
+        Hold[$CellContext`showTooltip$$, $CellContext`showTooltip$64068$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plotPrimeGraphs[$CellContext`xMin$$, \
+$CellContext`xLength$$, $CellContext`nZeros$$, $CellContext`showRiemannR$$, \
+$CellContext`showTooltip$$], 
+      "Specifications" :> {{{$CellContext`xMin$$, 0, 
+          "start x axis at (from 0 to 400)"}, 0, 400, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`xLength$$, 40, 
+          "length of x axis (from 10 to 100)"}, 10, 100, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`nZeros$$, 30, 
+          "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`showRiemannR$$, False, 
+          "always show Riemann's R(x)"}, {True, False}, ControlPlacement -> 
+         1}, {{$CellContext`showTooltip$$, True, 
+          "     display \[Pi](x) values in a tooltip"}, {True, False}, 
+         ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}]}, "Options" :> {AutorunSequencing -> {3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{549., {230., 235.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`showTooltip, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, $CellContext`xInc, \
+$CellContext`xi, $CellContext`nxi, $CellContext`uncorrectedY, \
+$CellContext`correctedY, $CellContext`i, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY, $CellContext`correctedStyle, \
+$CellContext`xPlotRange1, $CellContext`xPlotRange2, $CellContext`yPlotRange1, \
+$CellContext`yPlotRange2, $CellContext`pix1, $CellContext`piOfxList1, \
+$CellContext`piOfxList2, $CellContext`piOfxList, $CellContext`plotAll = \
+$CellContext`showRiemannR, $CellContext`funcList, $CellContext`styleList, \
+$CellContext`nPlotPoints = 120, $CellContext`fontSize = 
+          16, $CellContext`imgSize = {500, 300}, $CellContext`imgPadding = {{
+           20, 10}, {25, 10}}}, $CellContext`xMin2 = 
+          Max[1, $CellContext`xMin]; $CellContext`xMax = $CellContext`xMin + \
+$CellContext`xLength; 
+         If[$CellContext`xMin2 > 
+           1, $CellContext`xPlotRange1 = $CellContext`xMin2, \
+$CellContext`xPlotRange1 = 
+           0]; $CellContext`xPlotRange2 = $CellContext`xMax; \
+$CellContext`yPlotRange1 = PrimePi[$CellContext`xPlotRange1]; 
+         If[$CellContext`xMin2 > 2, $CellContext`yPlotRange1 = 
+           Min[$CellContext`yPlotRange1, 
+             $CellContext`fastRiemannR[$CellContext`xPlotRange1]]]; \
+$CellContext`yPlotRange1 = 
+          Floor[$CellContext`yPlotRange1]; $CellContext`yPlotRange2 = Ceiling[
+            Max[
+             PrimePi[$CellContext`xMax], 
+             $CellContext`fastRiemannR[$CellContext`xMax]]]; \
+$CellContext`pix1 = Max[2, $CellContext`xMin2]; $CellContext`piOfxList1 = 
+          Table[{
+             Prime[$CellContext`i], $CellContext`i - 1}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList2 = Table[{
+             Prime[$CellContext`i], $CellContext`i}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList = 
+          Union[$CellContext`piOfxList1, $CellContext`piOfxList2, \
+{{$CellContext`xMax, 
+              PrimePi[$CellContext`xMax]}}]; 
+         If[$CellContext`showTooltip, $CellContext`piOfxList = 
+           
+           Tooltip[$CellContext`piOfxList]]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`uncorrectedY = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`correctedY = \
+$CellContext`uncorrectedY; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`correctedY, $CellContext`i] = 
+            Part[$CellContext`uncorrectedY, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`correctedY, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`nZeros == 
+           0, $CellContext`plotAll = False; $CellContext`correctedStyle = 
+            Dashed, $CellContext`correctedStyle = Automatic]; 
+         If[$CellContext`plotAll, $CellContext`uncorrectedXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`uncorrectedY, $CellContext`i]}, \
+{$CellContext`i, $CellContext`nxi}]; $CellContext`funcList = \
+{$CellContext`piOfxList, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY}; $CellContext`styleList = {
+             Automatic, Automatic, 
+              Dashed}, $CellContext`funcList = {$CellContext`piOfxList, \
+$CellContext`correctedXY}; $CellContext`styleList = {
+             Automatic, $CellContext`correctedStyle}]; 
+         ListPlot[$CellContext`funcList, PlotStyle -> $CellContext`styleList, 
+           Joined -> True, Axes -> False, 
+           Frame -> {{True, False}, {True, False}}, 
+           PlotRange -> {{$CellContext`xPlotRange1, \
+$CellContext`xPlotRange2}, {$CellContext`yPlotRange1, \
+$CellContext`yPlotRange2}}, PlotLabel -> Text[
+             Style[
+              $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+           ImageSize -> $CellContext`imgSize, 
+           ImagePadding -> $CellContext`imgPadding]], \
+$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, \
+$CellContext`pixValues1, $CellContext`pixPairsXY, $CellContext`nPlotPoints = 
+          120, $CellContext`xInc, $CellContext`fontSize = 
+          16, $CellContext`xi, $CellContext`nxi, $CellContext`r0Values, \
+$CellContext`rnValues, $CellContext`i, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY, $CellContext`imgSize = {500, 300}}, 
+         If[$CellContext`xMin < 1, $CellContext`xMin2 = 
+           1, $CellContext`xMin2 = $CellContext`xMin]; $CellContext`xMax = \
+$CellContext`xMin + $CellContext`xLength; $CellContext`pixValues1 = N[
+            Flatten[
+             
+             Table[{$CellContext`x - 1/
+               100, $CellContext`x}, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax}]]]; $CellContext`pixPairsXY = Table[{
+             Part[$CellContext`pixValues1, $CellContext`i], 
+             PrimePi[
+              
+              Part[$CellContext`pixValues1, $CellContext`i]]}, \
+{$CellContext`i, 
+             
+             Length[$CellContext`pixValues1]}]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`r0Values = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`rnValues = \
+$CellContext`r0Values; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`rnValues, $CellContext`i] = 
+            Part[$CellContext`r0Values, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedPairsXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`rnValues, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`showRiemannR, $CellContext`r0PairsXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`r0Values, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY}, Joined -> {True, True, True}, PlotLabel -> Text[
+               Style[
+                $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+             ImageSize -> $CellContext`imgSize, 
+             ImagePadding -> {{25, 10}, {35, 10}}], 
+           
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY}, 
+            Joined -> {True, True}, PlotLabel -> Text[
+              Style[
+               $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+            ImageSize -> $CellContext`imgSize, 
+            ImagePadding -> {{25, 10}, {35, 10}}]]], $CellContext`fastRiemannR[
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       Module[{$CellContext`n, $CellContext`lgx, $CellContext`coeffs = {
+           0.6079271019, 0.2079768431, 0.05132991127, 0.01004570146, 
+            0.00163825432, 0.0002295647814, 0.00002822956919, 3.093984476/
+            10^6, 3.05888207/10^7, 2.754370744/10^8, 2.276904083/10^9, 
+            1.739516287/10^10, 1.235235409/10^11, 8.193139099/10^13, 
+            5.098031245/10^14, 2.987150519/10^15, 1.653792072/10^16, 
+            8.677320647/10^18, 4.326646002/10^19, 2.055157831/10^20}}, If[
+           Or[$CellContext`x < 0.001, $CellContext`x > 1000], 
+           Return[$CellContext`x]]; $CellContext`lgx = Log[$CellContext`x]; 
+         1. + Sum[$CellContext`lgx^$CellContext`n 
+            Part[$CellContext`coeffs, $CellContext`n], {$CellContext`n, 
+             Length[$CellContext`coeffs]}]], $CellContext`riemannCorrection = 
+       CompiledFunction[{
+          Blank[Real], 
+          Blank[Integer]}, {{3, 0, 0}, {2, 0, 0}, {3, 0, 3}}, {1, 8, 12, 0, 
+         5}, {{1, 7}, {8, 0., 1}, {8, 1.442695041, 2}, {45, CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+           "], 3, 100, 0}, {7, 1, 1}, {36, 0, 1, 0}, {3, 0, 4}, {8, 0., 3}, {
+          2}, {4, 1}, {67, 0, 2, 1}, {54, 
+           
+           Function[{$CellContext`x, $CellContext`nZeros}, \
+$CellContext`lengthOfZetaZeroList], 3, 0, 0, 2, 0, 0, 3, 0, 5}, {67, 5, 3, 
+          2}, {47, 0, 1, 3}, {95, 0, 3, 2, 4}, {7, 1, 1}, {70, 4, 0, 1, 0, 
+          5}, {44, 4, 3}, {7, 0, 4}, {4, 6}, {70, 4, 0, 4, 0, 6}, {37, 6, 5, 
+          0}, {3, 0, 3}, {12, 6, 5}, {4, 1}, {5, 4, 3, -5}, {93, 35, 3, 0, 0, 
+          3, 0, 4}, {21, 4, 2, 6}, {93, 51, 3, 0, 6, 2, 0, 1}, {7, 1, 2}, {
+          7, -1, 3}, {17, 1, 3, 4}, {38, 2, 4, 0}, {3, 0, 30}, {8, 0., 6}, {
+          28, 5, 3}, {7, 0, 6}, {4, 10}, {7, 1, 7}, {15, 0, 7, 9}, {15, 0, 2, 
+          10}, {94, 260, 3, 0, 9, 3, 0, 10, 3, 0, 11}, {21, 4, 11, 9}, {70, 0,
+           0, 6, 0, 11}, {
+          55, $CellContext`fastExpIntegralEi, 3, 0, 9, 3, 0, 11, 3, 0, 10}, {
+          18, 6, 10, 9}, {12, 9, 6}, {5, 6, 3, -9}, {54, 
+           Function[{$CellContext`x, $CellContext`nZeros}, 
+            MoebiusMu[$CellContext`n]], {$CellContext`n, 2, 0, 2, Module}, 3, 
+           0, 0, 2, 0, 0, 2, 0, 5}, {7, 1, 3}, {15, 0, 3, 7}, {15, 0, 2, 8}, {
+          94, 260, 3, 0, 7, 3, 0, 8, 3, 0, 9}, {15, 1, 5, 7}, {21, 7, 9, 7}, {
+          21, 7, 6, 7}, {18, 1, 7, 9}, {12, 9, 1}, {11, 2, 4}, {7, 1, 3}, {17,
+           4, 3, 5}, {11, 5, 2}, {4, -32}, {7, -2, 4}, {15, 1, 4, 9}, {21, 9, 
+          1, 9}, {12, 9, 3}, {2}}, 
+         Function[{$CellContext`x, $CellContext`nZeros}, 
+          
+          Module[{$CellContext`nZeros2, $CellContext`lastn, $CellContext`n, \
+$CellContext`s2, $CellContext`i, $CellContext`s = 
+            0., $CellContext`lgx, $CellContext`lg2Inverse = 
+            1.442695041, $CellContext`zetaZeroList = CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+             "]}, If[$CellContext`nZeros < 1, 
+             Return[0.]]; $CellContext`nZeros2 = 
+            Min[$CellContext`nZeros, $CellContext`lengthOfZetaZeroList]; \
+$CellContext`lgx = N[
+              Log[$CellContext`x]]; $CellContext`lastn = 
+            Ceiling[$CellContext`lgx $CellContext`lg2Inverse]; 
+           For[$CellContext`n = 1, $CellContext`n <= $CellContext`lastn - 1, 
+             Increment[$CellContext`n], $CellContext`s2 = Sum[
+                $CellContext`fastExpIntegralEi[$CellContext`lgx/$CellContext`\
+n, 
+                 
+                 Part[$CellContext`zetaZeroList, $CellContext`i]], \
+{$CellContext`i, 
+                 1, $CellContext`nZeros2}]; $CellContext`s = $CellContext`s + \
+(MoebiusMu[$CellContext`n]/$CellContext`n) $CellContext`s2]; (-2) \
+$CellContext`s]], Evaluate], $CellContext`lengthOfZetaZeroList = 
+       100, $CellContext`fastExpIntegralEi = CompiledFunction[{
+          Blank[Real], 
+          Blank[Real]}, {{3, 0, 0}, {3, 0, 1}, {3, 0, 5}}, {0, 1, 8, 4, 
+         0}, {{1, 7}, {8, 1., 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 1, 3, 0,
+           3}, {21, 2, 3, 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 0, 3, 0, 
+          3}, {21, 2, 3, 4}, {8, 0.5, 3}, {21, 3, 0, 3}, {9, 0., 1., 0}, {
+          8, 0., 5}, {16, 0, 5, 1}, {8, 0., 6}, {16, 1, 6, 2}, {22, 0, 1, 2, 
+          0}, {8, 0., 5}, {16, 3, 5, 1}, {19, 1, 0, 1}, {93, 34, 4, 0, 1, 4, 
+          0, 0}, {9, 0., 1., 1}, {7, 2, 0}, {15, 1, 0, 3}, {21, 3, 4, 3}, {24,
+           2, 5}, {18, 3, 5, 3}, {21, 4, 3, 5}, {8, 0.25, 3}, {7, 2, 0}, {94, 
+          264, 3, 0, 2, 2, 0, 0, 3, 0, 6}, {21, 3, 6, 3}, {7, -1, 0}, {15, 0, 
+          0, 6}, {18, 5, 3, 6, 5}, {8, 0., 3}, {16, 5, 3, 2}, {22, 1, 2, 1}, {
+          24, 4, 5}, {8, 0.5, 3}, {21, 3, 2, 3}, {8, 0., 6}, {16, 5, 6, 2}, {
+          8, 0., 7}, {16, 3, 7, 3}, {19, 1, 2, 3, 1}, {8, 0., 5}, {16, 4, 5, 
+          2}, {22, 0, 2, 1, 0}, {29, 0, 5}, {2}}, 
+         Function[{$CellContext`x, $CellContext`y}, 
+          
+          Module[{$CellContext`b, $CellContext`c}, $CellContext`b = 
+            1./$CellContext`y; $CellContext`c = $CellContext`b/$CellContext`x; 
+           Re[(E^(0.5 $CellContext`x + (
+                  I $CellContext`x) $CellContext`y) $CellContext`c) (
+              I ($CellContext`c (2 $CellContext`c - $CellContext`b) + 
+                0.25 $CellContext`b^2 - 1) - $CellContext`c + 
+              0.5 $CellContext`b)]]], 
+         Evaluate], $CellContext`zetaZeroList = CompressedData["
+1:eJwBnQFi/iFib1JlAQAAADIAAACAf4yx+kQsQP8DzWOkBTVAggP3j8cCOUB4
+M5uuxGw+QNtlIhmwd0BALGrN4gfLQkDtFKOVmHVEQGt/iIndqUVApJK2yKgA
+SEBfF1XxDONIQGmah34zfEpAJrUGpR45TEDyIhPwa6xNQCh18rd3ak5AAIf1
+6zNHUEB+DqCdG8VQQGy74D74YlFA1hSvT0wEUkDnkgWnGe1SQDnzSA9FSVNA
+ylhljZfVU0DmaQquQ7pUQGjiJVESL1VAOnH/sjfbVUC6cWJ6yDNWQOJkE0d7
+H1dApo/pnq+pV0AzKKJ4uPdXQI3hPUkytVhAD4C4q1dUWUBWgO82b+5ZQNcI
+DnmVXFpAUW+hhsrKWkCLpN3o48FbQFDJlGr691tAuT/Nf36UXEBwyRbugQ5d
+QBtv4S+csl1AppvEILBXXkBBmevZmLxeQEoASLdvEF9AqjdZWRHhX0Daoau+
+hDJgQIj3HFjOYmBAFYCQdu2vYEBQQwpUNdhgQLEO7J22Q2FAq0AtBo93YUC+
+qDhp9aNhQD2mpD2U42FA/1G1Rg==
+        "], Attributes[PlotRange] = {ReadProtected}, $CellContext`formatTitle[
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]]] := Text[
+         TraditionalForm[
+          If[$CellContext`nZeros == 0, 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             $CellContext`R[$CellContext`x], " (dashed)"}], 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             If[$CellContext`showRiemannR, 
+              Row[{
+                $CellContext`R[$CellContext`x], " (dashed)", "; "}], ""], 
+             $CellContext`R[$CellContext`x], 
+             " corrected with ", $CellContext`nZeros, 
+             If[$CellContext`nZeros == 1, 
+              Row[{" pair of zeta zeros"}], 
+              Row[{" pairs of zeta zeros"}]]}]]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->34669486]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`nZeros$$ = 0, $CellContext`showRiemannR$$ = 
+    False, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+    30, $CellContext`xMin$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xMin$$], 0, "start x axis at (from 0 to 400)"}, 0, 
+      400, 10}, {{
+       Hold[$CellContext`xLength$$], 30, "length of x axis (from 10 to 100)"},
+       10, 100, 10}, {{
+       Hold[$CellContext`nZeros$$], 0, "pairs of zeta zeros (from 0 to 100)"},
+       0, 100, 5}, {{
+       Hold[$CellContext`showRiemannR$$], False, 
+       "always show Riemann's R(x)"}, {True, False}}, {{
+       Hold[$CellContext`showTooltip$$], True, 
+       "     display \[Pi](x) values in a tooltip"}, {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xMin$64141$$ = 0, $CellContext`xLength$64142$$ = 
+    0, $CellContext`nZeros$64143$$ = 0, $CellContext`showRiemannR$64144$$ = 
+    False, $CellContext`showTooltip$64145$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`nZeros$$ = 0, $CellContext`showRiemannR$$ = 
+        False, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+        30, $CellContext`xMin$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`xMin$$, $CellContext`xMin$64141$$, 0], 
+        Hold[$CellContext`xLength$$, $CellContext`xLength$64142$$, 0], 
+        Hold[$CellContext`nZeros$$, $CellContext`nZeros$64143$$, 0], 
+        Hold[$CellContext`showRiemannR$$, $CellContext`showRiemannR$64144$$, 
+         False], 
+        Hold[$CellContext`showTooltip$$, $CellContext`showTooltip$64145$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plotPrimeGraphs[$CellContext`xMin$$, \
+$CellContext`xLength$$, $CellContext`nZeros$$, $CellContext`showRiemannR$$, \
+$CellContext`showTooltip$$], 
+      "Specifications" :> {{{$CellContext`xMin$$, 0, 
+          "start x axis at (from 0 to 400)"}, 0, 400, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`xLength$$, 30, 
+          "length of x axis (from 10 to 100)"}, 10, 100, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`nZeros$$, 0, 
+          "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`showRiemannR$$, False, 
+          "always show Riemann's R(x)"}, {True, False}, ControlPlacement -> 
+         1}, {{$CellContext`showTooltip$$, True, 
+          "     display \[Pi](x) values in a tooltip"}, {True, False}, 
+         ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}]}, "Options" :> {AutorunSequencing -> {3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{549., {230., 235.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`showTooltip, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, $CellContext`xInc, \
+$CellContext`xi, $CellContext`nxi, $CellContext`uncorrectedY, \
+$CellContext`correctedY, $CellContext`i, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY, $CellContext`correctedStyle, \
+$CellContext`xPlotRange1, $CellContext`xPlotRange2, $CellContext`yPlotRange1, \
+$CellContext`yPlotRange2, $CellContext`pix1, $CellContext`piOfxList1, \
+$CellContext`piOfxList2, $CellContext`piOfxList, $CellContext`plotAll = \
+$CellContext`showRiemannR, $CellContext`funcList, $CellContext`styleList, \
+$CellContext`nPlotPoints = 120, $CellContext`fontSize = 
+          16, $CellContext`imgSize = {500, 300}, $CellContext`imgPadding = {{
+           20, 10}, {25, 10}}}, $CellContext`xMin2 = 
+          Max[1, $CellContext`xMin]; $CellContext`xMax = $CellContext`xMin + \
+$CellContext`xLength; 
+         If[$CellContext`xMin2 > 
+           1, $CellContext`xPlotRange1 = $CellContext`xMin2, \
+$CellContext`xPlotRange1 = 
+           0]; $CellContext`xPlotRange2 = $CellContext`xMax; \
+$CellContext`yPlotRange1 = PrimePi[$CellContext`xPlotRange1]; 
+         If[$CellContext`xMin2 > 2, $CellContext`yPlotRange1 = 
+           Min[$CellContext`yPlotRange1, 
+             $CellContext`fastRiemannR[$CellContext`xPlotRange1]]]; \
+$CellContext`yPlotRange1 = 
+          Floor[$CellContext`yPlotRange1]; $CellContext`yPlotRange2 = Ceiling[
+            Max[
+             PrimePi[$CellContext`xMax], 
+             $CellContext`fastRiemannR[$CellContext`xMax]]]; \
+$CellContext`pix1 = Max[2, $CellContext`xMin2]; $CellContext`piOfxList1 = 
+          Table[{
+             Prime[$CellContext`i], $CellContext`i - 1}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList2 = Table[{
+             Prime[$CellContext`i], $CellContext`i}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList = 
+          Union[$CellContext`piOfxList1, $CellContext`piOfxList2, \
+{{$CellContext`xMax, 
+              PrimePi[$CellContext`xMax]}}]; 
+         If[$CellContext`showTooltip, $CellContext`piOfxList = 
+           
+           Tooltip[$CellContext`piOfxList]]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`uncorrectedY = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`correctedY = \
+$CellContext`uncorrectedY; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`correctedY, $CellContext`i] = 
+            Part[$CellContext`uncorrectedY, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`correctedY, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`nZeros == 
+           0, $CellContext`plotAll = False; $CellContext`correctedStyle = 
+            Dashed, $CellContext`correctedStyle = Automatic]; 
+         If[$CellContext`plotAll, $CellContext`uncorrectedXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`uncorrectedY, $CellContext`i]}, \
+{$CellContext`i, $CellContext`nxi}]; $CellContext`funcList = \
+{$CellContext`piOfxList, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY}; $CellContext`styleList = {
+             Automatic, Automatic, 
+              Dashed}, $CellContext`funcList = {$CellContext`piOfxList, \
+$CellContext`correctedXY}; $CellContext`styleList = {
+             Automatic, $CellContext`correctedStyle}]; 
+         ListPlot[$CellContext`funcList, PlotStyle -> $CellContext`styleList, 
+           Joined -> True, Axes -> False, 
+           Frame -> {{True, False}, {True, False}}, 
+           PlotRange -> {{$CellContext`xPlotRange1, \
+$CellContext`xPlotRange2}, {$CellContext`yPlotRange1, \
+$CellContext`yPlotRange2}}, PlotLabel -> Text[
+             Style[
+              $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+           ImageSize -> $CellContext`imgSize, 
+           ImagePadding -> $CellContext`imgPadding]], \
+$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, \
+$CellContext`pixValues1, $CellContext`pixPairsXY, $CellContext`nPlotPoints = 
+          120, $CellContext`xInc, $CellContext`fontSize = 
+          16, $CellContext`xi, $CellContext`nxi, $CellContext`r0Values, \
+$CellContext`rnValues, $CellContext`i, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY, $CellContext`imgSize = {500, 300}}, 
+         If[$CellContext`xMin < 1, $CellContext`xMin2 = 
+           1, $CellContext`xMin2 = $CellContext`xMin]; $CellContext`xMax = \
+$CellContext`xMin + $CellContext`xLength; $CellContext`pixValues1 = N[
+            Flatten[
+             
+             Table[{$CellContext`x - 1/
+               100, $CellContext`x}, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax}]]]; $CellContext`pixPairsXY = Table[{
+             Part[$CellContext`pixValues1, $CellContext`i], 
+             PrimePi[
+              
+              Part[$CellContext`pixValues1, $CellContext`i]]}, \
+{$CellContext`i, 
+             
+             Length[$CellContext`pixValues1]}]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`r0Values = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`rnValues = \
+$CellContext`r0Values; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`rnValues, $CellContext`i] = 
+            Part[$CellContext`r0Values, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedPairsXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`rnValues, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`showRiemannR, $CellContext`r0PairsXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`r0Values, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY}, Joined -> {True, True, True}, PlotLabel -> Text[
+               Style[
+                $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+             ImageSize -> $CellContext`imgSize, 
+             ImagePadding -> {{25, 10}, {35, 10}}], 
+           
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY}, 
+            Joined -> {True, True}, PlotLabel -> Text[
+              Style[
+               $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+            ImageSize -> $CellContext`imgSize, 
+            ImagePadding -> {{25, 10}, {35, 10}}]]], $CellContext`fastRiemannR[
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       Module[{$CellContext`n, $CellContext`lgx, $CellContext`coeffs = {
+           0.6079271019, 0.2079768431, 0.05132991127, 0.01004570146, 
+            0.00163825432, 0.0002295647814, 0.00002822956919, 3.093984476/
+            10^6, 3.05888207/10^7, 2.754370744/10^8, 2.276904083/10^9, 
+            1.739516287/10^10, 1.235235409/10^11, 8.193139099/10^13, 
+            5.098031245/10^14, 2.987150519/10^15, 1.653792072/10^16, 
+            8.677320647/10^18, 4.326646002/10^19, 2.055157831/10^20}}, If[
+           Or[$CellContext`x < 0.001, $CellContext`x > 1000], 
+           Return[$CellContext`x]]; $CellContext`lgx = Log[$CellContext`x]; 
+         1. + Sum[$CellContext`lgx^$CellContext`n 
+            Part[$CellContext`coeffs, $CellContext`n], {$CellContext`n, 
+             Length[$CellContext`coeffs]}]], $CellContext`riemannCorrection = 
+       CompiledFunction[{
+          Blank[Real], 
+          Blank[Integer]}, {{3, 0, 0}, {2, 0, 0}, {3, 0, 3}}, {1, 8, 12, 0, 
+         5}, {{1, 7}, {8, 0., 1}, {8, 1.442695041, 2}, {45, CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+           "], 3, 100, 0}, {7, 1, 1}, {36, 0, 1, 0}, {3, 0, 4}, {8, 0., 3}, {
+          2}, {4, 1}, {67, 0, 2, 1}, {54, 
+           
+           Function[{$CellContext`x, $CellContext`nZeros}, \
+$CellContext`lengthOfZetaZeroList], 3, 0, 0, 2, 0, 0, 3, 0, 5}, {67, 5, 3, 
+          2}, {47, 0, 1, 3}, {95, 0, 3, 2, 4}, {7, 1, 1}, {70, 4, 0, 1, 0, 
+          5}, {44, 4, 3}, {7, 0, 4}, {4, 6}, {70, 4, 0, 4, 0, 6}, {37, 6, 5, 
+          0}, {3, 0, 3}, {12, 6, 5}, {4, 1}, {5, 4, 3, -5}, {93, 35, 3, 0, 0, 
+          3, 0, 4}, {21, 4, 2, 6}, {93, 51, 3, 0, 6, 2, 0, 1}, {7, 1, 2}, {
+          7, -1, 3}, {17, 1, 3, 4}, {38, 2, 4, 0}, {3, 0, 30}, {8, 0., 6}, {
+          28, 5, 3}, {7, 0, 6}, {4, 10}, {7, 1, 7}, {15, 0, 7, 9}, {15, 0, 2, 
+          10}, {94, 260, 3, 0, 9, 3, 0, 10, 3, 0, 11}, {21, 4, 11, 9}, {70, 0,
+           0, 6, 0, 11}, {
+          55, $CellContext`fastExpIntegralEi, 3, 0, 9, 3, 0, 11, 3, 0, 10}, {
+          18, 6, 10, 9}, {12, 9, 6}, {5, 6, 3, -9}, {54, 
+           Function[{$CellContext`x, $CellContext`nZeros}, 
+            MoebiusMu[$CellContext`n]], {$CellContext`n, 2, 0, 2, Module}, 3, 
+           0, 0, 2, 0, 0, 2, 0, 5}, {7, 1, 3}, {15, 0, 3, 7}, {15, 0, 2, 8}, {
+          94, 260, 3, 0, 7, 3, 0, 8, 3, 0, 9}, {15, 1, 5, 7}, {21, 7, 9, 7}, {
+          21, 7, 6, 7}, {18, 1, 7, 9}, {12, 9, 1}, {11, 2, 4}, {7, 1, 3}, {17,
+           4, 3, 5}, {11, 5, 2}, {4, -32}, {7, -2, 4}, {15, 1, 4, 9}, {21, 9, 
+          1, 9}, {12, 9, 3}, {2}}, 
+         Function[{$CellContext`x, $CellContext`nZeros}, 
+          
+          Module[{$CellContext`nZeros2, $CellContext`lastn, $CellContext`n, \
+$CellContext`s2, $CellContext`i, $CellContext`s = 
+            0., $CellContext`lgx, $CellContext`lg2Inverse = 
+            1.442695041, $CellContext`zetaZeroList = CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+             "]}, If[$CellContext`nZeros < 1, 
+             Return[0.]]; $CellContext`nZeros2 = 
+            Min[$CellContext`nZeros, $CellContext`lengthOfZetaZeroList]; \
+$CellContext`lgx = N[
+              Log[$CellContext`x]]; $CellContext`lastn = 
+            Ceiling[$CellContext`lgx $CellContext`lg2Inverse]; 
+           For[$CellContext`n = 1, $CellContext`n <= $CellContext`lastn - 1, 
+             Increment[$CellContext`n], $CellContext`s2 = Sum[
+                $CellContext`fastExpIntegralEi[$CellContext`lgx/$CellContext`\
+n, 
+                 
+                 Part[$CellContext`zetaZeroList, $CellContext`i]], \
+{$CellContext`i, 
+                 1, $CellContext`nZeros2}]; $CellContext`s = $CellContext`s + \
+(MoebiusMu[$CellContext`n]/$CellContext`n) $CellContext`s2]; (-2) \
+$CellContext`s]], Evaluate], $CellContext`lengthOfZetaZeroList = 
+       100, $CellContext`fastExpIntegralEi = CompiledFunction[{
+          Blank[Real], 
+          Blank[Real]}, {{3, 0, 0}, {3, 0, 1}, {3, 0, 5}}, {0, 1, 8, 4, 
+         0}, {{1, 7}, {8, 1., 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 1, 3, 0,
+           3}, {21, 2, 3, 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 0, 3, 0, 
+          3}, {21, 2, 3, 4}, {8, 0.5, 3}, {21, 3, 0, 3}, {9, 0., 1., 0}, {
+          8, 0., 5}, {16, 0, 5, 1}, {8, 0., 6}, {16, 1, 6, 2}, {22, 0, 1, 2, 
+          0}, {8, 0., 5}, {16, 3, 5, 1}, {19, 1, 0, 1}, {93, 34, 4, 0, 1, 4, 
+          0, 0}, {9, 0., 1., 1}, {7, 2, 0}, {15, 1, 0, 3}, {21, 3, 4, 3}, {24,
+           2, 5}, {18, 3, 5, 3}, {21, 4, 3, 5}, {8, 0.25, 3}, {7, 2, 0}, {94, 
+          264, 3, 0, 2, 2, 0, 0, 3, 0, 6}, {21, 3, 6, 3}, {7, -1, 0}, {15, 0, 
+          0, 6}, {18, 5, 3, 6, 5}, {8, 0., 3}, {16, 5, 3, 2}, {22, 1, 2, 1}, {
+          24, 4, 5}, {8, 0.5, 3}, {21, 3, 2, 3}, {8, 0., 6}, {16, 5, 6, 2}, {
+          8, 0., 7}, {16, 3, 7, 3}, {19, 1, 2, 3, 1}, {8, 0., 5}, {16, 4, 5, 
+          2}, {22, 0, 2, 1, 0}, {29, 0, 5}, {2}}, 
+         Function[{$CellContext`x, $CellContext`y}, 
+          
+          Module[{$CellContext`b, $CellContext`c}, $CellContext`b = 
+            1./$CellContext`y; $CellContext`c = $CellContext`b/$CellContext`x; 
+           Re[(E^(0.5 $CellContext`x + (
+                  I $CellContext`x) $CellContext`y) $CellContext`c) (
+              I ($CellContext`c (2 $CellContext`c - $CellContext`b) + 
+                0.25 $CellContext`b^2 - 1) - $CellContext`c + 
+              0.5 $CellContext`b)]]], 
+         Evaluate], $CellContext`zetaZeroList = CompressedData["
+1:eJwBnQFi/iFib1JlAQAAADIAAACAf4yx+kQsQP8DzWOkBTVAggP3j8cCOUB4
+M5uuxGw+QNtlIhmwd0BALGrN4gfLQkDtFKOVmHVEQGt/iIndqUVApJK2yKgA
+SEBfF1XxDONIQGmah34zfEpAJrUGpR45TEDyIhPwa6xNQCh18rd3ak5AAIf1
+6zNHUEB+DqCdG8VQQGy74D74YlFA1hSvT0wEUkDnkgWnGe1SQDnzSA9FSVNA
+ylhljZfVU0DmaQquQ7pUQGjiJVESL1VAOnH/sjfbVUC6cWJ6yDNWQOJkE0d7
+H1dApo/pnq+pV0AzKKJ4uPdXQI3hPUkytVhAD4C4q1dUWUBWgO82b+5ZQNcI
+DnmVXFpAUW+hhsrKWkCLpN3o48FbQFDJlGr691tAuT/Nf36UXEBwyRbugQ5d
+QBtv4S+csl1AppvEILBXXkBBmevZmLxeQEoASLdvEF9AqjdZWRHhX0Daoau+
+hDJgQIj3HFjOYmBAFYCQdu2vYEBQQwpUNdhgQLEO7J22Q2FAq0AtBo93YUC+
+qDhp9aNhQD2mpD2U42FA/1G1Rg==
+        "], Attributes[PlotRange] = {ReadProtected}, $CellContext`formatTitle[
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]]] := Text[
+         TraditionalForm[
+          If[$CellContext`nZeros == 0, 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             $CellContext`R[$CellContext`x], " (dashed)"}], 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             If[$CellContext`showRiemannR, 
+              Row[{
+                $CellContext`R[$CellContext`x], " (dashed)", "; "}], ""], 
+             $CellContext`R[$CellContext`x], 
+             " corrected with ", $CellContext`nZeros, 
+             If[$CellContext`nZeros == 1, 
+              Row[{" pair of zeta zeros"}], 
+              Row[{" pairs of zeta zeros"}]]}]]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->616456348],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`nZeros$$ = 20, $CellContext`showRiemannR$$ =
+     False, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+    30, $CellContext`xMin$$ = 0, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xMin$$], 0, "start x axis at (from 0 to 400)"}, 0, 
+      400, 10}, {{
+       Hold[$CellContext`xLength$$], 30, "length of x axis (from 10 to 100)"},
+       10, 100, 10}, {{
+       Hold[$CellContext`nZeros$$], 20, 
+       "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5}, {{
+       Hold[$CellContext`showRiemannR$$], False, 
+       "always show Riemann's R(x)"}, {True, False}}, {{
+       Hold[$CellContext`showTooltip$$], True, 
+       "     display \[Pi](x) values in a tooltip"}, {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xMin$64218$$ = 0, $CellContext`xLength$64219$$ = 
+    0, $CellContext`nZeros$64220$$ = 0, $CellContext`showRiemannR$64221$$ = 
+    False, $CellContext`showTooltip$64222$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`nZeros$$ = 20, $CellContext`showRiemannR$$ = 
+        False, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+        30, $CellContext`xMin$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`xMin$$, $CellContext`xMin$64218$$, 0], 
+        Hold[$CellContext`xLength$$, $CellContext`xLength$64219$$, 0], 
+        Hold[$CellContext`nZeros$$, $CellContext`nZeros$64220$$, 0], 
+        Hold[$CellContext`showRiemannR$$, $CellContext`showRiemannR$64221$$, 
+         False], 
+        Hold[$CellContext`showTooltip$$, $CellContext`showTooltip$64222$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plotPrimeGraphs[$CellContext`xMin$$, \
+$CellContext`xLength$$, $CellContext`nZeros$$, $CellContext`showRiemannR$$, \
+$CellContext`showTooltip$$], 
+      "Specifications" :> {{{$CellContext`xMin$$, 0, 
+          "start x axis at (from 0 to 400)"}, 0, 400, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`xLength$$, 30, 
+          "length of x axis (from 10 to 100)"}, 10, 100, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`nZeros$$, 20, 
+          "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`showRiemannR$$, False, 
+          "always show Riemann's R(x)"}, {True, False}, ControlPlacement -> 
+         1}, {{$CellContext`showTooltip$$, True, 
+          "     display \[Pi](x) values in a tooltip"}, {True, False}, 
+         ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}]}, "Options" :> {AutorunSequencing -> {3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{549., {230., 235.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`showTooltip, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, $CellContext`xInc, \
+$CellContext`xi, $CellContext`nxi, $CellContext`uncorrectedY, \
+$CellContext`correctedY, $CellContext`i, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY, $CellContext`correctedStyle, \
+$CellContext`xPlotRange1, $CellContext`xPlotRange2, $CellContext`yPlotRange1, \
+$CellContext`yPlotRange2, $CellContext`pix1, $CellContext`piOfxList1, \
+$CellContext`piOfxList2, $CellContext`piOfxList, $CellContext`plotAll = \
+$CellContext`showRiemannR, $CellContext`funcList, $CellContext`styleList, \
+$CellContext`nPlotPoints = 120, $CellContext`fontSize = 
+          16, $CellContext`imgSize = {500, 300}, $CellContext`imgPadding = {{
+           20, 10}, {25, 10}}}, $CellContext`xMin2 = 
+          Max[1, $CellContext`xMin]; $CellContext`xMax = $CellContext`xMin + \
+$CellContext`xLength; 
+         If[$CellContext`xMin2 > 
+           1, $CellContext`xPlotRange1 = $CellContext`xMin2, \
+$CellContext`xPlotRange1 = 
+           0]; $CellContext`xPlotRange2 = $CellContext`xMax; \
+$CellContext`yPlotRange1 = PrimePi[$CellContext`xPlotRange1]; 
+         If[$CellContext`xMin2 > 2, $CellContext`yPlotRange1 = 
+           Min[$CellContext`yPlotRange1, 
+             $CellContext`fastRiemannR[$CellContext`xPlotRange1]]]; \
+$CellContext`yPlotRange1 = 
+          Floor[$CellContext`yPlotRange1]; $CellContext`yPlotRange2 = Ceiling[
+            Max[
+             PrimePi[$CellContext`xMax], 
+             $CellContext`fastRiemannR[$CellContext`xMax]]]; \
+$CellContext`pix1 = Max[2, $CellContext`xMin2]; $CellContext`piOfxList1 = 
+          Table[{
+             Prime[$CellContext`i], $CellContext`i - 1}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList2 = Table[{
+             Prime[$CellContext`i], $CellContext`i}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList = 
+          Union[$CellContext`piOfxList1, $CellContext`piOfxList2, \
+{{$CellContext`xMax, 
+              PrimePi[$CellContext`xMax]}}]; 
+         If[$CellContext`showTooltip, $CellContext`piOfxList = 
+           
+           Tooltip[$CellContext`piOfxList]]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`uncorrectedY = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`correctedY = \
+$CellContext`uncorrectedY; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`correctedY, $CellContext`i] = 
+            Part[$CellContext`uncorrectedY, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`correctedY, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`nZeros == 
+           0, $CellContext`plotAll = False; $CellContext`correctedStyle = 
+            Dashed, $CellContext`correctedStyle = Automatic]; 
+         If[$CellContext`plotAll, $CellContext`uncorrectedXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`uncorrectedY, $CellContext`i]}, \
+{$CellContext`i, $CellContext`nxi}]; $CellContext`funcList = \
+{$CellContext`piOfxList, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY}; $CellContext`styleList = {
+             Automatic, Automatic, 
+              Dashed}, $CellContext`funcList = {$CellContext`piOfxList, \
+$CellContext`correctedXY}; $CellContext`styleList = {
+             Automatic, $CellContext`correctedStyle}]; 
+         ListPlot[$CellContext`funcList, PlotStyle -> $CellContext`styleList, 
+           Joined -> True, Axes -> False, 
+           Frame -> {{True, False}, {True, False}}, 
+           PlotRange -> {{$CellContext`xPlotRange1, \
+$CellContext`xPlotRange2}, {$CellContext`yPlotRange1, \
+$CellContext`yPlotRange2}}, PlotLabel -> Text[
+             Style[
+              $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+           ImageSize -> $CellContext`imgSize, 
+           ImagePadding -> $CellContext`imgPadding]], \
+$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, \
+$CellContext`pixValues1, $CellContext`pixPairsXY, $CellContext`nPlotPoints = 
+          120, $CellContext`xInc, $CellContext`fontSize = 
+          16, $CellContext`xi, $CellContext`nxi, $CellContext`r0Values, \
+$CellContext`rnValues, $CellContext`i, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY, $CellContext`imgSize = {500, 300}}, 
+         If[$CellContext`xMin < 1, $CellContext`xMin2 = 
+           1, $CellContext`xMin2 = $CellContext`xMin]; $CellContext`xMax = \
+$CellContext`xMin + $CellContext`xLength; $CellContext`pixValues1 = N[
+            Flatten[
+             
+             Table[{$CellContext`x - 1/
+               100, $CellContext`x}, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax}]]]; $CellContext`pixPairsXY = Table[{
+             Part[$CellContext`pixValues1, $CellContext`i], 
+             PrimePi[
+              
+              Part[$CellContext`pixValues1, $CellContext`i]]}, \
+{$CellContext`i, 
+             
+             Length[$CellContext`pixValues1]}]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`r0Values = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`rnValues = \
+$CellContext`r0Values; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`rnValues, $CellContext`i] = 
+            Part[$CellContext`r0Values, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedPairsXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`rnValues, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`showRiemannR, $CellContext`r0PairsXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`r0Values, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY}, Joined -> {True, True, True}, PlotLabel -> Text[
+               Style[
+                $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+             ImageSize -> $CellContext`imgSize, 
+             ImagePadding -> {{25, 10}, {35, 10}}], 
+           
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY}, 
+            Joined -> {True, True}, PlotLabel -> Text[
+              Style[
+               $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+            ImageSize -> $CellContext`imgSize, 
+            ImagePadding -> {{25, 10}, {35, 10}}]]], $CellContext`fastRiemannR[
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       Module[{$CellContext`n, $CellContext`lgx, $CellContext`coeffs = {
+           0.6079271019, 0.2079768431, 0.05132991127, 0.01004570146, 
+            0.00163825432, 0.0002295647814, 0.00002822956919, 3.093984476/
+            10^6, 3.05888207/10^7, 2.754370744/10^8, 2.276904083/10^9, 
+            1.739516287/10^10, 1.235235409/10^11, 8.193139099/10^13, 
+            5.098031245/10^14, 2.987150519/10^15, 1.653792072/10^16, 
+            8.677320647/10^18, 4.326646002/10^19, 2.055157831/10^20}}, If[
+           Or[$CellContext`x < 0.001, $CellContext`x > 1000], 
+           Return[$CellContext`x]]; $CellContext`lgx = Log[$CellContext`x]; 
+         1. + Sum[$CellContext`lgx^$CellContext`n 
+            Part[$CellContext`coeffs, $CellContext`n], {$CellContext`n, 
+             Length[$CellContext`coeffs]}]], $CellContext`riemannCorrection = 
+       CompiledFunction[{
+          Blank[Real], 
+          Blank[Integer]}, {{3, 0, 0}, {2, 0, 0}, {3, 0, 3}}, {1, 8, 12, 0, 
+         5}, {{1, 7}, {8, 0., 1}, {8, 1.442695041, 2}, {45, CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+           "], 3, 100, 0}, {7, 1, 1}, {36, 0, 1, 0}, {3, 0, 4}, {8, 0., 3}, {
+          2}, {4, 1}, {67, 0, 2, 1}, {54, 
+           
+           Function[{$CellContext`x, $CellContext`nZeros}, \
+$CellContext`lengthOfZetaZeroList], 3, 0, 0, 2, 0, 0, 3, 0, 5}, {67, 5, 3, 
+          2}, {47, 0, 1, 3}, {95, 0, 3, 2, 4}, {7, 1, 1}, {70, 4, 0, 1, 0, 
+          5}, {44, 4, 3}, {7, 0, 4}, {4, 6}, {70, 4, 0, 4, 0, 6}, {37, 6, 5, 
+          0}, {3, 0, 3}, {12, 6, 5}, {4, 1}, {5, 4, 3, -5}, {93, 35, 3, 0, 0, 
+          3, 0, 4}, {21, 4, 2, 6}, {93, 51, 3, 0, 6, 2, 0, 1}, {7, 1, 2}, {
+          7, -1, 3}, {17, 1, 3, 4}, {38, 2, 4, 0}, {3, 0, 30}, {8, 0., 6}, {
+          28, 5, 3}, {7, 0, 6}, {4, 10}, {7, 1, 7}, {15, 0, 7, 9}, {15, 0, 2, 
+          10}, {94, 260, 3, 0, 9, 3, 0, 10, 3, 0, 11}, {21, 4, 11, 9}, {70, 0,
+           0, 6, 0, 11}, {
+          55, $CellContext`fastExpIntegralEi, 3, 0, 9, 3, 0, 11, 3, 0, 10}, {
+          18, 6, 10, 9}, {12, 9, 6}, {5, 6, 3, -9}, {54, 
+           Function[{$CellContext`x, $CellContext`nZeros}, 
+            MoebiusMu[$CellContext`n]], {$CellContext`n, 2, 0, 2, Module}, 3, 
+           0, 0, 2, 0, 0, 2, 0, 5}, {7, 1, 3}, {15, 0, 3, 7}, {15, 0, 2, 8}, {
+          94, 260, 3, 0, 7, 3, 0, 8, 3, 0, 9}, {15, 1, 5, 7}, {21, 7, 9, 7}, {
+          21, 7, 6, 7}, {18, 1, 7, 9}, {12, 9, 1}, {11, 2, 4}, {7, 1, 3}, {17,
+           4, 3, 5}, {11, 5, 2}, {4, -32}, {7, -2, 4}, {15, 1, 4, 9}, {21, 9, 
+          1, 9}, {12, 9, 3}, {2}}, 
+         Function[{$CellContext`x, $CellContext`nZeros}, 
+          
+          Module[{$CellContext`nZeros2, $CellContext`lastn, $CellContext`n, \
+$CellContext`s2, $CellContext`i, $CellContext`s = 
+            0., $CellContext`lgx, $CellContext`lg2Inverse = 
+            1.442695041, $CellContext`zetaZeroList = CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+             "]}, If[$CellContext`nZeros < 1, 
+             Return[0.]]; $CellContext`nZeros2 = 
+            Min[$CellContext`nZeros, $CellContext`lengthOfZetaZeroList]; \
+$CellContext`lgx = N[
+              Log[$CellContext`x]]; $CellContext`lastn = 
+            Ceiling[$CellContext`lgx $CellContext`lg2Inverse]; 
+           For[$CellContext`n = 1, $CellContext`n <= $CellContext`lastn - 1, 
+             Increment[$CellContext`n], $CellContext`s2 = Sum[
+                $CellContext`fastExpIntegralEi[$CellContext`lgx/$CellContext`\
+n, 
+                 
+                 Part[$CellContext`zetaZeroList, $CellContext`i]], \
+{$CellContext`i, 
+                 1, $CellContext`nZeros2}]; $CellContext`s = $CellContext`s + \
+(MoebiusMu[$CellContext`n]/$CellContext`n) $CellContext`s2]; (-2) \
+$CellContext`s]], Evaluate], $CellContext`lengthOfZetaZeroList = 
+       100, $CellContext`fastExpIntegralEi = CompiledFunction[{
+          Blank[Real], 
+          Blank[Real]}, {{3, 0, 0}, {3, 0, 1}, {3, 0, 5}}, {0, 1, 8, 4, 
+         0}, {{1, 7}, {8, 1., 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 1, 3, 0,
+           3}, {21, 2, 3, 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 0, 3, 0, 
+          3}, {21, 2, 3, 4}, {8, 0.5, 3}, {21, 3, 0, 3}, {9, 0., 1., 0}, {
+          8, 0., 5}, {16, 0, 5, 1}, {8, 0., 6}, {16, 1, 6, 2}, {22, 0, 1, 2, 
+          0}, {8, 0., 5}, {16, 3, 5, 1}, {19, 1, 0, 1}, {93, 34, 4, 0, 1, 4, 
+          0, 0}, {9, 0., 1., 1}, {7, 2, 0}, {15, 1, 0, 3}, {21, 3, 4, 3}, {24,
+           2, 5}, {18, 3, 5, 3}, {21, 4, 3, 5}, {8, 0.25, 3}, {7, 2, 0}, {94, 
+          264, 3, 0, 2, 2, 0, 0, 3, 0, 6}, {21, 3, 6, 3}, {7, -1, 0}, {15, 0, 
+          0, 6}, {18, 5, 3, 6, 5}, {8, 0., 3}, {16, 5, 3, 2}, {22, 1, 2, 1}, {
+          24, 4, 5}, {8, 0.5, 3}, {21, 3, 2, 3}, {8, 0., 6}, {16, 5, 6, 2}, {
+          8, 0., 7}, {16, 3, 7, 3}, {19, 1, 2, 3, 1}, {8, 0., 5}, {16, 4, 5, 
+          2}, {22, 0, 2, 1, 0}, {29, 0, 5}, {2}}, 
+         Function[{$CellContext`x, $CellContext`y}, 
+          
+          Module[{$CellContext`b, $CellContext`c}, $CellContext`b = 
+            1./$CellContext`y; $CellContext`c = $CellContext`b/$CellContext`x; 
+           Re[(E^(0.5 $CellContext`x + (
+                  I $CellContext`x) $CellContext`y) $CellContext`c) (
+              I ($CellContext`c (2 $CellContext`c - $CellContext`b) + 
+                0.25 $CellContext`b^2 - 1) - $CellContext`c + 
+              0.5 $CellContext`b)]]], 
+         Evaluate], $CellContext`zetaZeroList = CompressedData["
+1:eJwBnQFi/iFib1JlAQAAADIAAACAf4yx+kQsQP8DzWOkBTVAggP3j8cCOUB4
+M5uuxGw+QNtlIhmwd0BALGrN4gfLQkDtFKOVmHVEQGt/iIndqUVApJK2yKgA
+SEBfF1XxDONIQGmah34zfEpAJrUGpR45TEDyIhPwa6xNQCh18rd3ak5AAIf1
+6zNHUEB+DqCdG8VQQGy74D74YlFA1hSvT0wEUkDnkgWnGe1SQDnzSA9FSVNA
+ylhljZfVU0DmaQquQ7pUQGjiJVESL1VAOnH/sjfbVUC6cWJ6yDNWQOJkE0d7
+H1dApo/pnq+pV0AzKKJ4uPdXQI3hPUkytVhAD4C4q1dUWUBWgO82b+5ZQNcI
+DnmVXFpAUW+hhsrKWkCLpN3o48FbQFDJlGr691tAuT/Nf36UXEBwyRbugQ5d
+QBtv4S+csl1AppvEILBXXkBBmevZmLxeQEoASLdvEF9AqjdZWRHhX0Daoau+
+hDJgQIj3HFjOYmBAFYCQdu2vYEBQQwpUNdhgQLEO7J22Q2FAq0AtBo93YUC+
+qDhp9aNhQD2mpD2U42FA/1G1Rg==
+        "], Attributes[PlotRange] = {ReadProtected}, $CellContext`formatTitle[
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]]] := Text[
+         TraditionalForm[
+          If[$CellContext`nZeros == 0, 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             $CellContext`R[$CellContext`x], " (dashed)"}], 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             If[$CellContext`showRiemannR, 
+              Row[{
+                $CellContext`R[$CellContext`x], " (dashed)", "; "}], ""], 
+             $CellContext`R[$CellContext`x], 
+             " corrected with ", $CellContext`nZeros, 
+             If[$CellContext`nZeros == 1, 
+              Row[{" pair of zeta zeros"}], 
+              Row[{" pairs of zeta zeros"}]]}]]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->94922064],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`nZeros$$ = 30, $CellContext`showRiemannR$$ =
+     True, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+    30, $CellContext`xMin$$ = 100, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xMin$$], 100, "start x axis at (from 0 to 400)"}, 0, 
+      400, 10}, {{
+       Hold[$CellContext`xLength$$], 30, "length of x axis (from 10 to 100)"},
+       10, 100, 10}, {{
+       Hold[$CellContext`nZeros$$], 30, 
+       "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5}, {{
+       Hold[$CellContext`showRiemannR$$], True, 
+       "always show Riemann's R(x)"}, {True, False}}, {{
+       Hold[$CellContext`showTooltip$$], True, 
+       "     display \[Pi](x) values in a tooltip"}, {True, False}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {500., {148., 152.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xMin$64295$$ = 0, $CellContext`xLength$64296$$ = 
+    0, $CellContext`nZeros$64297$$ = 0, $CellContext`showRiemannR$64298$$ = 
+    False, $CellContext`showTooltip$64299$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`nZeros$$ = 30, $CellContext`showRiemannR$$ = 
+        True, $CellContext`showTooltip$$ = True, $CellContext`xLength$$ = 
+        30, $CellContext`xMin$$ = 100}, "ControllerVariables" :> {
+        Hold[$CellContext`xMin$$, $CellContext`xMin$64295$$, 0], 
+        Hold[$CellContext`xLength$$, $CellContext`xLength$64296$$, 0], 
+        Hold[$CellContext`nZeros$$, $CellContext`nZeros$64297$$, 0], 
+        Hold[$CellContext`showRiemannR$$, $CellContext`showRiemannR$64298$$, 
+         False], 
+        Hold[$CellContext`showTooltip$$, $CellContext`showTooltip$64299$$, 
+         False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`plotPrimeGraphs[$CellContext`xMin$$, \
+$CellContext`xLength$$, $CellContext`nZeros$$, $CellContext`showRiemannR$$, \
+$CellContext`showTooltip$$], 
+      "Specifications" :> {{{$CellContext`xMin$$, 100, 
+          "start x axis at (from 0 to 400)"}, 0, 400, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`xLength$$, 30, 
+          "length of x axis (from 10 to 100)"}, 10, 100, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`nZeros$$, 30, 
+          "pairs of zeta zeros (from 0 to 100)"}, 0, 100, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`showRiemannR$$, True, 
+          "always show Riemann's R(x)"}, {True, False}, ControlPlacement -> 
+         1}, {{$CellContext`showTooltip$$, True, 
+          "     display \[Pi](x) values in a tooltip"}, {True, False}, 
+         ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], 
+          Manipulate`Place[2]}]}, "Options" :> {AutorunSequencing -> {3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{549., {230., 235.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`showTooltip, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, $CellContext`xInc, \
+$CellContext`xi, $CellContext`nxi, $CellContext`uncorrectedY, \
+$CellContext`correctedY, $CellContext`i, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY, $CellContext`correctedStyle, \
+$CellContext`xPlotRange1, $CellContext`xPlotRange2, $CellContext`yPlotRange1, \
+$CellContext`yPlotRange2, $CellContext`pix1, $CellContext`piOfxList1, \
+$CellContext`piOfxList2, $CellContext`piOfxList, $CellContext`plotAll = \
+$CellContext`showRiemannR, $CellContext`funcList, $CellContext`styleList, \
+$CellContext`nPlotPoints = 120, $CellContext`fontSize = 
+          16, $CellContext`imgSize = {500, 300}, $CellContext`imgPadding = {{
+           20, 10}, {25, 10}}}, $CellContext`xMin2 = 
+          Max[1, $CellContext`xMin]; $CellContext`xMax = $CellContext`xMin + \
+$CellContext`xLength; 
+         If[$CellContext`xMin2 > 
+           1, $CellContext`xPlotRange1 = $CellContext`xMin2, \
+$CellContext`xPlotRange1 = 
+           0]; $CellContext`xPlotRange2 = $CellContext`xMax; \
+$CellContext`yPlotRange1 = PrimePi[$CellContext`xPlotRange1]; 
+         If[$CellContext`xMin2 > 2, $CellContext`yPlotRange1 = 
+           Min[$CellContext`yPlotRange1, 
+             $CellContext`fastRiemannR[$CellContext`xPlotRange1]]]; \
+$CellContext`yPlotRange1 = 
+          Floor[$CellContext`yPlotRange1]; $CellContext`yPlotRange2 = Ceiling[
+            Max[
+             PrimePi[$CellContext`xMax], 
+             $CellContext`fastRiemannR[$CellContext`xMax]]]; \
+$CellContext`pix1 = Max[2, $CellContext`xMin2]; $CellContext`piOfxList1 = 
+          Table[{
+             Prime[$CellContext`i], $CellContext`i - 1}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList2 = Table[{
+             Prime[$CellContext`i], $CellContext`i}, {$CellContext`i, 
+             PrimePi[$CellContext`pix1], 
+             PrimePi[$CellContext`xMax]}]; $CellContext`piOfxList = 
+          Union[$CellContext`piOfxList1, $CellContext`piOfxList2, \
+{{$CellContext`xMax, 
+              PrimePi[$CellContext`xMax]}}]; 
+         If[$CellContext`showTooltip, $CellContext`piOfxList = 
+           
+           Tooltip[$CellContext`piOfxList]]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`uncorrectedY = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`correctedY = \
+$CellContext`uncorrectedY; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`correctedY, $CellContext`i] = 
+            Part[$CellContext`uncorrectedY, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`correctedY, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`nZeros == 
+           0, $CellContext`plotAll = False; $CellContext`correctedStyle = 
+            Dashed, $CellContext`correctedStyle = Automatic]; 
+         If[$CellContext`plotAll, $CellContext`uncorrectedXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`uncorrectedY, $CellContext`i]}, \
+{$CellContext`i, $CellContext`nxi}]; $CellContext`funcList = \
+{$CellContext`piOfxList, $CellContext`correctedXY, \
+$CellContext`uncorrectedXY}; $CellContext`styleList = {
+             Automatic, Automatic, 
+              Dashed}, $CellContext`funcList = {$CellContext`piOfxList, \
+$CellContext`correctedXY}; $CellContext`styleList = {
+             Automatic, $CellContext`correctedStyle}]; 
+         ListPlot[$CellContext`funcList, PlotStyle -> $CellContext`styleList, 
+           Joined -> True, Axes -> False, 
+           Frame -> {{True, False}, {True, False}}, 
+           PlotRange -> {{$CellContext`xPlotRange1, \
+$CellContext`xPlotRange2}, {$CellContext`yPlotRange1, \
+$CellContext`yPlotRange2}}, PlotLabel -> Text[
+             Style[
+              $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+           ImageSize -> $CellContext`imgSize, 
+           ImagePadding -> $CellContext`imgPadding]], \
+$CellContext`plotPrimeGraphs[
+         Pattern[$CellContext`xMin, 
+          Blank[]], 
+         Pattern[$CellContext`xLength, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]], 
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]]] := 
+       Module[{$CellContext`xMin2, $CellContext`xMax, \
+$CellContext`pixValues1, $CellContext`pixPairsXY, $CellContext`nPlotPoints = 
+          120, $CellContext`xInc, $CellContext`fontSize = 
+          16, $CellContext`xi, $CellContext`nxi, $CellContext`r0Values, \
+$CellContext`rnValues, $CellContext`i, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY, $CellContext`imgSize = {500, 300}}, 
+         If[$CellContext`xMin < 1, $CellContext`xMin2 = 
+           1, $CellContext`xMin2 = $CellContext`xMin]; $CellContext`xMax = \
+$CellContext`xMin + $CellContext`xLength; $CellContext`pixValues1 = N[
+            Flatten[
+             
+             Table[{$CellContext`x - 1/
+               100, $CellContext`x}, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax}]]]; $CellContext`pixPairsXY = Table[{
+             Part[$CellContext`pixValues1, $CellContext`i], 
+             PrimePi[
+              
+              Part[$CellContext`pixValues1, $CellContext`i]]}, \
+{$CellContext`i, 
+             
+             Length[$CellContext`pixValues1]}]; $CellContext`xInc = \
+($CellContext`xMax - $CellContext`xMin2)/($CellContext`nPlotPoints - 
+           1); $CellContext`xi = 
+          Table[$CellContext`x, {$CellContext`x, $CellContext`xMin2, \
+$CellContext`xMax, $CellContext`xInc}]; $CellContext`nxi = 
+          Length[$CellContext`xi]; $CellContext`r0Values = \
+$CellContext`fastRiemannR[$CellContext`xi]; $CellContext`rnValues = \
+$CellContext`r0Values; If[$CellContext`nZeros > 0, 
+           For[$CellContext`i = 1, $CellContext`i <= $CellContext`nxi, 
+            Increment[$CellContext`i], 
+            Part[$CellContext`rnValues, $CellContext`i] = 
+            Part[$CellContext`r0Values, $CellContext`i] + \
+$CellContext`riemannCorrection[
+               
+               Part[$CellContext`xi, $CellContext`i], $CellContext`nZeros]]]; \
+$CellContext`correctedPairsXY = Table[{
+             Part[$CellContext`xi, $CellContext`i], 
+             
+             Part[$CellContext`rnValues, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+         If[$CellContext`showRiemannR, $CellContext`r0PairsXY = Table[{
+               Part[$CellContext`xi, $CellContext`i], 
+               
+               Part[$CellContext`r0Values, $CellContext`i]}, {$CellContext`i, \
+$CellContext`nxi}]; 
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY, \
+$CellContext`r0PairsXY}, Joined -> {True, True, True}, PlotLabel -> Text[
+               Style[
+                $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+             ImageSize -> $CellContext`imgSize, 
+             ImagePadding -> {{25, 10}, {35, 10}}], 
+           
+           ListPlot[{$CellContext`pixPairsXY, $CellContext`correctedPairsXY}, 
+            Joined -> {True, True}, PlotLabel -> Text[
+              Style[
+               $CellContext`formatTitle[$CellContext`showRiemannR, \
+$CellContext`nZeros], $CellContext`fontSize]], 
+            ImageSize -> $CellContext`imgSize, 
+            ImagePadding -> {{25, 10}, {35, 10}}]]], $CellContext`fastRiemannR[
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       Module[{$CellContext`n, $CellContext`lgx, $CellContext`coeffs = {
+           0.6079271019, 0.2079768431, 0.05132991127, 0.01004570146, 
+            0.00163825432, 0.0002295647814, 0.00002822956919, 3.093984476/
+            10^6, 3.05888207/10^7, 2.754370744/10^8, 2.276904083/10^9, 
+            1.739516287/10^10, 1.235235409/10^11, 8.193139099/10^13, 
+            5.098031245/10^14, 2.987150519/10^15, 1.653792072/10^16, 
+            8.677320647/10^18, 4.326646002/10^19, 2.055157831/10^20}}, If[
+           Or[$CellContext`x < 0.001, $CellContext`x > 1000], 
+           Return[$CellContext`x]]; $CellContext`lgx = Log[$CellContext`x]; 
+         1. + Sum[$CellContext`lgx^$CellContext`n 
+            Part[$CellContext`coeffs, $CellContext`n], {$CellContext`n, 
+             Length[$CellContext`coeffs]}]], $CellContext`riemannCorrection = 
+       CompiledFunction[{
+          Blank[Real], 
+          Blank[Integer]}, {{3, 0, 0}, {2, 0, 0}, {3, 0, 3}}, {1, 8, 12, 0, 
+         5}, {{1, 7}, {8, 0., 1}, {8, 1.442695041, 2}, {45, CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+           "], 3, 100, 0}, {7, 1, 1}, {36, 0, 1, 0}, {3, 0, 4}, {8, 0., 3}, {
+          2}, {4, 1}, {67, 0, 2, 1}, {54, 
+           
+           Function[{$CellContext`x, $CellContext`nZeros}, \
+$CellContext`lengthOfZetaZeroList], 3, 0, 0, 2, 0, 0, 3, 0, 5}, {67, 5, 3, 
+          2}, {47, 0, 1, 3}, {95, 0, 3, 2, 4}, {7, 1, 1}, {70, 4, 0, 1, 0, 
+          5}, {44, 4, 3}, {7, 0, 4}, {4, 6}, {70, 4, 0, 4, 0, 6}, {37, 6, 5, 
+          0}, {3, 0, 3}, {12, 6, 5}, {4, 1}, {5, 4, 3, -5}, {93, 35, 3, 0, 0, 
+          3, 0, 4}, {21, 4, 2, 6}, {93, 51, 3, 0, 6, 2, 0, 1}, {7, 1, 2}, {
+          7, -1, 3}, {17, 1, 3, 4}, {38, 2, 4, 0}, {3, 0, 30}, {8, 0., 6}, {
+          28, 5, 3}, {7, 0, 6}, {4, 10}, {7, 1, 7}, {15, 0, 7, 9}, {15, 0, 2, 
+          10}, {94, 260, 3, 0, 9, 3, 0, 10, 3, 0, 11}, {21, 4, 11, 9}, {70, 0,
+           0, 6, 0, 11}, {
+          55, $CellContext`fastExpIntegralEi, 3, 0, 9, 3, 0, 11, 3, 0, 10}, {
+          18, 6, 10, 9}, {12, 9, 6}, {5, 6, 3, -9}, {54, 
+           Function[{$CellContext`x, $CellContext`nZeros}, 
+            MoebiusMu[$CellContext`n]], {$CellContext`n, 2, 0, 2, Module}, 3, 
+           0, 0, 2, 0, 0, 2, 0, 5}, {7, 1, 3}, {15, 0, 3, 7}, {15, 0, 2, 8}, {
+          94, 260, 3, 0, 7, 3, 0, 8, 3, 0, 9}, {15, 1, 5, 7}, {21, 7, 9, 7}, {
+          21, 7, 6, 7}, {18, 1, 7, 9}, {12, 9, 1}, {11, 2, 4}, {7, 1, 3}, {17,
+           4, 3, 5}, {11, 5, 2}, {4, -32}, {7, -2, 4}, {15, 1, 4, 9}, {21, 9, 
+          1, 9}, {12, 9, 3}, {2}}, 
+         Function[{$CellContext`x, $CellContext`nZeros}, 
+          
+          Module[{$CellContext`nZeros2, $CellContext`lastn, $CellContext`n, \
+$CellContext`s2, $CellContext`i, $CellContext`s = 
+            0., $CellContext`lgx, $CellContext`lg2Inverse = 
+            1.442695041, $CellContext`zetaZeroList = CompressedData["
+1:eJwNwwtQiwEAB/BvKC7dQlgUZU7qilw7o870JykJrVoraq1vW9v37ZuVpJEe
+Hr1kl+uGqJz0QNNjuUp5dhfVyJ1zEplTHeoo5JLLJX53v1WkNkzBIghC/n9W
+5lnT1A5PzMzukVVabcTJ2ZOFnbN8oOOV1HUwW9Gv4C5rSAU86Z7BuU+3Y3Rx
+xfnilB1QZ+blW24GoLKouesGEYQ4juiH7VAQqMu5GbzjwXBtsq5a6ROCca79
+d/WtPXBLGW9JpfeCyJ34wgsMRQb7apnj41Awdz9s/U0K0bu4fl/InDB8LrK6
+vmw0DD4/g+wCdoXDHKXQX3wVjk+UTZ1/WwRUg2uEi7xE8E2aadzUL0JbEnms
+ixeJQbl9YJqzGNWFI1fqb4rBc7umuzMphn5AsMu7KQp2WXeM4ohoRGZ942vH
+ovF6Hvvo+Zj9EGrLc8zm/SiotAwPtR9AaLeBnpo8gFa/nswMQwwSu5eOnWDH
+wlE74FXaGIvqkg6XBrEE2y59eVN8T4JgIqhFuyAONZuioxcOxOFtufHBaW8p
+8iadop6TUizJOndktF6KUH+biI19UpjYX8ua/eNhxDrrwtR4PLixmZqoiIeg
+ulJgGIpHtzHZdh5IBHo67M7VkFBOUInN7STmnH3ZVGIh4TdaHWx2kWG75dfP
+0lMyJBt7dc63ZdA7H17O65eh83bi3/muciRWDRf9kcoxn//Q6GWSQzqrZezT
+Rzmm/7oFWK9WwC5QPLJeoECeffFej1oFjmn4kdw+Bap8X/q6sBPg0ZXdah+S
+gFcj6A1PT4DelSO7+iQBv0I+VvxxVMLBSbvFnacExyZdFK5UIuC5raewVglR
+Z7bkLaHCQPKzlXquCl8lm1dlqFTYJixcbVuqwu9LHXT6IxVaWVN9OjcK+XGm
+nKf7KKz1KzYvzKEQ0WYVU36LQoNrzSJimkIKres45E1j3GWwwPEIjRKDZS3X
+SGNPnYP8xAsa/BWsd4yVGgbflofupBop7vKyDxfUyNvpJO6qVWM6yRTlQzDw
+SItRpDozuN/YrjuuYZDPmVr6rIZB9pm7BaxhBlfepx28OMOAI2BJNvA1+MGN
+TX9yToN/wqVh7g==
+             "]}, If[$CellContext`nZeros < 1, 
+             Return[0.]]; $CellContext`nZeros2 = 
+            Min[$CellContext`nZeros, $CellContext`lengthOfZetaZeroList]; \
+$CellContext`lgx = N[
+              Log[$CellContext`x]]; $CellContext`lastn = 
+            Ceiling[$CellContext`lgx $CellContext`lg2Inverse]; 
+           For[$CellContext`n = 1, $CellContext`n <= $CellContext`lastn - 1, 
+             Increment[$CellContext`n], $CellContext`s2 = Sum[
+                $CellContext`fastExpIntegralEi[$CellContext`lgx/$CellContext`\
+n, 
+                 
+                 Part[$CellContext`zetaZeroList, $CellContext`i]], \
+{$CellContext`i, 
+                 1, $CellContext`nZeros2}]; $CellContext`s = $CellContext`s + \
+(MoebiusMu[$CellContext`n]/$CellContext`n) $CellContext`s2]; (-2) \
+$CellContext`s]], Evaluate], $CellContext`lengthOfZetaZeroList = 
+       100, $CellContext`fastExpIntegralEi = CompiledFunction[{
+          Blank[Real], 
+          Blank[Real]}, {{3, 0, 0}, {3, 0, 1}, {3, 0, 5}}, {0, 1, 8, 4, 
+         0}, {{1, 7}, {8, 1., 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 1, 3, 0,
+           3}, {21, 2, 3, 2}, {7, 1, 0}, {94, 260, 2, 0, 0, 3, 0, 0, 3, 0, 
+          3}, {21, 2, 3, 4}, {8, 0.5, 3}, {21, 3, 0, 3}, {9, 0., 1., 0}, {
+          8, 0., 5}, {16, 0, 5, 1}, {8, 0., 6}, {16, 1, 6, 2}, {22, 0, 1, 2, 
+          0}, {8, 0., 5}, {16, 3, 5, 1}, {19, 1, 0, 1}, {93, 34, 4, 0, 1, 4, 
+          0, 0}, {9, 0., 1., 1}, {7, 2, 0}, {15, 1, 0, 3}, {21, 3, 4, 3}, {24,
+           2, 5}, {18, 3, 5, 3}, {21, 4, 3, 5}, {8, 0.25, 3}, {7, 2, 0}, {94, 
+          264, 3, 0, 2, 2, 0, 0, 3, 0, 6}, {21, 3, 6, 3}, {7, -1, 0}, {15, 0, 
+          0, 6}, {18, 5, 3, 6, 5}, {8, 0., 3}, {16, 5, 3, 2}, {22, 1, 2, 1}, {
+          24, 4, 5}, {8, 0.5, 3}, {21, 3, 2, 3}, {8, 0., 6}, {16, 5, 6, 2}, {
+          8, 0., 7}, {16, 3, 7, 3}, {19, 1, 2, 3, 1}, {8, 0., 5}, {16, 4, 5, 
+          2}, {22, 0, 2, 1, 0}, {29, 0, 5}, {2}}, 
+         Function[{$CellContext`x, $CellContext`y}, 
+          
+          Module[{$CellContext`b, $CellContext`c}, $CellContext`b = 
+            1./$CellContext`y; $CellContext`c = $CellContext`b/$CellContext`x; 
+           Re[(E^(0.5 $CellContext`x + (
+                  I $CellContext`x) $CellContext`y) $CellContext`c) (
+              I ($CellContext`c (2 $CellContext`c - $CellContext`b) + 
+                0.25 $CellContext`b^2 - 1) - $CellContext`c + 
+              0.5 $CellContext`b)]]], 
+         Evaluate], $CellContext`zetaZeroList = CompressedData["
+1:eJwBnQFi/iFib1JlAQAAADIAAACAf4yx+kQsQP8DzWOkBTVAggP3j8cCOUB4
+M5uuxGw+QNtlIhmwd0BALGrN4gfLQkDtFKOVmHVEQGt/iIndqUVApJK2yKgA
+SEBfF1XxDONIQGmah34zfEpAJrUGpR45TEDyIhPwa6xNQCh18rd3ak5AAIf1
+6zNHUEB+DqCdG8VQQGy74D74YlFA1hSvT0wEUkDnkgWnGe1SQDnzSA9FSVNA
+ylhljZfVU0DmaQquQ7pUQGjiJVESL1VAOnH/sjfbVUC6cWJ6yDNWQOJkE0d7
+H1dApo/pnq+pV0AzKKJ4uPdXQI3hPUkytVhAD4C4q1dUWUBWgO82b+5ZQNcI
+DnmVXFpAUW+hhsrKWkCLpN3o48FbQFDJlGr691tAuT/Nf36UXEBwyRbugQ5d
+QBtv4S+csl1AppvEILBXXkBBmevZmLxeQEoASLdvEF9AqjdZWRHhX0Daoau+
+hDJgQIj3HFjOYmBAFYCQdu2vYEBQQwpUNdhgQLEO7J22Q2FAq0AtBo93YUC+
+qDhp9aNhQD2mpD2U42FA/1G1Rg==
+        "], Attributes[PlotRange] = {ReadProtected}, $CellContext`formatTitle[
+         Pattern[$CellContext`showRiemannR, 
+          Blank[]], 
+         Pattern[$CellContext`nZeros, 
+          Blank[]]] := Text[
+         TraditionalForm[
+          If[$CellContext`nZeros == 0, 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             $CellContext`R[$CellContext`x], " (dashed)"}], 
+           Row[{
+             PrimePi[$CellContext`x], "; ", 
+             If[$CellContext`showRiemannR, 
+              Row[{
+                $CellContext`R[$CellContext`x], " (dashed)", "; "}], ""], 
+             $CellContext`R[$CellContext`x], 
+             " corrected with ", $CellContext`nZeros, 
+             If[$CellContext`nZeros == 1, 
+              Row[{" pair of zeta zeros"}], 
+              Row[{" pairs of zeta zeros"}]]}]]]]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->968934130]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell[TextData[{
+ "Snapshot 1: the graphs of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " with no correction term"
+}], "DetailNotes",
+ CellID->68124682],
+
+Cell[TextData[{
+ "Snapshot 2: the graphs of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " with correction term that uses the first 20 pairs of zeros of the ",
+ "zeta",
+ " function"
+}], "DetailNotes",
+ CellID->518812535],
+
+Cell[TextData[{
+ "Snapshot 3: a closeup showing that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " with correction term correctly predicts the primes 103, 107, 109, 113, and \
+127, and the gap between 113 and 127; notice that, with no correction term, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " by itself misses these details"
+}], "DetailNotes",
+ CellID->35100994],
+
+Cell["", "DetailNotes",
+ CellID->526693615],
+
+Cell[TextData[{
+ "The function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " (",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "'s built-in function ",
+ StyleBox["PrimePi[x]", "MR"],
+ ") is a step function that jumps by 1 whenever ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " is prime. Riemann's prime-counting function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " (",
+ StyleBox["Mathematica'",
+  FontSlant->"Italic"],
+ "s built-in function",
+ StyleBox[" RiemannR[x]", "MR"],
+ ") is defined as"
+}], "DetailNotes",
+ CellID->301210908],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     TemplateBox[{"x"},
+      "RiemannR"], "=", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", 
+       RowBox[{"n", "=", "1"}], "\[Infinity]"], 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         TemplateBox[{"n"},
+          "MoebiusMu"], " "}], "n"], 
+       TemplateBox[{SuperscriptBox["x", 
+          RowBox[{"1", "/", "n"}]]},
+        "LogIntegral"]}]}]}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ","
+}], "DetailNotes",
+ CellID->325710438],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"n"},
+    "MoebiusMu"], TraditionalForm]], "InlineMath"],
+ " is the M\[ODoubleDot]bius mu function \[Mu] (",
+ StyleBox["MoebiusMu[n]", "MR"],
+ " in ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ ") and"
+}], "DetailNotes",
+ CellID->46506200],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  TagBox[
+   RowBox[{
+    TemplateBox[{"x"},
+     "LogIntegral"], "=", 
+    RowBox[{
+     SubsuperscriptBox["\[Integral]", "0", "x"], 
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"log", "(", "t", ")"}]], "d", "\[InvisibleSpace]", "t"}]}]}],
+   HoldForm], TraditionalForm]], "InlineMath"]], "DetailNotes",
+ CellID->154491696],
+
+Cell[TextData[{
+ "is the logarithmic integral (",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "'s built-in function ",
+ StyleBox["LogIntegral[x]", "MR"],
+ ")."
+}], "DetailNotes",
+ CellID->149974074],
+
+Cell[TextData[{
+ "Overall, ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "RiemannR"], TraditionalForm]], "InlineMath"],
+ " is a good approximation to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "PrimePi"], TraditionalForm]], "InlineMath"],
+ ". However, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " does not track the details, that is, the jumps) of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ ". Furthermore, when a gap occurs in the primes (as, for example, between 23 \
+and 29), ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " keeps increasing even though ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " remains constant between primes."
+}], "DetailNotes",
+ CellID->96531080],
+
+Cell[TextData[{
+ "However, if we add to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"R", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ " a correction term that uses the first few zeros (roots) of the Riemann ",
+ "zeta",
+ " function, something very surprising happens: we get a new function that \
+very closely matches the jumps and irregularities of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ "! When ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " is prime, this new function increases by about 1 near ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ ", so, in effect, it \"knows\" where the primes are. And when a gap occurs, \
+this new function tends to level out, again emulating the behavior of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "DetailNotes",
+ CellID->38163805],
+
+Cell["\<\
+It's almost as if the zeros of the zeta function determine which numbers are \
+prime!\
+\>", "DetailNotes",
+ CellID->631078047],
+
+Cell[TextData[{
+ "The first three complex zeros of the zeta function are approximately ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1", "/", "2"}], "+", 
+    RowBox[{"14.135", " ", "i"}]}], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1", "/", "2"}], "+", 
+    RowBox[{"21.022", " ", "i"}]}], TraditionalForm]], "InlineMath"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1", "/", "2"}], "+", 
+    RowBox[{"25.011", " ", "i"}]}], TraditionalForm]], "InlineMath"],
+ ". The zeros occur in conjugate pairs, so if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "+", 
+    RowBox[{"b", " ", "i"}]}], TraditionalForm]], "InlineMath"],
+ " is a zero, then so is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "-", 
+    RowBox[{"b", " ", "i"}]}], TraditionalForm]], "InlineMath"],
+ ". The famous Riemann hypothesis is the claim that these complex zeros all \
+have real part 1/2. All of the first ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "13"], TraditionalForm]], "InlineMath",
+  FormatType->"TraditionalForm"],
+ " complex zeros do, indeed, have real part 1/2 (see [4])."
+}], "DetailNotes",
+ CellID->295120290],
+
+Cell[TextData[{
+ "This Demonstration uses an exact formula for a function that is equal to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "PrimePi"], TraditionalForm]], "InlineMath"],
+ " except when ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " is prime. We define our new prime counting function, usually denoted by ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     SubscriptBox["\[Pi]", "0"], "(", "x", ")"}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ", as follows. First, if ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " is a prime number, say, ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]], "InlineMath"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "PrimePi"], TraditionalForm]], "InlineMath"],
+ " jumps from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    TemplateBox[{"p"},
+     "PrimePi"], "-", "1"}], TraditionalForm]], "InlineMath"],
+ " to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"p"},
+    "PrimePi"], TraditionalForm]], "InlineMath"],
+ ". For this ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ ", we will define ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     SubscriptBox["\[Pi]", "0"], "(", "x", ")"}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ " to be halfway between these two values: that is, ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Pi]", "0"], "(", "p", ")"}], "=", 
+     RowBox[{
+      TemplateBox[{"p"},
+       "PrimePi"], "-", 
+      RowBox[{"1", "/", "2"}]}]}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ". Second, for all other values of ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Pi]", "0"], "(", "x", ")"}], "=", 
+     TemplateBox[{"x"},
+      "PrimePi"]}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ". With this definition in mind, ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     SubscriptBox["\[Pi]", "0"], "(", "x", ")"}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ " has the following exact formula:"
+}], "DetailNotes",
+ CellID->244606699],
+
+Cell[TextData[{
+ "(1)     ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     RowBox[{
+      SubscriptBox["\[Pi]", "0"], "(", "x", ")"}], "=", 
+     RowBox[{
+      TemplateBox[{"x"},
+       "RiemannR"], "+", 
+      RowBox[{
+       UnderoverscriptBox["\[Sum]", 
+        RowBox[{"n", "=", "1"}], "\[Infinity]"], 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          TemplateBox[{"n"},
+           "MoebiusMu"], " "}], "n"], 
+        RowBox[{"f", "(", 
+         SuperscriptBox["x", 
+          RowBox[{"1", "/", "n"}]], ")"}]}]}]}]}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ","
+}], "DetailNotes",
+ CellID->216160207],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "RiemannR"], TraditionalForm]], "InlineMath",
+  FormatType->"TraditionalForm"],
+ " is Riemann's prime counting function defined above, and"
+}], "DetailNotes",
+ CellID->155835537],
+
+Cell[TextData[{
+ "(2)     ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     RowBox[{"f", "(", "x", ")"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], " ", 
+       RowBox[{"Re", "(", 
+        RowBox[{
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{"k", "=", "1"}], "\[Infinity]"], 
+         TemplateBox[{RowBox[{
+             TemplateBox[{"k"}, "ZetaZero"], " ", 
+             RowBox[{"log", "(", "x", ")"}]}]},
+          "ExpIntegralEi"]}], ")"}]}], "+", 
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", "x", "\[Infinity]"], 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["t", "3"], "-", "t"}], ")"}], " ", 
+          RowBox[{"log", "(", "t", ")"}]}]], "d", "\[InvisibleSpace]", 
+        "t"}]}], "-", 
+      RowBox[{"log", "(", "2", ")"}]}]}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ","
+}], "DetailNotes",
+ CellID->163043397],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Rho]", "k"], TraditionalForm]], "InlineMath"],
+ " is the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["k", "th"], TraditionalForm]], "InlineMath"],
+ " complex zero of the zeta function. In this formula, ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"z"},
+    "ExpIntegralEi"], TraditionalForm]], "InlineMath"],
+ " (",
+ StyleBox["Mathematica'",
+  FontSlant->"Italic"],
+ "s built-in function ",
+ StyleBox["ExpIntegralEi[z]", "MR"],
+ ") is the generalization of the logarithmic integral to complex numbers. \
+These equations come from references [1], [2], and [3]."
+}], "DetailNotes",
+ CellID->729094411],
+
+Cell[TextData[{
+ "For a given ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ ", and with the value of ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]], "InlineMath"],
+ " that you choose with the slider control, here is how this Demonstration \
+computes the correction term that involves zeta zeros:"
+}], "DetailNotes",
+ CellID->100902572],
+
+Cell[TextData[{
+ "First, let ",
+ Cell[BoxData[
+  FormBox["M", TraditionalForm]], "InlineMath"],
+ " be the smallest integer such that ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     SuperscriptBox["x", 
+      RowBox[{"1", "/", "M"}]], "<", "2"}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ". We need to add only the first ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "-", "1"}], TraditionalForm]], "InlineMath"],
+ " terms (that is, ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{
+     RowBox[{"n", "=", "1"}], ",", "2", ",", "\[Ellipsis]", ",", "M"}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ") in the sum in equation (1). For each of these values of ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath"],
+ ", we use equation (2) to compute the value of ",
+ Cell[BoxData[
+  FormBox[
+   TagBox[
+    RowBox[{"f", "(", 
+     SuperscriptBox["x", 
+      RowBox[{"1", "/", "n"}]], ")"}],
+    HoldForm], TraditionalForm]], "InlineMath"],
+ ".",
+ " ",
+ "However, we will add only the first ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]], "InlineMath"],
+ " terms (that is, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"k", "=", "1"}], ",", "2", ",", "\[Ellipsis]", ",", "N"}], 
+   TraditionalForm]], "InlineMath"],
+ ") in the sum in equation (2). Because the purpose of this Demonstration is \
+to show how the jumps in the step function ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "PrimePi"], TraditionalForm]], "InlineMath"],
+ " can be closely approximated by adding to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[{"x"},
+    "RiemannR"], TraditionalForm]], "InlineMath"],
+ " a correction term that involves zeta zeros, we ignore the integral and the \
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"log", "(", "2", ")"}], TraditionalForm]], "InlineMath"],
+ " in equation (2); this speeds up the computation and will not noticeably \
+affect the graphs, especially for ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ " more than about 5."
+}], "DetailNotes",
+ CellID->530076840],
+
+Cell[TextData[{
+ "The more zeros we use, the closer we can approximate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ ". For larger ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]], "InlineMath"],
+ ", the correction term must include more zeros in order to accurately \
+approximate ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Pi]", 
+    RowBox[{"(", "x", ")"}]}], TraditionalForm]], "InlineMath"],
+ "."
+}], "DetailNotes",
+ CellID->311908053],
+
+Cell["", "DetailNotes",
+ CellID->295117967],
+
+Cell[TextData[{
+ "References:\n[1] H. Riesel, ",
+ StyleBox["Prime Numbers and Computer Methods for Factorization",
+  FontSlant->"Italic"],
+ ", 2nd ed., Boston: Birkhauser, 1994 pp. 44\[Dash]55."
+}], "DetailNotes",
+ CellID->69811350],
+
+Cell[TextData[{
+ "[2] H. Riesel and G Gohl, \"Calculations Related to Riemann's Prime Number \
+Formula,\" ",
+ StyleBox["Mathematics of Computation",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["24",
+  FontWeight->"Bold"],
+ "(112), 1970 pp. 969\[Dash]983."
+}], "DetailNotes",
+ CellID->273689942],
+
+Cell[TextData[{
+ "[3] S. Wagon, ",
+ StyleBox["Mathematica in Action",
+  FontSlant->"Italic"],
+ ", 2nd ed., New York: Springer, 1999 pp. 540\[Dash]554."
+}], "DetailNotes",
+ CellID->64905061],
+
+Cell[TextData[{
+ "[4] X. Gourdon, \"",
+ ButtonBox["The 10^13 First Zeros of the Riemann Zeta Function, and Zeros \
+Computation at Very Large Height.",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://numbers.computation.free.fr/Constants/Miscellaneous/\
+zetazeros1e13-1e24.pdf"], None},
+  ButtonNote->
+   "http://numbers.computation.free.fr/Constants/Miscellaneous/zetazeros1e13-\
+1e24.pdf"],
+ "\""
+}], "DetailNotes",
+ CellID->526143793]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection",
+ CellID->531466547],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages",
+ CellID->407378964],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D",
+ CellID->272491887],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators",
+ CellID->80104455],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators",
+ CellID->258499445],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom",
+ CellID->137821590],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls",
+ CellID->274790879],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation",
+ CellID->46249219],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation",
+ CellID->183851583]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["prime numbers", "SearchTerms",
+ CellID->9620120],
+
+Cell["distribution of primes", "SearchTerms",
+ CellID->245912470],
+
+Cell["prime counting function", "SearchTerms",
+ CellID->316166559],
+
+Cell["Riemann zeta function", "SearchTerms",
+ CellID->137963802],
+
+Cell["Riemann Hypothesis", "SearchTerms",
+ CellID->69596137]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Prime Counting Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/PrimeCountingFunction.html"], None},
+ ButtonNote->
+  "http://mathworld.wolfram.com/PrimeCountingFunction.html"]], "RelatedLinks",
+ CellID->469321166],
+
+Cell[TextData[ButtonBox["Riemann Prime Counting Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/RiemannPrimeCountingFunction.html"], 
+   None},
+ ButtonNote->
+  "http://mathworld.wolfram.com/RiemannPrimeCountingFunction.html"]], \
+"RelatedLinks",
+ CellID->544385884],
+
+Cell[TextData[ButtonBox["Riemann Zeta Function Zeros",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/RiemannZetaFunctionZeros.html"], None},
+ ButtonNote->
+  "http://mathworld.wolfram.com/RiemannZetaFunctionZeros.html"]], \
+"RelatedLinks",
+ CellID->363139957],
+
+Cell[TextData[ButtonBox["Approximations to the Distribution of Primes",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/\
+ApproximationsToTheDistributionOfPrimes/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/ApproximationsToTheDistributionOfPrimes/\
+"]], "RelatedLinks",
+ CellID->74869354],
+
+Cell[TextData[ButtonBox["Using Zeta Zeros To Compute The Chebyshev Psi \
+Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/\
+UsingZetaZerosToComputeTheChebyshevPsiFunction/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/\
+UsingZetaZerosToComputeTheChebyshevPsiFunction/"]], "RelatedLinks",
+ CellID->530181127],
+
+Cell[TextData[ButtonBox["Using Zeta Zeros To Compute The Mertens Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/\
+UsingZetaZerosToComputeTheMertensFunction/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/\
+UsingZetaZerosToComputeTheMertensFunction/"]], "RelatedLinks",
+ CellID->77085594],
+
+Cell[TextData[ButtonBox["Using Zeta Zeros To Compute A Summatory Liouville \
+Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/\
+UsingZetaZerosToComputeASummatoryLiouvilleFunction/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/\
+UsingZetaZerosToComputeASummatoryLiouvilleFunction/"]], "RelatedLinks",
+ CellID->803569786],
+
+Cell[TextData[ButtonBox["Using Zeta Zeros To Count The Squarefree Integers",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/\
+UsingZetaZerosToCountTheSquarefreeIntegers/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/\
+UsingZetaZerosToCountTheSquarefreeIntegers/"]], "RelatedLinks",
+ CellID->538569673],
+
+Cell[TextData[ButtonBox["Using Zeta Zeros To Tally The Euler Phi Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/\
+UsingZetaZerosToTallyTheEulerPhiFunction/"], None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/UsingZetaZerosToTallyTheEulerPhiFunction/\
+"]], "RelatedLinks",
+ CellID->7373291]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Robert Baillie",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Robert+Baillie"]\
+, None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Robert+Baillie"]
+}], "Author",
+ CellID->95413255]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, 681},
+WindowMargins->{{22, Automatic}, {Automatic, 22}},
+TrackCellChangeTimes->False,
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[158269, 3471, 331, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages",
+   CellID->407378964]},
+ "RotateAndZoomIn3D"->{
+  Cell[158603, 3482, 698, 17, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D",
+   CellID->272491887]},
+ "DragLocators"->{
+  Cell[159304, 3501, 359, 12, 22, "ControlSuggestions",
+   CellTags->"DragLocators",
+   CellID->80104455]},
+ "CreateAndDeleteLocators"->{
+  Cell[159666, 3515, 657, 16, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators",
+   CellID->258499445]},
+ "SliderZoom"->{
+  Cell[160326, 3533, 863, 22, 22, "ControlSuggestions",
+   CellTags->"SliderZoom",
+   CellID->137821590]},
+ "GamepadControls"->{
+  Cell[161192, 3557, 389, 10, 22, "ControlSuggestions",
+   CellTags->"GamepadControls",
+   CellID->274790879]},
+ "AutomaticAnimation"->{
+  Cell[161584, 3569, 1483, 32, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation",
+   CellID->46249219]},
+ "BookmarkAnimation"->{
+  Cell[163070, 3603, 928, 22, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation",
+   CellID->183851583]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 168296, 3772},
+ {"RotateAndZoomIn3D", 168428, 3776},
+ {"DragLocators", 168561, 3780},
+ {"CreateAndDeleteLocators", 168699, 3784},
+ {"SliderZoom", 168836, 3788},
+ {"GamepadControls", 168965, 3792},
+ {"AutomaticAnimation", 169102, 3796},
+ {"BookmarkAnimation", 169241, 3800}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 118, 3, 104, "DemoTitle",
+ CellID->700863240],
+Cell[CellGroupData[{
+Cell[710, 29, 33, 0, 266, "InitializationSection"],
+Cell[746, 31, 282, 9, 27, "Input",
+ InitializationCell->True,
+ CellID->24470059],
+Cell[1031, 42, 5705, 145, 468, "Input",
+ InitializationCell->True,
+ CellID->739018755],
+Cell[6739, 189, 3817, 96, 308, "Input",
+ InitializationCell->True,
+ CellID->157795905],
+Cell[10559, 287, 8507, 176, 948, "Input",
+ InitializationCell->True,
+ CellID->482792338],
+Cell[19069, 465, 1669, 42, 128, "Input",
+ InitializationCell->True,
+ CellID->46232695],
+Cell[20741, 509, 12136, 288, 1288, "Input",
+ InitializationCell->True,
+ CellID->74134368]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[32914, 802, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[32968, 806, 2177, 57, 268, "Input",
+ CellID->1496021318],
+Cell[35148, 865, 21205, 392, 477, "Output",
+ CellID->316684161]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56399, 1263, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[56438, 1265, 1036, 29, 86, "ManipulateCaption",
+ CellID->1044312921]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57511, 1299, 28, 0, 168, "ThumbnailSection"],
+Cell[57542, 1301, 21213, 392, 477, "Output",
+ CellID->34669486]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[78792, 1698, 28, 0, 138, "SnapshotsSection"],
+Cell[78823, 1700, 21209, 392, 477, "Output",
+ CellID->616456348],
+Cell[100035, 2094, 21213, 392, 477, "Output",
+ CellID->94922064],
+Cell[121251, 2488, 21218, 392, 477, "Output",
+ CellID->968934130]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[142506, 2885, 26, 0, 332, "DetailsSection"],
+Cell[142535, 2887, 342, 13, 23, "DetailNotes",
+ CellID->68124682],
+Cell[142880, 2902, 409, 15, 38, "DetailNotes",
+ CellID->518812535],
+Cell[143292, 2919, 503, 14, 54, "DetailNotes",
+ CellID->35100994],
+Cell[143798, 2935, 43, 1, 22, "DetailNotes",
+ CellID->526693615],
+Cell[143844, 2938, 703, 26, 55, "DetailNotes",
+ CellID->301210908],
+Cell[144550, 2966, 532, 21, 33, "DetailNotes",
+ CellID->325710438],
+Cell[145085, 2989, 315, 13, 23, "DetailNotes",
+ CellID->46506200],
+Cell[145403, 3004, 371, 12, 35, "DetailNotes",
+ CellID->154491696],
+Cell[145777, 3018, 204, 8, 23, "DetailNotes",
+ CellID->149974074],
+Cell[145984, 3028, 974, 34, 70, "DetailNotes",
+ CellID->96531080],
+Cell[146961, 3064, 988, 28, 101, "DetailNotes",
+ CellID->38163805],
+Cell[147952, 3094, 136, 4, 22, "DetailNotes",
+ CellID->631078047],
+Cell[148091, 3100, 1180, 37, 86, "DetailNotes",
+ CellID->295120290],
+Cell[149274, 3139, 2206, 82, 102, "DetailNotes",
+ CellID->244606699],
+Cell[151483, 3223, 640, 25, 33, "DetailNotes",
+ CellID->216160207],
+Cell[152126, 3250, 257, 9, 23, "DetailNotes",
+ CellID->155835537],
+Cell[152386, 3261, 965, 32, 39, "DetailNotes",
+ CellID->163043397],
+Cell[153354, 3295, 674, 22, 54, "DetailNotes",
+ CellID->729094411],
+Cell[154031, 3319, 361, 10, 38, "DetailNotes",
+ CellID->100902572],
+Cell[154395, 3331, 2047, 67, 138, "DetailNotes",
+ CellID->530076840],
+Cell[156445, 3400, 511, 17, 39, "DetailNotes",
+ CellID->311908053],
+Cell[156959, 3419, 43, 1, 22, "DetailNotes",
+ CellID->295117967],
+Cell[157005, 3422, 232, 6, 52, "DetailNotes",
+ CellID->69811350],
+Cell[157240, 3430, 291, 10, 37, "DetailNotes",
+ CellID->273689942],
+Cell[157534, 3442, 189, 6, 22, "DetailNotes",
+ CellID->64905061],
+Cell[157726, 3450, 446, 13, 37, "DetailNotes",
+ CellID->526143793]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[158209, 3468, 57, 1, 120, "ControlSuggestionsSection",
+ CellID->531466547],
+Cell[158269, 3471, 331, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages",
+ CellID->407378964],
+Cell[158603, 3482, 698, 17, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D",
+ CellID->272491887],
+Cell[159304, 3501, 359, 12, 22, "ControlSuggestions",
+ CellTags->"DragLocators",
+ CellID->80104455],
+Cell[159666, 3515, 657, 16, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators",
+ CellID->258499445],
+Cell[160326, 3533, 863, 22, 22, "ControlSuggestions",
+ CellTags->"SliderZoom",
+ CellID->137821590],
+Cell[161192, 3557, 389, 10, 22, "ControlSuggestions",
+ CellTags->"GamepadControls",
+ CellID->274790879],
+Cell[161584, 3569, 1483, 32, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation",
+ CellID->46249219],
+Cell[163070, 3603, 928, 22, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation",
+ CellID->183851583]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[164035, 3630, 30, 0, 152, "SearchTermsSection"],
+Cell[164068, 3632, 54, 1, 22, "SearchTerms",
+ CellID->9620120],
+Cell[164125, 3635, 65, 1, 22, "SearchTerms",
+ CellID->245912470],
+Cell[164193, 3638, 66, 1, 22, "SearchTerms",
+ CellID->316166559],
+Cell[164262, 3641, 64, 1, 22, "SearchTerms",
+ CellID->137963802],
+Cell[164329, 3644, 60, 1, 22, "SearchTerms",
+ CellID->69596137]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[164426, 3650, 31, 0, 138, "RelatedLinksSection"],
+Cell[164460, 3652, 277, 6, 22, "RelatedLinks",
+ CellID->469321166],
+Cell[164740, 3660, 305, 8, 22, "RelatedLinks",
+ CellID->544385884],
+Cell[165048, 3670, 289, 7, 22, "RelatedLinks",
+ CellID->363139957],
+Cell[165340, 3679, 339, 8, 22, "RelatedLinks",
+ CellID->74869354],
+Cell[165682, 3689, 366, 9, 22, "RelatedLinks",
+ CellID->530181127],
+Cell[166051, 3700, 347, 8, 22, "RelatedLinks",
+ CellID->77085594],
+Cell[166401, 3710, 378, 9, 22, "RelatedLinks",
+ CellID->803569786],
+Cell[166782, 3721, 351, 8, 22, "RelatedLinks",
+ CellID->538569673],
+Cell[167136, 3731, 344, 8, 22, "RelatedLinks",
+ CellID->7373291]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[167517, 3744, 25, 0, 136, "AuthorSection"],
+Cell[167545, 3746, 318, 10, 22, "Author",
+ CellID->95413255]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

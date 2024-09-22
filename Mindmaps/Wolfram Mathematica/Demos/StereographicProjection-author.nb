@@ -1,0 +1,1515 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     62603,       1506]
+NotebookOptionsPosition[     58108,       1367]
+NotebookOutlinePosition[     59736,       1418]
+CellTagsIndexPosition[     59408,       1406]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Stereographic Projection", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36491158152337*^9, 3.36491163761258*^9}, {
+   3.36491366210532*^9, 3.36491369040084*^9}, {3.36492457958145*^9, 
+   3.36492458927759*^9}, 3.36514120928615*^9, {3.36514321248341*^9, 
+   3.36514321743289*^9}, {3.36514414258626*^9, 3.36514416074627*^9}, {
+   3.36514424951411*^9, 3.36514425466303*^9}, {3.385250472510984*^9, 
+   3.385250488135436*^9}, 3.385329339211142*^9},
+ CellID->700863240],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"cp", "[", 
+    RowBox[{"x_", ",", "y_", ",", "0"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "#"}], "}"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"#", "+", "1"}], ")"}]}], "&"}], "[", 
+    RowBox[{
+     RowBox[{"x", "^", "2"}], "+", 
+     RowBox[{"y", "^", "2"}]}], "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.35696210375764*^9, 3.37165588778125*^9},
+ CellID->543157363]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ps", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"cp", "[", 
+             RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y", ",", "0"}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{"-", "xx"}], ",", "xx", ",", 
+            RowBox[{"1", "/", "60"}]}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"psr", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"cp", "[", 
+             RowBox[{"x", ",", "y", ",", "0"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "y", ",", "0"}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{"-", "xx"}], ",", "xx", ",", 
+            RowBox[{"1", "/", "6"}]}], "}"}]}], "]"}]}], ",", 
+       RowBox[{"cs", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"cp", "[", 
+               RowBox[{"#1", ",", "#2", ",", "0"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"#1", ",", "#2", ",", "0"}], "}"}]}], "}"}], "&"}], 
+           "[", 
+           RowBox[{
+            RowBox[{"xx", " ", 
+             RowBox[{"Cos", "[", "a", "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"xx", " ", 
+              RowBox[{"Sin", "[", "a", "]"}]}], "+", "y"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", "0", ",", 
+            RowBox[{"2", "Pi"}], ",", 
+            RowBox[{"Pi", "/", "60"}]}], "}"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"csr", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"cp", "[", 
+               RowBox[{"#1", ",", "#2", ",", "0"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"#1", ",", "#2", ",", "0"}], "}"}]}], "}"}], "&"}], 
+           "[", 
+           RowBox[{
+            RowBox[{"xx", " ", 
+             RowBox[{"Cos", "[", "a", "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"xx", " ", 
+              RowBox[{"Sin", "[", "a", "]"}]}], "+", "y"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"a", ",", "0", ",", 
+            RowBox[{"2", "Pi"}], ",", 
+            RowBox[{"Pi", "/", "6"}]}], "}"}]}], "]"}]}]}], "}"}], ",", 
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{
+       RowBox[{"Flatten", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Opacity", "[", "op", "]"}], ",", 
+          RowBox[{"Sphere", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", 
+              RowBox[{"1", "/", "2"}]}], "}"}], ",", 
+            RowBox[{"1", "/", "2"}]}], "]"}], ",", 
+          RowBox[{"Opacity", "[", "1", "]"}], ",", 
+          RowBox[{"Darker", "[", 
+           RowBox[{"Red", ",", ".3"}], "]"}], ",", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"FreeQ", "[", 
+             RowBox[{"lincirc", ",", "0"}], "]"}], ",", 
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Point", "@", 
+               RowBox[{"Flatten", "[", 
+                RowBox[{
+                 RowBox[{"Table", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"yb", "+", "y"}], ",", "0"}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"-", "xx"}], ",", "xx", ",", 
+                    RowBox[{"1", "/", "4"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"yb", ",", 
+                    RowBox[{"-", "xx"}], ",", "xx", ",", 
+                    RowBox[{"1", "/", "4"}]}], "}"}]}], "]"}], ",", "1"}], 
+                "]"}]}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Point", "@", 
+               RowBox[{"Flatten", "[", 
+                RowBox[{
+                 RowBox[{"Table", "[", 
+                  RowBox[{
+                   RowBox[{"cp", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"yb", "+", "y"}], ",", "0"}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"-", "xx"}], ",", "xx", ",", 
+                    RowBox[{"1", "/", "4"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"yb", ",", 
+                    RowBox[{"-", "xx"}], ",", "xx", ",", 
+                    RowBox[{"1", "/", "4"}]}], "}"}]}], "]"}], ",", "1"}], 
+                "]"}]}], ",", 
+              RowBox[{"PointSize", "[", ".01", "]"}], ",", "Gray", ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", "#"}], 
+                  "}"}], "]"}], "&"}], "/@", 
+               RowBox[{"Flatten", "[", 
+                RowBox[{
+                 RowBox[{"Table", "[", 
+                  RowBox[{
+                   RowBox[{"List", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"yb", "+", "y"}], ",", "0"}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"-", "xx"}], ",", "xx", ",", 
+                    RowBox[{"1", "/", "4"}]}], "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"yb", ",", 
+                    RowBox[{"-", "xx"}], ",", "xx", ",", 
+                    RowBox[{"1", "/", "4"}]}], "}"}]}], "]"}], ",", "1"}], 
+                "]"}]}]}], "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"FreeQ", "[", 
+             RowBox[{"lincirc", ",", "1"}], "]"}], ",", 
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Gray", ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "]"}], "&"}], "/@",
+                "psr"}], ",", 
+              RowBox[{"Lighter", "[", 
+               RowBox[{"Blue", ",", ".3"}], "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"ps", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], ",", "Thick",
+               ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"ps", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}], "}"}]}], 
+           "]"}], ",", "Thin", ",", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"FreeQ", "[", 
+             RowBox[{"lincirc", ",", "2"}], "]"}], ",", 
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Gray", ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Line", "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "]"}], "&"}], "/@",
+                "csr"}], ",", 
+              RowBox[{"Darker", "[", 
+               RowBox[{"Magenta", ",", ".3"}], "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"cs", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}], ",", "Thick",
+               ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"cs", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}], "}"}]}], 
+           "]"}], ",", 
+          RowBox[{"PointSize", "[", ".01", "]"}], ",", "Black", ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "1"}], "}"}], "]"}]}], "}"}], "]"}], 
+       ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1.1"}], ",", "1.1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1.1"}], ",", "1.1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", ".1"}], ",", "1."}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"ViewPoint", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "4", ",", "2"}], "}"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "450"}]}], "]"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"xx", ",", ".25", ",", "\"\<size of example in plane\>\""}], 
+      "}"}], ",", 
+     RowBox[{"1", "/", "4."}], ",", "3", ",", 
+     RowBox[{"1", "/", "4."}], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"y", ",", ".75", ",", "\"\<shift example\>\""}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"lincirc", ",", 
+       RowBox[{"{", "2", "}"}], ",", "\"\<example\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"0", "\[Rule]", "\"\<point\>\""}], ",", 
+       RowBox[{"1", "\[Rule]", "\"\<line\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<circle\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "TogglerBar"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"op", ",", ".5", ",", "\"\<opacity of sphere\>\""}], "}"}], ",",
+      "0", ",", "1", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "VerticalSlider"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "}"}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.36492204088876*^9, 3.36492207562765*^9}, {
+   3.36492224041518*^9, 3.36492235162021*^9}, {3.36492239318771*^9, 
+   3.36492245154102*^9}, {3.3649225244537*^9, 3.36492262359685*^9}, {
+   3.36492265812529*^9, 3.36492280804518*^9}, {3.36492284643563*^9, 
+   3.36492285494592*^9}, {3.36492297334888*^9, 3.36492297968571*^9}, {
+   3.36492301648729*^9, 3.36492310935518*^9}, 3.36492315751577*^9, {
+   3.36492376032936*^9, 3.36492392732324*^9}, {3.36492396879772*^9, 
+   3.36492401241366*^9}, {3.3649240577079*^9, 3.36492405833213*^9}, {
+   3.36492411000661*^9, 3.36492411744912*^9}, {3.36492422888106*^9, 
+   3.36492432094835*^9}, {3.36492444169648*^9, 3.36492448847285*^9}, {
+   3.36492452962691*^9, 3.36492454268697*^9}, {3.36492461600422*^9, 
+   3.36492461655447*^9}, {3.36514121847943*^9, 3.36514123275355*^9}, 
+   3.3651438405832*^9, 3.385250467065071*^9, {3.385250656599743*^9, 
+   3.385250675119485*^9}, {3.385250714219001*^9, 3.3852507148129883`*^9}, {
+   3.385251546078905*^9, 3.3852516369398518`*^9}, {3.385251731783774*^9, 
+   3.385251734592231*^9}, {3.385252185262457*^9, 3.385252188628772*^9}, 
+   3.3853278135971603`*^9, {3.38532793267691*^9, 3.385327957098689*^9}, {
+   3.385328008159071*^9, 3.3853281071228437`*^9}, {3.385328137141259*^9, 
+   3.385328198587722*^9}, {3.3853282342502623`*^9, 3.3853283777503242`*^9}, 
+   3.385328446430719*^9, {3.385328980382214*^9, 3.3853290382989607`*^9}, {
+   3.385329073023983*^9, 3.385329129945239*^9}, {3.386423732299337*^9, 
+   3.386423734739349*^9}, 3.3866130302828217`*^9, {3.386613204225444*^9, 
+   3.3866132099553556`*^9}, {3.3866132517895737`*^9, 3.386613324440701*^9}, {
+   3.386613380980205*^9, 3.386613386707369*^9}, {3.3866134279093933`*^9, 
+   3.38661347129205*^9}, {3.386613540770423*^9, 3.386613547139367*^9}, {
+   3.386613578712654*^9, 3.386613594468863*^9}, {3.386616560291296*^9, 
+   3.386616560875145*^9}, {3.386616696197579*^9, 3.3866166967760077`*^9}},
+ CellID->856157502],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lincirc$$ = {2}, $CellContext`op$$ = 
+    0.5, $CellContext`xx$$ = 0.25, $CellContext`y$$ = 0.75, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xx$$], 0.25, "size of example in plane"}, 0.25, 3, 
+      0.25}, {{
+       Hold[$CellContext`y$$], 0.75, "shift example"}, -1, 1}, {{
+       Hold[$CellContext`lincirc$$], {2}, "example"}, {
+      0 -> "point", 1 -> "line", 2 -> "circle"}}, {{
+       Hold[$CellContext`op$$], 0.5, "opacity of sphere"}, 0, 1}}, 
+    Typeset`size$$ = {450., {175., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xx$664248$$ = 0, $CellContext`y$664249$$ = 
+    0, $CellContext`lincirc$664250$$ = False, $CellContext`op$664251$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lincirc$$ = {2}, $CellContext`op$$ = 
+        0.5, $CellContext`xx$$ = 0.25, $CellContext`y$$ = 0.75}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`xx$$, $CellContext`xx$664248$$, 0], 
+        Hold[$CellContext`y$$, $CellContext`y$664249$$, 0], 
+        Hold[$CellContext`lincirc$$, $CellContext`lincirc$664250$$, False], 
+        Hold[$CellContext`op$$, $CellContext`op$664251$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> With[{$CellContext`ps$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            60}], $CellContext`psr$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            6}], $CellContext`cs$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/60}], $CellContext`csr$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/6}]}, 
+        Graphics3D[
+         Flatten[{
+           Opacity[$CellContext`op$$], 
+           Sphere[{0, 0, 1/2}, 1/2], 
+           Opacity[1], 
+           Darker[Red, 0.3], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 0], {}, {
+             Point[
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             Point[
+              Flatten[
+               Table[
+                $CellContext`cp[$CellContext`x, $CellContext`yb + \
+$CellContext`y$$, 0], {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             PointSize[0.01], Gray, 
+             Map[Line[{{0, 0, 1}, #}]& , 
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]]}], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 1], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`psr$], 
+             Lighter[Blue, 0.3], 
+             Line[
+              Part[$CellContext`ps$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`ps$, All, 1]]}], Thin, 
+           If[
+            FreeQ[$CellContext`lincirc$$, 2], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`csr$], 
+             Darker[Magenta, 0.3], 
+             Line[
+              Part[$CellContext`cs$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`cs$, All, 1]]}], 
+           PointSize[0.01], Black, 
+           Point[{0, 0, 1}]}], 
+         PlotRange -> {{-1.1, 1.1}, {-1.1, 1.1}, {-0.1, 1.}}, 
+         ViewPoint -> {0, 4, 2}, ImageSize -> 450]], 
+      "Specifications" :> {{{$CellContext`xx$$, 0.25, 
+          "size of example in plane"}, 0.25, 3, 0.25, Appearance -> 
+         "Labeled"}, {{$CellContext`y$$, 0.75, "shift example"}, -1, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`lincirc$$, {2}, "example"}, {
+         0 -> "point", 1 -> "line", 2 -> "circle"}, ControlType -> 
+         TogglerBar}, {{$CellContext`op$$, 0.5, "opacity of sphere"}, 0, 1, 
+         ControlPlacement -> Left, ControlType -> VerticalSlider, ImageSize -> 
+         Small}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{599., {244., 249.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`cp[
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 0] := ({$CellContext`x, $CellContext`y, #}/(# + 
+        1)& )[$CellContext`x^2 + $CellContext`y^2], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1885674929]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "Take a sphere sitting on a plane. Draw a line from the top of the sphere to \
+a point ",
+ Cell[BoxData[
+  FormBox["P", TraditionalForm]], "InlineMath"],
+ ". in the plane to intersect the sphere at a point ",
+ Cell[BoxData[
+  FormBox["Q", TraditionalForm]], "InlineMath"],
+ ". The stereographic projection of ",
+ Cell[BoxData[
+  FormBox["P", TraditionalForm]], "InlineMath"],
+ " is the point ",
+ Cell[BoxData[
+  FormBox["Q", TraditionalForm]], "InlineMath"],
+ ". "
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36491164470112*^9, 3.36491177867536*^9}, 
+   3.36491369486328*^9, {3.36492470422861*^9, 3.36492470851385*^9}, {
+   3.3649247397745*^9, 3.36492478200532*^9}, {3.36492481219271*^9, 
+   3.36492492818823*^9}, 3.36514124119527*^9, {3.36514416813105*^9, 
+   3.36514421524086*^9}, {3.385250809301499*^9, 3.385251315821851*^9}, 
+   3.385252419270205*^9, {3.385849958396279*^9, 3.385850071951166*^9}, {
+   3.385850139619313*^9, 3.385850232243113*^9}, {3.385850270586721*^9, 
+   3.385850275431922*^9}, {3.3858503075052*^9, 3.385850322367713*^9}, {
+   3.385850359478841*^9, 3.385850378870419*^9}, {3.385850424694496*^9, 
+   3.38585044767447*^9}, {3.3863572796975884`*^9, 3.3863575391440334`*^9}, {
+   3.3863577455126534`*^9, 3.3863577592474337`*^9}, {3.3863581896941433`*^9, 
+   3.3863582189132676`*^9}, {3.386934714841641*^9, 3.386934740451016*^9}},
+ CellID->106684744],
+
+Cell["\<\
+The mapping works both ways so you can think of projecting down from the \
+sphere to the plane using the same intersecting line. \
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36491164470112*^9, 3.36491177867536*^9}, 
+   3.36491369486328*^9, {3.36492470422861*^9, 3.36492470851385*^9}, {
+   3.3649247397745*^9, 3.36492478200532*^9}, {3.36492481219271*^9, 
+   3.36492492818823*^9}, 3.36514124119527*^9, {3.36514416813105*^9, 
+   3.36514421524086*^9}, {3.385250809301499*^9, 3.385251315821851*^9}, 
+   3.385252419270205*^9, {3.385849958396279*^9, 3.385850071951166*^9}, {
+   3.385850139619313*^9, 3.385850232243113*^9}, {3.385850270586721*^9, 
+   3.385850275431922*^9}, {3.3858503075052*^9, 3.385850322367713*^9}, {
+   3.385850359478841*^9, 3.385850378870419*^9}, {3.385850424694496*^9, 
+   3.38585044767447*^9}, {3.3863572796975884`*^9, 3.3863575929433184`*^9}, {
+   3.3863579133763795`*^9, 3.3863580083006845`*^9}, {3.386358236444742*^9, 
+   3.386358263460713*^9}, 3.386934706482266*^9},
+ CellID->112709640],
+
+Cell["\<\
+Stereographic projection maps the points of a line or a circle in the plane \
+to circles on the sphere. Also, stereographic projection is conformal, which \
+means that angles are preserved. \
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36491164470112*^9, 3.36491177867536*^9}, 
+   3.36491369486328*^9, {3.36492470422861*^9, 3.36492470851385*^9}, {
+   3.3649247397745*^9, 3.36492478200532*^9}, {3.36492481219271*^9, 
+   3.36492492818823*^9}, 3.36514124119527*^9, {3.36514416813105*^9, 
+   3.36514421524086*^9}, {3.385250809301499*^9, 3.385251315821851*^9}, 
+   3.385252419270205*^9, {3.385849958396279*^9, 3.385850071951166*^9}, {
+   3.385850139619313*^9, 3.385850232243113*^9}, {3.385850270586721*^9, 
+   3.385850275431922*^9}, {3.3858503075052*^9, 3.385850322367713*^9}, {
+   3.385850359478841*^9, 3.385850378870419*^9}, {3.385850424694496*^9, 
+   3.38585044767447*^9}, {3.3863572796975884`*^9, 3.3863577086047497`*^9}},
+ CellID->354891488],
+
+Cell["\<\
+Although every point in the plane maps up to a point on the sphere, the top \
+point on the sphere has no corresponding point in the plane. Points close to \
+the top map back into the plane far from the sphere, so the top is said to \
+represent the plane's \"point at infinity.\"\
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36491164470112*^9, 3.36491177867536*^9}, 
+   3.36491369486328*^9, {3.36492470422861*^9, 3.36492470851385*^9}, {
+   3.3649247397745*^9, 3.36492478200532*^9}, {3.36492481219271*^9, 
+   3.36492492818823*^9}, 3.36514124119527*^9, {3.36514416813105*^9, 
+   3.36514421524086*^9}, {3.385250809301499*^9, 3.385251315821851*^9}, 
+   3.385252419270205*^9, {3.385849958396279*^9, 3.385850071951166*^9}, {
+   3.385850139619313*^9, 3.385850232243113*^9}, {3.385850270586721*^9, 
+   3.385850275431922*^9}, {3.3858503075052*^9, 3.385850322367713*^9}, {
+   3.385850359478841*^9, 3.385850378870419*^9}, {3.385850424694496*^9, 
+   3.38585044767447*^9}, {3.3863572796975884`*^9, 3.386357735543457*^9}, {
+   3.3863578002484837`*^9, 3.386357888500743*^9}, {3.386358039301478*^9, 
+   3.3863581660063405`*^9}, {3.3863582956173744`*^9, 3.386358307055021*^9}, {
+   3.386934751044766*^9, 3.386934752357266*^9}},
+ CellID->498994591]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lincirc$$ = {2, 0, 1}, $CellContext`op$$ = 
+    0.665, $CellContext`xx$$ = 0.25, $CellContext`y$$ = 0.7200000000000001, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xx$$], 0.25, "size of example in plane"}, 0.25, 3, 
+      0.25}, {{
+       Hold[$CellContext`y$$], 0.7200000000000001, "shift example"}, -1, 
+      1}, {{
+       Hold[$CellContext`lincirc$$], {2, 0, 1}, "example"}, {
+      0 -> "point", 1 -> "line", 2 -> "circle"}}, {{
+       Hold[$CellContext`op$$], 0.665, "opacity of sphere"}, 0, 1}}, 
+    Typeset`size$$ = {450., {175., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xx$664318$$ = 0, $CellContext`y$664319$$ = 
+    0, $CellContext`lincirc$664320$$ = False, $CellContext`op$664321$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lincirc$$ = {2, 0, 1}, $CellContext`op$$ = 
+        0.665, $CellContext`xx$$ = 0.25, $CellContext`y$$ = 
+        0.7200000000000001}, "ControllerVariables" :> {
+        Hold[$CellContext`xx$$, $CellContext`xx$664318$$, 0], 
+        Hold[$CellContext`y$$, $CellContext`y$664319$$, 0], 
+        Hold[$CellContext`lincirc$$, $CellContext`lincirc$664320$$, False], 
+        Hold[$CellContext`op$$, $CellContext`op$664321$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> With[{$CellContext`ps$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            60}], $CellContext`psr$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            6}], $CellContext`cs$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/60}], $CellContext`csr$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/6}]}, 
+        Graphics3D[
+         Flatten[{
+           Opacity[$CellContext`op$$], 
+           Sphere[{0, 0, 1/2}, 1/2], 
+           Opacity[1], 
+           Darker[Red, 0.3], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 0], {}, {
+             Point[
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             Point[
+              Flatten[
+               Table[
+                $CellContext`cp[$CellContext`x, $CellContext`yb + \
+$CellContext`y$$, 0], {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             PointSize[0.01], Gray, 
+             Map[Line[{{0, 0, 1}, #}]& , 
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]]}], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 1], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`psr$], 
+             Lighter[Blue, 0.3], 
+             Line[
+              Part[$CellContext`ps$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`ps$, All, 1]]}], Thin, 
+           If[
+            FreeQ[$CellContext`lincirc$$, 2], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`csr$], 
+             Darker[Magenta, 0.3], 
+             Line[
+              Part[$CellContext`cs$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`cs$, All, 1]]}], 
+           PointSize[0.01], Black, 
+           Point[{0, 0, 1}]}], 
+         PlotRange -> {{-1.1, 1.1}, {-1.1, 1.1}, {-0.1, 1.}}, 
+         ViewPoint -> {0, 4, 2}, ImageSize -> 450]], 
+      "Specifications" :> {{{$CellContext`xx$$, 0.25, 
+          "size of example in plane"}, 0.25, 3, 0.25, Appearance -> 
+         "Labeled"}, {{$CellContext`y$$, 0.7200000000000001, 
+          "shift example"}, -1, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`lincirc$$, {2, 0, 1}, "example"}, {
+         0 -> "point", 1 -> "line", 2 -> "circle"}, ControlType -> 
+         TogglerBar}, {{$CellContext`op$$, 0.665, "opacity of sphere"}, 0, 1, 
+         ControlPlacement -> Left, ControlType -> VerticalSlider, ImageSize -> 
+         Small}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{599., {244., 249.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`cp[
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 0] := ({$CellContext`x, $CellContext`y, #}/(# + 
+        1)& )[$CellContext`x^2 + $CellContext`y^2], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->2122352924]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lincirc$$ = {1}, $CellContext`op$$ = 
+    0.5, $CellContext`xx$$ = 1.25, $CellContext`y$$ = 0.8550000000000001, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xx$$], 1.25, "size of example in plane"}, 0.25, 3, 
+      0.25}, {{
+       Hold[$CellContext`y$$], 0.8550000000000001, "shift example"}, -1, 
+      1}, {{
+       Hold[$CellContext`lincirc$$], {1}, "example"}, {
+      0 -> "point", 1 -> "line", 2 -> "circle"}}, {{
+       Hold[$CellContext`op$$], 0.5, "opacity of sphere"}, 0, 1}}, 
+    Typeset`size$$ = {450., {175., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xx$664388$$ = 0, $CellContext`y$664389$$ = 
+    0, $CellContext`lincirc$664390$$ = False, $CellContext`op$664391$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lincirc$$ = {1}, $CellContext`op$$ = 
+        0.5, $CellContext`xx$$ = 1.25, $CellContext`y$$ = 0.8550000000000001},
+       "ControllerVariables" :> {
+        Hold[$CellContext`xx$$, $CellContext`xx$664388$$, 0], 
+        Hold[$CellContext`y$$, $CellContext`y$664389$$, 0], 
+        Hold[$CellContext`lincirc$$, $CellContext`lincirc$664390$$, False], 
+        Hold[$CellContext`op$$, $CellContext`op$664391$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> With[{$CellContext`ps$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            60}], $CellContext`psr$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            6}], $CellContext`cs$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/60}], $CellContext`csr$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/6}]}, 
+        Graphics3D[
+         Flatten[{
+           Opacity[$CellContext`op$$], 
+           Sphere[{0, 0, 1/2}, 1/2], 
+           Opacity[1], 
+           Darker[Red, 0.3], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 0], {}, {
+             Point[
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             Point[
+              Flatten[
+               Table[
+                $CellContext`cp[$CellContext`x, $CellContext`yb + \
+$CellContext`y$$, 0], {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             PointSize[0.01], Gray, 
+             Map[Line[{{0, 0, 1}, #}]& , 
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]]}], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 1], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`psr$], 
+             Lighter[Blue, 0.3], 
+             Line[
+              Part[$CellContext`ps$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`ps$, All, 1]]}], Thin, 
+           If[
+            FreeQ[$CellContext`lincirc$$, 2], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`csr$], 
+             Darker[Magenta, 0.3], 
+             Line[
+              Part[$CellContext`cs$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`cs$, All, 1]]}], 
+           PointSize[0.01], Black, 
+           Point[{0, 0, 1}]}], 
+         PlotRange -> {{-1.1, 1.1}, {-1.1, 1.1}, {-0.1, 1.}}, 
+         ViewPoint -> {0, 4, 2}, ImageSize -> 450]], 
+      "Specifications" :> {{{$CellContext`xx$$, 1.25, 
+          "size of example in plane"}, 0.25, 3, 0.25, Appearance -> 
+         "Labeled"}, {{$CellContext`y$$, 0.8550000000000001, 
+          "shift example"}, -1, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`lincirc$$, {1}, "example"}, {
+         0 -> "point", 1 -> "line", 2 -> "circle"}, ControlType -> 
+         TogglerBar}, {{$CellContext`op$$, 0.5, "opacity of sphere"}, 0, 1, 
+         ControlPlacement -> Left, ControlType -> VerticalSlider, ImageSize -> 
+         Small}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{599., {244., 249.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`cp[
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 0] := ({$CellContext`x, $CellContext`y, #}/(# + 
+        1)& )[$CellContext`x^2 + $CellContext`y^2], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->682216998],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lincirc$$ = {2}, $CellContext`op$$ = 
+    0.5, $CellContext`xx$$ = 0.5, $CellContext`y$$ = 1., Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xx$$], 0.5, "size of example in plane"}, 0.25, 3, 
+      0.25}, {{
+       Hold[$CellContext`y$$], 1., "shift example"}, -1, 1}, {{
+       Hold[$CellContext`lincirc$$], {2}, "example"}, {
+      0 -> "point", 1 -> "line", 2 -> "circle"}}, {{
+       Hold[$CellContext`op$$], 0.5, "opacity of sphere"}, 0, 1}}, 
+    Typeset`size$$ = {450., {175., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xx$664458$$ = 0, $CellContext`y$664459$$ = 
+    0, $CellContext`lincirc$664460$$ = False, $CellContext`op$664461$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lincirc$$ = {2}, $CellContext`op$$ = 
+        0.5, $CellContext`xx$$ = 0.5, $CellContext`y$$ = 1.}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`xx$$, $CellContext`xx$664458$$, 0], 
+        Hold[$CellContext`y$$, $CellContext`y$664459$$, 0], 
+        Hold[$CellContext`lincirc$$, $CellContext`lincirc$664460$$, False], 
+        Hold[$CellContext`op$$, $CellContext`op$664461$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> With[{$CellContext`ps$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            60}], $CellContext`psr$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            6}], $CellContext`cs$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/60}], $CellContext`csr$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/6}]}, 
+        Graphics3D[
+         Flatten[{
+           Opacity[$CellContext`op$$], 
+           Sphere[{0, 0, 1/2}, 1/2], 
+           Opacity[1], 
+           Darker[Red, 0.3], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 0], {}, {
+             Point[
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             Point[
+              Flatten[
+               Table[
+                $CellContext`cp[$CellContext`x, $CellContext`yb + \
+$CellContext`y$$, 0], {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             PointSize[0.01], Gray, 
+             Map[Line[{{0, 0, 1}, #}]& , 
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]]}], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 1], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`psr$], 
+             Lighter[Blue, 0.3], 
+             Line[
+              Part[$CellContext`ps$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`ps$, All, 1]]}], Thin, 
+           If[
+            FreeQ[$CellContext`lincirc$$, 2], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`csr$], 
+             Darker[Magenta, 0.3], 
+             Line[
+              Part[$CellContext`cs$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`cs$, All, 1]]}], 
+           PointSize[0.01], Black, 
+           Point[{0, 0, 1}]}], 
+         PlotRange -> {{-1.1, 1.1}, {-1.1, 1.1}, {-0.1, 1.}}, 
+         ViewPoint -> {0, 4, 2}, ImageSize -> 450]], 
+      "Specifications" :> {{{$CellContext`xx$$, 0.5, 
+          "size of example in plane"}, 0.25, 3, 0.25, Appearance -> 
+         "Labeled"}, {{$CellContext`y$$, 1., "shift example"}, -1, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`lincirc$$, {2}, "example"}, {
+         0 -> "point", 1 -> "line", 2 -> "circle"}, ControlType -> 
+         TogglerBar}, {{$CellContext`op$$, 0.5, "opacity of sphere"}, 0, 1, 
+         ControlPlacement -> Left, ControlType -> VerticalSlider, ImageSize -> 
+         Small}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{599., {244., 249.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`cp[
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 0] := ({$CellContext`x, $CellContext`y, #}/(# + 
+        1)& )[$CellContext`x^2 + $CellContext`y^2], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->605894053],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`lincirc$$ = {2, 1, 0}, $CellContext`op$$ = 
+    0.23, $CellContext`xx$$ = 3., $CellContext`y$$ = 0., Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`xx$$], 3., "size of example in plane"}, 0.25, 3, 
+      0.25}, {{
+       Hold[$CellContext`y$$], 0., "shift example"}, -1, 1}, {{
+       Hold[$CellContext`lincirc$$], {2, 1, 0}, "example"}, {
+      0 -> "point", 1 -> "line", 2 -> "circle"}}, {{
+       Hold[$CellContext`op$$], 0.23, "opacity of sphere"}, 0, 1}}, 
+    Typeset`size$$ = {450., {175., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xx$664528$$ = 0, $CellContext`y$664529$$ = 
+    0, $CellContext`lincirc$664530$$ = False, $CellContext`op$664531$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`lincirc$$ = {2, 1, 0}, $CellContext`op$$ = 
+        0.23, $CellContext`xx$$ = 3., $CellContext`y$$ = 0.}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`xx$$, $CellContext`xx$664528$$, 0], 
+        Hold[$CellContext`y$$, $CellContext`y$664529$$, 0], 
+        Hold[$CellContext`lincirc$$, $CellContext`lincirc$664530$$, False], 
+        Hold[$CellContext`op$$, $CellContext`op$664531$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> With[{$CellContext`ps$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            60}], $CellContext`psr$ = Table[{
+            $CellContext`cp[$CellContext`x, $CellContext`y$$, 
+             0], {$CellContext`x, $CellContext`y$$, 
+             0}}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 1/
+            6}], $CellContext`cs$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/60}], $CellContext`csr$ = Table[
+           ({
+            $CellContext`cp[#, #2, 0], {#, #2, 0}}& )[$CellContext`xx$$ 
+            Cos[$CellContext`a], $CellContext`xx$$ 
+             Sin[$CellContext`a] + $CellContext`y$$], {$CellContext`a, 0, 2 
+            Pi, Pi/6}]}, 
+        Graphics3D[
+         Flatten[{
+           Opacity[$CellContext`op$$], 
+           Sphere[{0, 0, 1/2}, 1/2], 
+           Opacity[1], 
+           Darker[Red, 0.3], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 0], {}, {
+             Point[
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             Point[
+              Flatten[
+               Table[
+                $CellContext`cp[$CellContext`x, $CellContext`yb + \
+$CellContext`y$$, 0], {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]], 
+             PointSize[0.01], Gray, 
+             Map[Line[{{0, 0, 1}, #}]& , 
+              Flatten[
+               
+               Table[{$CellContext`x, $CellContext`yb + $CellContext`y$$, 
+                 0}, {$CellContext`x, -$CellContext`xx$$, $CellContext`xx$$, 
+                 1/4}, {$CellContext`yb, -$CellContext`xx$$, \
+$CellContext`xx$$, 1/4}], 1]]}], 
+           If[
+            FreeQ[$CellContext`lincirc$$, 1], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`psr$], 
+             Lighter[Blue, 0.3], 
+             Line[
+              Part[$CellContext`ps$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`ps$, All, 1]]}], Thin, 
+           If[
+            FreeQ[$CellContext`lincirc$$, 2], {}, {Gray, 
+             Map[Line[{{0, 0, 1}, 
+                Part[#, 2]}]& , $CellContext`csr$], 
+             Darker[Magenta, 0.3], 
+             Line[
+              Part[$CellContext`cs$, All, 2]], Thick, 
+             Line[
+              Part[$CellContext`cs$, All, 1]]}], 
+           PointSize[0.01], Black, 
+           Point[{0, 0, 1}]}], 
+         PlotRange -> {{-1.1, 1.1}, {-1.1, 1.1}, {-0.1, 1.}}, 
+         ViewPoint -> {0, 4, 2}, ImageSize -> 450]], 
+      "Specifications" :> {{{$CellContext`xx$$, 3., 
+          "size of example in plane"}, 0.25, 3, 0.25, Appearance -> 
+         "Labeled"}, {{$CellContext`y$$, 0., "shift example"}, -1, 1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`lincirc$$, {2, 1, 0}, "example"}, {
+         0 -> "point", 1 -> "line", 2 -> "circle"}, ControlType -> 
+         TogglerBar}, {{$CellContext`op$$, 0.23, "opacity of sphere"}, 0, 1, 
+         ControlPlacement -> Left, ControlType -> VerticalSlider, ImageSize -> 
+         Small}}, "Options" :> {}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{599., {244., 249.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`cp[
+         Pattern[$CellContext`x, 
+          Blank[]], 
+         Pattern[$CellContext`y, 
+          Blank[]], 0] := ({$CellContext`x, $CellContext`y, #}/(# + 
+        1)& )[$CellContext`x^2 + $CellContext`y^2], 
+       Attributes[PlotRange] = {ReadProtected}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->2041378344]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell["", "ImplementationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["Riemann", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36514433750669*^9, 3.36514434325246*^9}},
+ CellID->538140518],
+
+Cell["sphere", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36514434567271*^9, 3.3651443470049*^9}},
+ CellID->1474048509],
+
+Cell["projection", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36514434916385*^9, 3.3651443518365*^9}},
+ CellID->961938971],
+
+Cell["complex plane", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.36514435464289*^9, 3.36514436004404*^9}},
+ CellID->1051390981]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Extended Complex Plane",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/ExtendedComplexPlane.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3709671418052464`*^9, 3.3709671512674026`*^9}, {
+   3.3709671853131037`*^9, 3.3709671853131037`*^9}},
+ CellID->714286202],
+
+Cell[TextData[ButtonBox["Riemann Sphere",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/RiemannSphere.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.370967131018588*^9, 3.370967140300131*^9}, {
+   3.3709671724293194`*^9, 3.3709671724293194`*^9}},
+ CellID->413048936],
+
+Cell[TextData[ButtonBox["Stereographic Projection",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/StereographicProjection.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.385252459480014*^9, 3.38525247971488*^9}},
+ CellID->1496537655]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Michael Schreiber",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Michael+\
+Schreiber"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Michael+Schreiber"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.3648404566848*^9, 3.36484046818309*^9}, 
+   3.370967192788508*^9},
+ CellID->715399142]
+}, Open  ]],
+
+Cell["", "NotesSection"]
+}, Open  ]]
+},
+AutoGeneratedPackage->None,
+WindowSize->{808, 973},
+WindowMargins->{{Automatic, 219}, {Automatic, 23}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (June 19, 2007)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[50427, 1137, 310, 8, 70, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[50740, 1147, 676, 16, 70, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[51419, 1165, 339, 11, 70, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[51761, 1178, 636, 15, 70, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[52400, 1195, 843, 21, 70, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[53246, 1218, 303, 8, 70, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[53552, 1228, 1411, 31, 70, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[54966, 1261, 881, 21, 70, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 58509, 1379},
+ {"RotateAndZoomIn3D", 58618, 1382},
+ {"DragLocators", 58728, 1385},
+ {"CreateAndDeleteLocators", 58844, 1388},
+ {"SliderZoom", 58958, 1391},
+ {"GamepadControls", 59064, 1394},
+ {"AutomaticAnimation", 59177, 1397},
+ {"BookmarkAnimation", 59294, 1400}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 482, 8, 70, "DemoTitle",
+ CellID->700863240],
+Cell[CellGroupData[{
+Cell[1097, 35, 33, 0, 70, "InitializationSection"],
+Cell[1133, 37, 516, 17, 70, "Input",
+ InitializationCell->True,
+ CellID->543157363]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1686, 59, 29, 0, 70, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[1740, 63, 12584, 300, 70, "Input",
+ CellID->856157502],
+Cell[14327, 365, 6172, 129, 70, "Output",
+ CellID->1885674929]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20545, 500, 36, 0, 70, "ManipulateCaptionSection"],
+Cell[20584, 502, 1412, 29, 70, "ManipulateCaption",
+ CellID->106684744],
+Cell[21999, 533, 1044, 17, 70, "ManipulateCaption",
+ CellID->112709640],
+Cell[23046, 552, 979, 16, 70, "ManipulateCaption",
+ CellID->354891488],
+Cell[24028, 570, 1267, 20, 70, "ManipulateCaption",
+ CellID->498994591]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25332, 595, 28, 0, 70, "ThumbnailSection"],
+Cell[25363, 597, 6270, 130, 70, "Output",
+ CellID->2122352924]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31670, 732, 28, 0, 70, "SnapshotsSection"],
+Cell[31701, 734, 6235, 130, 70, "Output",
+ CellID->682216998],
+Cell[37939, 866, 6159, 129, 70, "Output",
+ CellID->605894053],
+Cell[44101, 997, 6184, 129, 70, "Output",
+ CellID->2041378344]
+}, Open  ]],
+Cell[50300, 1129, 26, 0, 70, "DetailsSection"],
+Cell[50329, 1131, 33, 0, 70, "ImplementationSection"],
+Cell[CellGroupData[{
+Cell[50387, 1135, 37, 0, 70, "ControlSuggestionsSection"],
+Cell[50427, 1137, 310, 8, 70, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[50740, 1147, 676, 16, 70, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[51419, 1165, 339, 11, 70, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[51761, 1178, 636, 15, 70, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[52400, 1195, 843, 21, 70, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[53246, 1218, 303, 8, 70, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[53552, 1228, 1411, 31, 70, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[54966, 1261, 881, 21, 70, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55884, 1287, 30, 0, 70, "SearchTermsSection"],
+Cell[55917, 1289, 138, 3, 70, "SearchTerms",
+ CellID->538140518],
+Cell[56058, 1294, 137, 3, 70, "SearchTerms",
+ CellID->1474048509],
+Cell[56198, 1299, 140, 3, 70, "SearchTerms",
+ CellID->961938971],
+Cell[56341, 1304, 145, 3, 70, "SearchTerms",
+ CellID->1051390981]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56523, 1312, 31, 0, 70, "RelatedLinksSection"],
+Cell[56557, 1314, 352, 8, 70, "RelatedLinks",
+ CellID->714286202],
+Cell[56912, 1324, 333, 8, 70, "RelatedLinks",
+ CellID->413048936],
+Cell[57248, 1334, 299, 7, 70, "RelatedLinks",
+ CellID->1496537655]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57584, 1346, 25, 0, 70, "AuthorSection"],
+Cell[57612, 1348, 441, 13, 70, "Author",
+ CellID->715399142]
+}, Open  ]],
+Cell[58068, 1364, 24, 0, 70, "NotesSection"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
