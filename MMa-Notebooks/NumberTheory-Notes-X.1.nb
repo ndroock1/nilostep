@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    563158,      15262]
-NotebookOptionsPosition[    497110,      14159]
-NotebookOutlinePosition[    497815,      14182]
-CellTagsIndexPosition[    497772,      14179]
+NotebookDataLength[    563743,      15281]
+NotebookOptionsPosition[    497433,      14172]
+NotebookOutlinePosition[    498139,      14195]
+CellTagsIndexPosition[    498096,      14192]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -14155,11 +14155,24 @@ Cell[BoxData[
 }, Open  ]]
 }, Closed]],
 
-Cell["tmp-004", "Chapter",ExpressionUUID->"acdbc5cb-da21-614c-ba03-5c39d21d913d"]
+Cell[CellGroupData[{
+
+Cell["tmp-004", "Chapter",ExpressionUUID->"acdbc5cb-da21-614c-ba03-5c39d21d913d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Subfactorial", "[", "4", "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"1e8548f4-de5c-7348-9c0f-e01ad573277e"],
+
+Cell[BoxData["9"], "Output",
+ CellLabel->"Out[1]=",ExpressionUUID->"ef21f498-848c-ac4a-ae33-8d3f56c46a17"]
+}, Open  ]]
+}, Open  ]]
 },
 WindowToolbars->"EditBar",
 WindowSize->{960.75, 615.75},
-WindowMargins->{{192, Automatic}, {Automatic, 48.75}},
+WindowMargins->{{154.5, Automatic}, {Automatic, 6.75}},
 TrackCellChangeTimes->False,
 Magnification:>0.75 Inherited,
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
@@ -15263,7 +15276,13 @@ Cell[496734, 14148, 91, 0, 21, "Input",ExpressionUUID->"c45c95f5-a3d6-334f-a60e-
 Cell[496828, 14150, 170, 3, 24, "Output",ExpressionUUID->"596d77b8-3481-474f-b687-9b4caac2e995"]
 }, Open  ]]
 }, Closed]],
-Cell[497025, 14157, 81, 0, 43, "Chapter",ExpressionUUID->"acdbc5cb-da21-614c-ba03-5c39d21d913d"]
+Cell[CellGroupData[{
+Cell[497047, 14159, 81, 0, 43, "Chapter",ExpressionUUID->"acdbc5cb-da21-614c-ba03-5c39d21d913d"],
+Cell[CellGroupData[{
+Cell[497153, 14163, 143, 2, 21, "Input",ExpressionUUID->"1e8548f4-de5c-7348-9c0f-e01ad573277e"],
+Cell[497299, 14167, 106, 1, 24, "Output",ExpressionUUID->"ef21f498-848c-ac4a-ae33-8d3f56c46a17"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)
