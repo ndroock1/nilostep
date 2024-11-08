@@ -1,0 +1,82 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      2473,         72]
+NotebookOptionsPosition[      1613,         51]
+NotebookOutlinePosition[      2017,         67]
+CellTagsIndexPosition[      1974,         64]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Introduction", "Chapter",
+ CellChangeTimes->{{3.940095742507353*^9, 
+  3.9400957500856056`*^9}},ExpressionUUID->"40454858-38d7-1544-a1d9-\
+8642a3de4e9c"],
+
+Cell["Pre-amble", "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"]
+}, Open  ]],
+
+Cell["Elementary Number Theory", "Chapter",
+ CellChangeTimes->{{3.940095765951008*^9, 
+  3.9400957743036194`*^9}},ExpressionUUID->"598a92d9-73ca-f646-a89a-\
+8f3c2de31537"],
+
+Cell["Arithmetic Functions", "Chapter",
+ CellChangeTimes->{{3.9400957793816376`*^9, 
+  3.940095787545141*^9}},ExpressionUUID->"757e0270-a788-6d4c-b94e-\
+3f40f4e8f34a"],
+
+Cell["Averages of Arithmetic Functions", "Chapter",
+ CellChangeTimes->{{3.9400957793816376`*^9, 
+  3.9400958163533516`*^9}},ExpressionUUID->"f170ed23-26c6-8c45-a777-\
+4968feac83e0"],
+
+Cell["Elementary Results on the Distribution of Primes", "Chapter",
+ CellChangeTimes->{{3.9400957793816376`*^9, 3.940095787545141*^9}, {
+  3.94009584450037*^9, 
+  3.9400958637452335`*^9}},ExpressionUUID->"0305b1a8-6536-8640-8bb1-\
+84e35b1856a7"]
+},
+WindowSize->{994.5, 621},
+WindowMargins->{{Automatic, 150.75}, {15, Automatic}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b4522bcc-8270-4846-bd0b-5f1c6c9448f4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 159, 3, 67, "Chapter",ExpressionUUID->"40454858-38d7-1544-a1d9-8642a3de4e9c"],
+Cell[738, 27, 83, 0, 66, "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"]
+}, Open  ]],
+Cell[836, 30, 171, 3, 67, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
+Cell[1010, 35, 167, 3, 56, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
+Cell[1180, 40, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
+Cell[1364, 45, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
