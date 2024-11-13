@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      2473,         72]
-NotebookOptionsPosition[      1613,         51]
-NotebookOutlinePosition[      2017,         67]
-CellTagsIndexPosition[      1974,         64]
+NotebookDataLength[      3965,        112]
+NotebookOptionsPosition[      2758,         84]
+NotebookOutlinePosition[      3164,        100]
+CellTagsIndexPosition[      3121,         97]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,10 +28,43 @@ Cell["Introduction", "Chapter",
 Cell["Pre-amble", "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell["Elementary Number Theory", "Chapter",
  CellChangeTimes->{{3.940095765951008*^9, 
   3.9400957743036194`*^9}},ExpressionUUID->"598a92d9-73ca-f646-a89a-\
 8f3c2de31537"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FactorInteger", "[", "300", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Divisors", "[", "300", "]"}]}], "Input",
+ CellChangeTimes->{{3.9404350381274643`*^9, 3.940435082243479*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"227ff0d2-e97a-4948-9671-a1ecb2db0343"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "2"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.9404350441303654`*^9, 3.9404350835140057`*^9}},
+ CellLabel->"Out[26]=",ExpressionUUID->"7b576b13-ecc0-ca45-a206-77b753279d42"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "10", ",", "12",
+    ",", "15", ",", "20", ",", "25", ",", "30", ",", "50", ",", "60", ",", 
+   "75", ",", "100", ",", "150", ",", "300"}], "}"}]], "Output",
+ CellChangeTimes->{{3.9404350441303654`*^9, 3.9404350835160103`*^9}},
+ CellLabel->"Out[27]=",ExpressionUUID->"49408525-6e19-444a-9c1d-81801263e5de"]
+}, Open  ]]
+}, Open  ]],
 
 Cell["Arithmetic Functions", "Chapter",
  CellChangeTimes->{{3.9400957793816376`*^9, 
@@ -49,8 +82,8 @@ Cell["Elementary Results on the Distribution of Primes", "Chapter",
   3.9400958637452335`*^9}},ExpressionUUID->"0305b1a8-6536-8640-8bb1-\
 84e35b1856a7"]
 },
-WindowSize->{994.5, 621},
-WindowMargins->{{Automatic, 150.75}, {15, Automatic}},
+WindowSize->{994.5, 613.5},
+WindowMargins->{{100.5, Automatic}, {Automatic, 7.5}},
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"b4522bcc-8270-4846-bd0b-5f1c6c9448f4"
@@ -70,13 +103,18 @@ Cell[CellGroupData[{
 Cell[576, 22, 159, 3, 67, "Chapter",ExpressionUUID->"40454858-38d7-1544-a1d9-8642a3de4e9c"],
 Cell[738, 27, 83, 0, 66, "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"]
 }, Open  ]],
-Cell[836, 30, 171, 3, 67, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
-Cell[1010, 35, 167, 3, 56, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
-Cell[1180, 40, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
-Cell[1364, 45, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+Cell[CellGroupData[{
+Cell[858, 32, 171, 3, 67, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
+Cell[CellGroupData[{
+Cell[1054, 39, 281, 4, 47, "Input",ExpressionUUID->"227ff0d2-e97a-4948-9671-a1ecb2db0343"],
+Cell[1338, 45, 379, 10, 32, "Output",ExpressionUUID->"7b576b13-ecc0-ca45-a206-77b753279d42"],
+Cell[1720, 57, 408, 7, 32, "Output",ExpressionUUID->"49408525-6e19-444a-9c1d-81801263e5de"]
+}, Open  ]]
+}, Open  ]],
+Cell[2155, 68, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
+Cell[2325, 73, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
+Cell[2509, 78, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
