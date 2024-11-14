@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      3965,        112]
-NotebookOptionsPosition[      2758,         84]
-NotebookOutlinePosition[      3164,        100]
-CellTagsIndexPosition[      3121,         97]
+NotebookDataLength[      4544,        130]
+NotebookOptionsPosition[      3208,         99]
+NotebookOutlinePosition[      3617,        115]
+CellTagsIndexPosition[      3574,        112]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,8 +25,23 @@ Cell["Introduction", "Chapter",
   3.9400957500856056`*^9}},ExpressionUUID->"40454858-38d7-1544-a1d9-\
 8642a3de4e9c"],
 
-Cell["Pre-amble", "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"]
-}, Open  ]],
+Cell[CellGroupData[{
+
+Cell["Pre-amble", "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{
+   "$Path", ",", 
+    "\"\<C:\\\\Users\\\\User\\\\git\\\\nilostep\\\\NumberTheory\>\""}], "]"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "BKPNumberTheory`"}]}], "Input",
+ CellChangeTimes->{
+  3.940604172996191*^9, {3.940604211825697*^9, 3.940604213009945*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"add42faf-3023-9347-b7b1-905e1ff5a0d5"]
+}, Closed]]
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -64,7 +79,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.9404350441303654`*^9, 3.9404350835160103`*^9}},
  CellLabel->"Out[27]=",ExpressionUUID->"49408525-6e19-444a-9c1d-81801263e5de"]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 
 Cell["Arithmetic Functions", "Chapter",
  CellChangeTimes->{{3.9400957793816376`*^9, 
@@ -82,8 +97,8 @@ Cell["Elementary Results on the Distribution of Primes", "Chapter",
   3.9400958637452335`*^9}},ExpressionUUID->"0305b1a8-6536-8640-8bb1-\
 84e35b1856a7"]
 },
-WindowSize->{994.5, 613.5},
-WindowMargins->{{100.5, Automatic}, {Automatic, 7.5}},
+WindowSize->{994.5, 599.25},
+WindowMargins->{{153.75, Automatic}, {40.5, Automatic}},
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"b4522bcc-8270-4846-bd0b-5f1c6c9448f4"
@@ -101,19 +116,22 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 159, 3, 67, "Chapter",ExpressionUUID->"40454858-38d7-1544-a1d9-8642a3de4e9c"],
-Cell[738, 27, 83, 0, 66, "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"]
-}, Open  ]],
 Cell[CellGroupData[{
-Cell[858, 32, 171, 3, 67, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
+Cell[760, 29, 83, 0, 66, "Section",ExpressionUUID->"808ed878-85d1-7641-89dc-7d3e3bbf3387"],
+Cell[846, 31, 413, 10, 47, "Input",ExpressionUUID->"add42faf-3023-9347-b7b1-905e1ff5a0d5"]
+}, Closed]]
+}, Closed]],
 Cell[CellGroupData[{
-Cell[1054, 39, 281, 4, 47, "Input",ExpressionUUID->"227ff0d2-e97a-4948-9671-a1ecb2db0343"],
-Cell[1338, 45, 379, 10, 32, "Output",ExpressionUUID->"7b576b13-ecc0-ca45-a206-77b753279d42"],
-Cell[1720, 57, 408, 7, 32, "Output",ExpressionUUID->"49408525-6e19-444a-9c1d-81801263e5de"]
+Cell[1308, 47, 171, 3, 56, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
+Cell[CellGroupData[{
+Cell[1504, 54, 281, 4, 47, "Input",ExpressionUUID->"227ff0d2-e97a-4948-9671-a1ecb2db0343"],
+Cell[1788, 60, 379, 10, 32, "Output",ExpressionUUID->"7b576b13-ecc0-ca45-a206-77b753279d42"],
+Cell[2170, 72, 408, 7, 32, "Output",ExpressionUUID->"49408525-6e19-444a-9c1d-81801263e5de"]
 }, Open  ]]
-}, Open  ]],
-Cell[2155, 68, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
-Cell[2325, 73, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
-Cell[2509, 78, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+}, Closed]],
+Cell[2605, 83, 167, 3, 56, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
+Cell[2775, 88, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
+Cell[2959, 93, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
 }
 ]
 *)
