@@ -1,0 +1,203 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7639,        195]
+NotebookOptionsPosition[      6032,        160]
+NotebookOutlinePosition[      6517,        178]
+CellTagsIndexPosition[      6474,        175]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Notebook Setup", "Chapter",
+ CellChangeTimes->{{3.8914076066016073`*^9, 
+  3.8914076199502316`*^9}},ExpressionUUID->"f4386914-da11-49ab-aa29-\
+7ccd93c94771"],
+
+Cell[CellGroupData[{
+
+Cell["Pre-amble", "Section",ExpressionUUID->"87b546fd-d271-44b8-aef1-769a40b40c44"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Combinatorica`\>\"", "]"}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"1dc1d2f7-955d-43f6-9a21-9e1cc867ec34"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "compat", 
+   "\"Combinatorica Graph and Permutations functionality has been superseded \
+by preloaded functionality. The package now being loaded may conflict with \
+this. Please see the Compatibility Guide for details.\"", 2, 7, 1, 
+   23296936797966833608, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8914130052344484`*^9, 3.891497254199388*^9, 
+  3.8914975469655123`*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"abcaed67-1b1f-4a2e-a14d-582dc66ce63f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GraphJoin", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"GraphJoin\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"System`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
+\\(\\*RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 7, 2, 23296936797966833608, "Local", 
+   "Combinatorica`GraphJoin"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8914130052344484`*^9, 3.891497254199388*^9, 
+  3.8914975470015106`*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"8c3d55ab-34fd-4ad6-88e0-822725577b16"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GraphProduct", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"GraphProduct\\\\\\\"\\\"}]\\) \
+appears in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"System`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
+\\(\\*RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 7, 3, 23296936797966833608, "Local", 
+   "Combinatorica`GraphProduct"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8914130052344484`*^9, 3.891497254199388*^9, 
+  3.8914975470395346`*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"218d87b1-a1a5-4c7d-a301-f6cf8d411c8f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GraphSum", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"GraphSum\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"System`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
+\\(\\*RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 7, 4, 23296936797966833608, "Local", 
+   "Combinatorica`GraphSum"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8914130052344484`*^9, 3.891497254199388*^9, 
+  3.891497547054513*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"0b28e127-13d0-4d00-9404-b8b2f7ae829c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Inversions", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Inversions\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Global`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in context \\!\
+\\(\\*RowBox[{\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 7, 5, 23296936797966833608, "Local", 
+   "Combinatorica`Inversions"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8914130052344484`*^9, 3.891497254199388*^9, 
+  3.891497547090514*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"8bbf242b-89e1-4345-bafc-83ec39c21932"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDelayed", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"EdgeChromaticNumber\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"EdgeChromaticNumber\\\", \\\"[\\\", \\\"g_Graph\\\", \
+\\\"]\\\"}]\\) is Protected.\"", 2, 7, 6, 23296936797966833608, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8914130052344484`*^9, 3.891497254199388*^9, 
+  3.8914975474435096`*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"10112b52-97e1-4b4a-8a6b-b1471df87e9a"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{
+   "$Path", ",", 
+    "\"\<C:\\\\Users\\\\deroo\\\\__DATA\\\\MEGA\\\\DATA\\\\git\\\\MFDSNT\\\\\
+Mathematica Notebooks\>\""}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "BKPNumberTheory`"}], "\[IndentingNewLine]"}], "Input",Expressi\
+onUUID->"e0e00e4e-7280-454c-9407-2c5a68b34c5f"]
+}, Closed]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Naive Lie Theory - John Stillwell", "Chapter",
+ CellChangeTimes->{{3.8914076299823875`*^9, 3.8914076594504995`*^9}, {
+  3.892614406354415*^9, 3.8926144168510785`*^9}, {3.8926145303844833`*^9, 
+  3.8926145422952166`*^9}},ExpressionUUID->"70b522df-c91c-4dbb-9b42-\
+93ad5add9422"],
+
+Cell["Chapter 1. ( TBD )", "Section",
+ CellChangeTimes->{{3.8914076957908335`*^9, 3.8914077054305825`*^9}, {
+  3.892614424275597*^9, 
+  3.8926144281854715`*^9}},ExpressionUUID->"6366796d-ff94-440f-acaa-\
+5607f4e2e052"]
+}, Open  ]]
+},
+WindowSize->{1035., 647.25},
+WindowMargins->{{Automatic, 31.5}, {32.25, Automatic}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+Magnification:>0.75 Inherited,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c3b4ebe5-7991-47da-a283-df2b669e4301"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 163, 3, 51, "Chapter",ExpressionUUID->"f4386914-da11-49ab-aa29-7ccd93c94771"],
+Cell[CellGroupData[{
+Cell[768, 29, 83, 0, 50, "Section",ExpressionUUID->"87b546fd-d271-44b8-aef1-769a40b40c44"],
+Cell[CellGroupData[{
+Cell[876, 33, 157, 2, 21, "Input",ExpressionUUID->"1dc1d2f7-955d-43f6-9a21-9e1cc867ec34"],
+Cell[1036, 37, 549, 12, 35, "Message",ExpressionUUID->"abcaed67-1b1f-4a2e-a14d-582dc66ce63f"],
+Cell[1588, 51, 745, 15, 21, "Message",ExpressionUUID->"8c3d55ab-34fd-4ad6-88e0-822725577b16"],
+Cell[2336, 68, 754, 15, 21, "Message",ExpressionUUID->"218d87b1-a1a5-4c7d-a301-f6cf8d411c8f"],
+Cell[3093, 85, 740, 15, 21, "Message",ExpressionUUID->"0b28e127-13d0-4d00-9404-b8b2f7ae829c"],
+Cell[3836, 102, 746, 15, 21, "Message",ExpressionUUID->"8bbf242b-89e1-4345-bafc-83ec39c21932"],
+Cell[4585, 119, 507, 11, 21, "Message",ExpressionUUID->"10112b52-97e1-4b4a-8a6b-b1471df87e9a"]
+}, Open  ]],
+Cell[5107, 133, 356, 8, 50, "Input",ExpressionUUID->"e0e00e4e-7280-454c-9407-2c5a68b34c5f"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5512, 147, 283, 4, 51, "Chapter",ExpressionUUID->"70b522df-c91c-4dbb-9b42-93ad5add9422"],
+Cell[5798, 153, 218, 4, 50, "Section",ExpressionUUID->"6366796d-ff94-440f-acaa-5607f4e2e052"]
+}, Open  ]]
+}
+]
+*)
+

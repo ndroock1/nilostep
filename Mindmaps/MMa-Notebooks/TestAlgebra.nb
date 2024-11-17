@@ -1,0 +1,311 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12785,        303]
+NotebookOptionsPosition[     10799,        268]
+NotebookOutlinePosition[     11241,        285]
+CellTagsIndexPosition[     11198,        282]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{
+   "$Path", ",", 
+    "\"\<C:\\\\Users\\\\deroo\\\\__DATA\\\\MEGA\\\\DATA\\\\eclipse-workspace2\
+\\\\Algebra\>\""}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "Algebra`"}]}], "Input",
+ CellChangeTimes->{{3.890205415732423*^9, 3.8902054564003997`*^9}},
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"5a998011-8475-43b7-8479-2d331f20cc4d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CartesianProduct", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"CartesianProduct\\\\\\\"\\\"}]\\) \
+appears in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 24, 23282230170315231923, 
+   "Local", "Algebra`CartesianProduct"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054586052732`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"102ba10d-63a3-4880-a5a4-fb231b13eccc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Cycle", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Cycle\\\\\\\"\\\"}]\\) appears in \
+multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 25, 23282230170315231923, 
+   "Local", "Algebra`Cycle"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.890205458837553*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"64c3e818-a521-4513-93de-6dd84882b307"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Cyclic", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Cyclic\\\\\\\"\\\"}]\\) appears in \
+multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 26, 23282230170315231923, 
+   "Local", "Algebra`Cyclic"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054588816185`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"30ee04f9-d11b-4774-992e-00c904b0f738"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Dihedral", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Dihedral\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\\\\\\\"Algebra`\
+\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \
+\\\"}\\\"}]\\); definitions in context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 160, 27, 23282230170315231923, "Local", 
+   "Algebra`Dihedral"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.890205458928615*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"f2fd2036-a91e-4d24-b268-191698f9cf60"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FromCycles", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"FromCycles\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\\\\\\\"Algebra`\
+\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \
+\\\"}\\\"}]\\); definitions in context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 160, 28, 23282230170315231923, "Local", 
+   "Algebra`FromCycles"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.89020545909614*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"3c5cb118-b654-4025-b41c-f19e03b8bc66"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Index", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"Index\\\\\\\"\\\"}]\\) appears in \
+multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 29, 23282230170315231923, 
+   "Local", "Algebra`Index"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054593731227`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"58e115b6-7af1-40c9-91b6-744fabba332f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "IsomorphismQ", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"IsomorphismQ\\\\\\\"\\\"}]\\) \
+appears in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 30, 23282230170315231923, 
+   "Local", "Algebra`IsomorphismQ"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054594071255`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"e4d7e4b0-01f1-4f2f-a164-eb14f270b1a5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "KSubsets", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"KSubsets\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\\\\\\\"Algebra`\
+\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \
+\\\"}\\\"}]\\); definitions in context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 160, 31, 23282230170315231923, "Local", 
+   "Algebra`KSubsets"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.890205459441121*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"907ba243-abd9-41af-b788-709d6624f06d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "MultiplicationTable", "shdw", 
+   "\"Symbol \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"MultiplicationTable\\\\\\\"\\\"}]\\) appears in \
+multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 32, 23282230170315231923, 
+   "Local", "Algebra`MultiplicationTable"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.890205459483121*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"97d300ec-1a22-45a2-abe6-0a7d904cefa4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "PermutationQ", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"PermutationQ\\\\\\\"\\\"}]\\) \
+appears in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \\\"}\\\"}]\\); definitions in \
+context \\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or \
+be shadowed by other definitions.\"", 2, 160, 33, 23282230170315231923, 
+   "Local", "Algebra`PermutationQ"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.89020545952112*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"6e53787d-53a5-4ac3-b6b0-b6996d2a5c1c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SymmetricQ", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"SymmetricQ\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\\\\\\\"Algebra`\
+\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \
+\\\"}\\\"}]\\); definitions in context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 160, 34, 23282230170315231923, "Local", 
+   "Algebra`SymmetricQ"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054595781264`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"47f76a5b-6ba5-4284-a929-a8e685f48149"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ToCycles", "shdw", 
+   "\"Symbol \\!\\(\\*RowBox[{\\\"\\\\\\\"ToCycles\\\\\\\"\\\"}]\\) appears \
+in multiple contexts \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"\\\\\\\"Algebra`\
+\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Combinatorica`\\\\\\\"\\\"}], \
+\\\"}\\\"}]\\); definitions in context \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"Algebra`\\\\\\\"\\\"}]\\) may shadow or be \
+shadowed by other definitions.\"", 2, 160, 35, 23282230170315231923, "Local", 
+   "Algebra`ToCycles"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.890205459613124*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"1eebd2a1-7141-47da-b422-e67c84d28cb2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDelayed", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"PermutationMatrix\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"PermutationMatrix\\\", \\\"[\\\", RowBox[{\\\"list_\\\", \
+\\\"?\\\", \\\"PermutationQ\\\"}], \\\"]\\\"}]\\) is Protected.\"", 2, 160, 
+   36, 23282230170315231923, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054600317717`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"35643ab4-b8d9-4618-bd44-773ca002121f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDelayed", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"PermutationMatrix\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"PermutationMatrix\\\", \\\"[\\\", RowBox[{\\\"list_\\\", \
+\\\"?\\\", \\\"PermutationByRulesQ\\\"}], \\\"]\\\"}]\\) is Protected.\"", 2, 
+   160, 37, 23282230170315231923, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8902054600579243`*^9},
+ CellLabel->
+  "During evaluation of \
+In[159]:=",ExpressionUUID->"584642fa-fa6f-4499-99f1-ecf11aaf8f31"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"56", "/", "9."}]], "Input",
+ CellChangeTimes->{{3.8904816086533327`*^9, 3.890481614037449*^9}},
+ CellLabel->
+  "In[162]:=",ExpressionUUID->"a2cd5e56-66f3-44dc-9915-e343e9d13932"],
+
+Cell[BoxData["6.222222222222221`"], "Output",
+ CellChangeTimes->{{3.8904816108578215`*^9, 3.89048161442494*^9}},
+ CellLabel->
+  "Out[162]=",ExpressionUUID->"798ccb42-981c-4f13-83bd-e61234f9edf2"]
+}, Open  ]]
+},
+WindowSize->{1158., 571.5},
+WindowMargins->{{91.5, Automatic}, {Automatic, 90.75}},
+Magnification:>0.75 Inherited,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ff4dcf41-5f81-41cc-85e4-b99a4baae8ee"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 410, 10, 38, "Input",ExpressionUUID->"5a998011-8475-43b7-8479-2d331f20cc4d"],
+Cell[993, 34, 711, 14, 22, "Message",ExpressionUUID->"102ba10d-63a3-4880-a5a4-fb231b13eccc"],
+Cell[1707, 50, 676, 14, 22, "Message",ExpressionUUID->"64c3e818-a521-4513-93de-6dd84882b307"],
+Cell[2386, 66, 681, 14, 22, "Message",ExpressionUUID->"30ee04f9-d11b-4774-992e-00c904b0f738"],
+Cell[3070, 82, 685, 14, 22, "Message",ExpressionUUID->"f2fd2036-a91e-4d24-b268-191698f9cf60"],
+Cell[3758, 98, 690, 14, 22, "Message",ExpressionUUID->"3c5cb118-b654-4025-b41c-f19e03b8bc66"],
+Cell[4451, 114, 678, 14, 22, "Message",ExpressionUUID->"58e115b6-7af1-40c9-91b6-744fabba332f"],
+Cell[5132, 130, 699, 14, 22, "Message",ExpressionUUID->"e4d7e4b0-01f1-4f2f-a164-eb14f270b1a5"],
+Cell[5834, 146, 685, 14, 22, "Message",ExpressionUUID->"907ba243-abd9-41af-b788-709d6624f06d"],
+Cell[6522, 162, 720, 15, 22, "Message",ExpressionUUID->"97d300ec-1a22-45a2-abe6-0a7d904cefa4"],
+Cell[7245, 179, 696, 14, 22, "Message",ExpressionUUID->"6e53787d-53a5-4ac3-b6b0-b6996d2a5c1c"],
+Cell[7944, 195, 693, 14, 22, "Message",ExpressionUUID->"47f76a5b-6ba5-4284-a929-a8e685f48149"],
+Cell[8640, 211, 685, 14, 22, "Message",ExpressionUUID->"1eebd2a1-7141-47da-b422-e67c84d28cb2"],
+Cell[9328, 227, 504, 11, 22, "Message",ExpressionUUID->"35643ab4-b8d9-4618-bd44-773ca002121f"],
+Cell[9835, 240, 511, 11, 22, "Message",ExpressionUUID->"584642fa-fa6f-4499-99f1-ecf11aaf8f31"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10383, 256, 202, 4, 21, "Input",ExpressionUUID->"a2cd5e56-66f3-44dc-9915-e343e9d13932"],
+Cell[10588, 262, 195, 3, 35, "Output",ExpressionUUID->"798ccb42-981c-4f13-83bd-e61234f9edf2"]
+}, Open  ]]
+}
+]
+*)
+
