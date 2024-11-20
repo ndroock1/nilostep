@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      9802,        289]
-NotebookOptionsPosition[      7107,        232]
-NotebookOutlinePosition[      7514,        248]
-CellTagsIndexPosition[      7471,        245]
+NotebookDataLength[     24380,        625]
+NotebookOptionsPosition[     20669,        549]
+NotebookOutlinePosition[     21077,        565]
+CellTagsIndexPosition[     21034,        562]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -59,156 +59,473 @@ Cell["Lifting The Exponent lemma", "Section",
 
 Cell[CellGroupData[{
 
-Cell["Examples", "Subsection",
- CellChangeTimes->{{3.9409230347349033`*^9, 
-  3.9409230401650906`*^9}},ExpressionUUID->"35269abb-d1f2-a048-987e-\
-cdd62dae44c9"],
+Cell["Theory", "Subsection",
+ CellChangeTimes->{{3.9409230347349033`*^9, 3.9409230401650906`*^9}, {
+   3.9409991473981647`*^9, 3.9409991506410923`*^9}, {3.941003977573347*^9, 
+   3.9410039801347046`*^9}, {3.941039910802183*^9, 3.941039926018198*^9}, 
+   3.9410899477594337`*^9},ExpressionUUID->"ba212af7-b119-7944-a5d8-\
+5bcbc63f0bb5"],
+
+Cell[CellGroupData[{
+
+Cell["Valuation and p-adic norm", "Subsubsection",
+ CellChangeTimes->{{3.9411251747623177`*^9, 
+  3.941125184941412*^9}},ExpressionUUID->"4d735113-65cd-b74c-a2dc-\
+fb55e7fa3047"],
+
+Cell["\<\
+ I see what might have caused the confusion now. The text you read is \
+defining a function `vp(x)` in terms of the `p`-adic norm `||x||p` of an \
+integer `x`. The `p`-adic norm is a generalization of the concept of the \
+absolute value of a number, but it is defined differently for different prime \
+numbers `p`.
+
+For a prime number `p`, the `p`-adic norm of an integer `x` is defined as \
+follows:
+
+* If `x` is divisible by `p`, then `||x||p = 1/p^n`, where `n` is the largest \
+integer such that `p^n` divides `x`.
+* If `x` is not divisible by `p`, then `||x||p = 1`.
+
+The text you read is defining `vp(x)` as the exponent of `p` in the `p`-adic \
+norm of `x`. That is, `vp(x)` is the integer such that `||x||p = \
+p^\[Minus]vp(x)`.
+
+For example, if `x = 12` and `p = 2`, then `||x||p = 1/4` and `vp(x) = 2`, \
+because `12` is divisible by `2^2`. If `x = 12` and `p = 3`, then `||x||p = \
+1/3` and `vp(x) = 1`, because `12` is divisible by `3`. If `x = 12` and `p = \
+5`, then `||x||p = 1` and `vp(x) = 0`, because `12` is not divisible by `5`.
+
+So, the function `vp(x)` is not the valuation of `x` with respect to `p`, but \
+rather the exponent of `p` in the `p`-adic norm of `x`. The `p`-adic norm is \
+a generalization of the absolute value of a number, and it is defined \
+differently for different prime numbers `p`. The valuation of `x` with \
+respect to `p` is the exponent of `p` in the prime factorization of `x`, and \
+it is always a non-negative integer.
+
+I hope this helps clarify the difference between the `p`-adic norm and the \
+valuation of an integer with respect to a prime. Let me know if you have any \
+other questions.\
+\>", "Text",
+ CellChangeTimes->{
+  3.941125197185961*^9},ExpressionUUID->"1b846ce5-0c5d-ce45-beb7-\
+6bfef8f26b78"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Purpose of the Lemma ", "Subsubsection",
+ CellChangeTimes->{{3.940999731830002*^9, 3.9409997416371593`*^9}, {
+  3.9410039946232014`*^9, 3.9410039990387383`*^9}, {3.9410899276789017`*^9, 
+  3.9410899346147957`*^9}},ExpressionUUID->"90050a6c-1466-e849-9913-\
+991ca4e16896"],
+
+Cell[TextData[{
+ "How to find the greatest power of a prime p  that divides ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["x", "n"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7f04c47a-5fa4-2d41-b70a-b95304c17c3f"],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[PlusMinus]", " ", 
+    SuperscriptBox["y", "n"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "fb48c087-c23f-1448-96a5-c404d38688b0"],
+ " for some positive integers x and y."
+}], "Text",
+ CellChangeTimes->{{3.9410898083665104`*^9, 
+  3.9410898998475533`*^9}},ExpressionUUID->"fbc260b9-05b9-ec41-9c3c-\
+229fb24fb57b"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FactorInteger", "[", 
-  RowBox[{
-   SuperscriptBox["33", "31"], "-", 
-   SuperscriptBox["13", "31"]}], "]"}]], "Input",
- CellChangeTimes->{{3.940910299627592*^9, 3.9409103382638626`*^9}},
- CellLabel->"In[2]:=",ExpressionUUID->"e760268f-787a-0940-9e2f-c5783ec4da82"],
+ RowBox[{"rs", "=", 
+  RowBox[{"ResourceFunction", "[", "\"\<ExponentLift\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.9410787980943966`*^9, 3.9410788071172295`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"410efd79-793e-cf4c-8ad3-e8828f32f35f"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"2", ",", "2"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"50221", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"148429", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"78276784783213", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"10159329454421730582607", ",", "1"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{{3.9409103228915043`*^9, 3.940910340600315*^9}},
- CellLabel->"Out[2]=",ExpressionUUID->"b100a1c4-51fa-7748-8fa6-a9401ea31e68"]
+ InterpretationBox[
+  TagBox[
+   TagBox[
+    DynamicModuleBox[{Typeset`open = False}, 
+     FrameBox[
+      PaneSelectorBox[{False->GridBox[{
+         {
+          PaneBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                 BoxBaselineShift->-0.25,
+                 BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                
+                FontColor->RGBColor[
+                 0.8745098039215686, 0.2784313725490196, 0.03137254901960784]],
+               ShowStringCharacters->False,
+               FontFamily->"Source Sans Pro Black",
+               FontSize->0.6538461538461539 Inherited,
+               FontWeight->"Heavy",
+               PrivateFontOptions->{"OperatorSubstitution"->False}], 
+              StyleBox[
+               RowBox[{
+                StyleBox["ExponentLift", "ResourceFunctionLabel"], " "}],
+               ShowAutoStyles->False,
+               ShowStringCharacters->False,
+               FontSize->Rational[12, 13] Inherited,
+               FontColor->GrayLevel[0.1]]}
+            },
+            GridBoxSpacings->{"Columns" -> {{0.25}}}],
+           Alignment->Left,
+           BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+           BaselinePosition->Baseline,
+           FrameMargins->{{3, 0}, {0, 0}}], 
+          ItemBox[
+           PaneBox[
+            TogglerBox[Dynamic[Typeset`open], {True->
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "IconizeCloser"],
+              ImageSizeCache->{11., {1.15185546875, 9.84814453125}}], False->
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "IconizeOpener"],
+              ImageSizeCache->{11., {1.15185546875, 9.84814453125}}]},
+             Appearance->None,
+             BaselinePosition->Baseline,
+             ContentPadding->False,
+             FrameMargins->0],
+            Alignment->Left,
+            BaselinePosition->Baseline,
+            FrameMargins->{{1, 1}, {0, 0}}],
+           Frame->{{
+              RGBColor[
+              0.8313725490196079, 0.8470588235294118, 0.8509803921568627, 
+               0.5], False}, {False, False}}]}
+        },
+        BaselinePosition->{1, 1},
+        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}], True->
+       GridBox[{
+         {GridBox[{
+            {
+             PaneBox[GridBox[{
+                {
+                 StyleBox[
+                  AdjustmentBox[
+                   
+                   StyleBox["\<\"[\[FilledSmallSquare]]\"\>", 
+                    "ResourceFunctionIcon",
+                    
+                    FontColor->RGBColor[
+                    0.8745098039215686, 0.2784313725490196, 
+                    0.03137254901960784]],
+                   BoxBaselineShift->-0.25,
+                   BoxMargins->{{0, 0}, {-1, -1}}],
+                  ShowStringCharacters->False,
+                  FontFamily->"Source Sans Pro Black",
+                  FontSize->0.6538461538461539 Inherited,
+                  FontWeight->"Heavy",
+                  PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                 StyleBox[
+                  RowBox[{
+                   StyleBox["ExponentLift", "ResourceFunctionLabel"], " "}],
+                  ShowAutoStyles->False,
+                  ShowStringCharacters->False,
+                  FontSize->Rational[12, 13] Inherited,
+                  FontColor->GrayLevel[0.1]]}
+               },
+               GridBoxSpacings->{"Columns" -> {{0.25}}}],
+              Alignment->Left,
+              BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+              BaselinePosition->Baseline,
+              FrameMargins->{{3, 0}, {0, 0}}], 
+             ItemBox[
+              PaneBox[
+               TogglerBox[Dynamic[Typeset`open], {True->
+                
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "FEBitmaps", "IconizeCloser"]], False->
+                
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "FEBitmaps", "IconizeOpener"]]},
+                Appearance->None,
+                BaselinePosition->Baseline,
+                ContentPadding->False,
+                FrameMargins->0],
+               Alignment->Left,
+               BaselinePosition->Baseline,
+               FrameMargins->{{1, 1}, {0, 0}}],
+              Frame->{{
+                 RGBColor[
+                 0.8313725490196079, 0.8470588235294118, 0.8509803921568627, 
+                  0.5], False}, {False, False}}]}
+           },
+           BaselinePosition->{1, 1},
+           GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+           
+           GridBoxItemSize->{
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+           GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}]},
+         {
+          StyleBox[
+           PaneBox[GridBox[{
+              {
+               RowBox[{
+                TagBox["\<\"Version (latest): \"\>",
+                 "IconizedLabel"], " ", 
+                TagBox["\<\"1.0.0\"\>",
+                 "IconizedItem"]}]},
+              {
+               TagBox[
+                
+                TemplateBox[{
+                 "\"Documentation \[RightGuillemet]\"", 
+                  "https://resources.wolframcloud.com/FunctionRepository/\
+resources/38e391ad-ad03-49de-b3e5-cc6c7f7b3262/"},
+                 "HyperlinkURL"],
+                "IconizedItem"]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            Alignment->Left,
+            BaselinePosition->Baseline,
+            FrameMargins->{{5, 4}, {0, 4}}], "DialogStyle",
+           FontFamily->"Roboto",
+           FontSize->11]}
+        },
+        BaselinePosition->{1, 1},
+        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+        GridBoxDividers->{"Columns" -> {{None}}, "Rows" -> {False, {
+             GrayLevel[0.8]}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+       Typeset`open],
+       BaselinePosition->Baseline,
+       ImageSize->Automatic],
+      Background->RGBColor[
+       0.9686274509803922, 0.9764705882352941, 0.984313725490196],
+      BaselinePosition->Baseline,
+      DefaultBaseStyle->{},
+      FrameMargins->{{0, 0}, {1, 0}},
+      FrameStyle->RGBColor[
+       0.8313725490196079, 0.8470588235294118, 0.8509803921568627],
+      RoundingRadius->4]],
+    #& ,
+    TagBoxNote->" "],
+   {"FunctionResourceBox", 
+    RGBColor[0.8745098039215686, 0.2784313725490196, 0.03137254901960784], 
+    "ExponentLift"},
+   TagBoxNote->"FunctionResourceBox"],
+  ResourceFunction[
+   ResourceObject[<|
+    "Name" -> "ExponentLift", "ShortName" -> "ExponentLift", "UUID" -> 
+     "38e391ad-ad03-49de-b3e5-cc6c7f7b3262", "ResourceType" -> "Function", 
+     "Version" -> "1.0.0", "Description" -> 
+     "Compute the p-adic valuation for certain integers using the \
+lifting-the-exponent lemma", "RepositoryLocation" -> 
+     URL["https://www.wolframcloud.com/obj/resourcesystem/api/1.0"], 
+     "SymbolName" -> 
+     "FunctionRepository`$ddff7caa931a4ad89ec77713c8338f77`ExponentLift", 
+     "FunctionLocation" -> 
+     CloudObject[
+      "https://www.wolframcloud.com/obj/8099c9a3-3516-4f39-a850-23b0eb613a0b"]\
+|>, {ResourceSystemBase -> 
+     "https://www.wolframcloud.com/obj/resourcesystem/api/1.0"}]],
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.9410788351475525`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"af9f0224-733a-7149-a8c1-adf79f0cba14"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FactorInteger", "[", 
-  RowBox[{
-   SuperscriptBox["33", "29"], "-", 
-   SuperscriptBox["13", "29"]}], "]"}]], "Input",
- CellChangeTimes->{{3.9409103597280025`*^9, 3.9409103650504055`*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"5aed1358-45ac-ba46-b3c1-d538cc8bc48e"],
+ RowBox[{"rs", "[", 
+  RowBox[{"33", ",", "13", ",", "17", ",", "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9410788428883953`*^9, 3.9410788645913677`*^9}, {
+  3.94107890339217*^9, 3.941078931892042*^9}, {3.941089999735712*^9, 
+  3.941090029421358*^9}, {3.941090559456444*^9, 3.9410905610336857`*^9}, {
+  3.941094679004513*^9, 3.941094682022753*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"40c00b6b-df6f-b340-b4bc-0afa5998d3f7"],
 
 Cell[BoxData[
- RowBox[{"{", 
+ RowBox[{"\[LeftAssociation]", 
   RowBox[{
-   RowBox[{"{", 
-    RowBox[{"2", ",", "2"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"59", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"233", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"3539", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"1402673", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"79768114774984961177932134061", ",", "1"}], "}"}]}], 
-  "}"}]], "Output",
- CellChangeTimes->{3.9409103667003975`*^9},
- CellLabel->"Out[3]=",ExpressionUUID->"135c0986-533e-9341-af66-fcd773ff3bdb"]
+   RowBox[{"\<\"Difference\"\>", "\[Rule]", "1"}], ",", 
+   RowBox[{"\<\"Sum\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplied\"\>", "]"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.9410788546011524`*^9, 3.941078867130928*^9}, {
+   3.941078905257162*^9, 3.941078932907301*^9}, 3.941090031492403*^9, 
+   3.9410905654655056`*^9, 3.9410946852789974`*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"77a3eccb-19e5-4348-827c-12c23175ad1f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"FactorInteger", "[", 
+ FractionBox[
   RowBox[{
-   SuperscriptBox["33", "10"], "-", 
-   SuperscriptBox["13", "10"]}], "]"}]], "Input",
- CellChangeTimes->{{3.9409104053507576`*^9, 3.9409104085106907`*^9}, {
-  3.940911019352421*^9, 3.9409110264619503`*^9}},
- CellLabel->"In[5]:=",ExpressionUUID->"89b9e6de-0086-0f4f-a8e1-dacc0d1389a4"],
+   SuperscriptBox["33", "17"], "-", 
+   SuperscriptBox["13", "17"]}], "5"]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.9410786967083054`*^9, 3.9410787581266537`*^9}, {
+  3.9410789157434807`*^9, 3.9410789437209187`*^9}, {3.941090039990925*^9, 
+  3.9410901091438427`*^9}, {3.9410904989332886`*^9, 3.941090505763315*^9}, {
+  3.941090542896969*^9, 3.9410905479700336`*^9}, {3.941094698223358*^9, 
+  3.9410947057846794`*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"ea4a953c-0690-0240-aaf1-f2ea6e6a7176"],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"2", ",", "3"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "2"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"23", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"387641", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"858841", ",", "1"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.940910409880453*^9, 3.940911027482792*^9},
- CellLabel->"Out[5]=",ExpressionUUID->"860676f3-7576-fd46-a29f-d2ceb24a362d"]
+Cell[BoxData["13054700599569704718097348"], "Output",
+ CellChangeTimes->{
+  3.9410902011378975`*^9, 3.9410905684680614`*^9, {3.9410946933756123`*^9, 
+   3.941094708614107*^9}, 3.941094780314436*^9},
+ CellLabel->"Out[61]=",ExpressionUUID->"4c63b965-a030-904a-8b7b-2c2a7f070f42"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"FactorInteger", "[", "20", "]"}]], "Input",
- CellChangeTimes->{{3.94091106348053*^9, 3.9409110694303703`*^9}},
- CellLabel->"In[6]:=",ExpressionUUID->"03e45c63-28a0-b74d-a759-d99766722750"],
+Cell["Exercises", "Subsection",
+ CellChangeTimes->{{3.9409230347349033`*^9, 3.9409230401650906`*^9}, {
+  3.9409991473981647`*^9, 
+  3.9409991506410923`*^9}},ExpressionUUID->"104db9c5-57a1-f94d-bc81-\
+33a0d05e78fc"],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"2", ",", "2"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "1"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.940911070500244*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"117a0688-009f-4b4a-b6ee-c91175f5b219"]
+Cell[CellGroupData[{
+
+Cell["Problem 1.", "Subsubsection",
+ CellChangeTimes->{{3.940999731830002*^9, 
+  3.9409997416371593`*^9}},ExpressionUUID->"662f191d-7ae7-ae44-93ef-\
+491a2df06ca3"],
+
+Cell[TextData[{
+ "Let k be a positive integer. Find all positive integers n such that ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["3", "k"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "9610a83f-172b-5443-a293-d0fc0a754351"],
+ "| ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["2", 
+     RowBox[{"n", "-", "1"}]], "."}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "27cd26cb-c37d-fd4f-854b-15a25fb7d1e9"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.940999754813467*^9, 3.9409997646640396`*^9}, {
+  3.9410030412837753`*^9, 3.941003043962631*^9}, {3.9410030817704296`*^9, 
+  3.9410031701881447`*^9}, {3.941003270288601*^9, 3.9410032741506786`*^9}, {
+  3.941003329532089*^9, 
+  3.94100333735157*^9}},ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-\
+45c494682d45"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"FactorInteger", "[", "10", "]"}]], "Input",
- CellChangeTimes->{{3.9409110936314507`*^9, 3.9409110937253895`*^9}},
- CellLabel->"In[7]:=",ExpressionUUID->"8e8c7a4f-bf42-2e48-973a-6d3bfd514a35"],
+Cell["Problem 2.", "Subsubsection",
+ CellChangeTimes->{{3.940999731830002*^9, 3.9409997416371593`*^9}, {
+  3.941003223989767*^9, 
+  3.9410032242086544`*^9}},ExpressionUUID->"344a0c0e-293e-714a-882c-\
+954d684f41be"],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"2", ",", "1"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5", ",", "1"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{3.940911094474539*^9},
- CellLabel->"Out[7]=",ExpressionUUID->"1e32cd6d-559c-3d40-8742-b4079ccbc7b5"]
+Cell[TextData[{
+ "Let a, n be two positive integers and let p be an odd prime number such \
+that a p \[Congruent] 1 (mod ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["p", "n"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "9d80c914-d577-854d-989e-4beafcf4c6f7"],
+ " ). Prove that a \[Congruent] 1 (mod ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["p", 
+    RowBox[{"n", "-", "1"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e692e6de-ead2-8d4d-a2ca-3141d664da81"],
+ ")."
+}], "Text",
+ CellChangeTimes->{{3.940999754813467*^9, 3.9409997646640396`*^9}, {
+   3.9410030412837753`*^9, 3.941003043962631*^9}, {3.9410030817704296`*^9, 
+   3.9410031701881447`*^9}, 3.941003229482048*^9, {3.9410033601567593`*^9, 
+   3.9410034496942825`*^9}, {3.9410038855584545`*^9, 
+   3.9410039299433384`*^9}},ExpressionUUID->"cca782c0-3614-ad43-b216-\
+4c704b419273"]
 }, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"x", "=", "7"}], ";", 
-  RowBox[{"y", "=", "11"}], ";", 
-  RowBox[{"p", "=", "5"}], ";"}]], "Input",
- CellChangeTimes->{{3.9409166481235065`*^9, 3.9409166594314156`*^9}, {
-  3.9409166915683594`*^9, 3.94091669867013*^9}},
- CellLabel->"In[23]:=",ExpressionUUID->"d700f44d-b58f-574a-836e-13f90e680259"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
- RowBox[{"3", "/", "30"}]], "Input",
- CellChangeTimes->{{3.940916715531893*^9, 3.9409167177341766`*^9}},
- CellLabel->"In[24]:=",ExpressionUUID->"f33e66c3-1de6-e244-a42b-ab518e3796e9"],
+Cell["Problem 3.", "Subsubsection",
+ CellChangeTimes->{{3.940999731830002*^9, 3.9409997416371593`*^9}, {
+  3.941003223989767*^9, 3.9410032242086544`*^9}, {3.941021596240919*^9, 
+  3.941021596624853*^9}},ExpressionUUID->"122e24b1-b309-a544-ab3a-\
+177aec74b30d"],
 
-Cell[BoxData[
- FractionBox["1", "10"]], "Output",
- CellChangeTimes->{3.9409167183425694`*^9},
- CellLabel->"Out[24]=",ExpressionUUID->"a1b20601-a707-7447-b154-cb9b626b5e55"]
+Cell["\<\
+Show that the only positive integer value of a for which 4(a^n + 1) is a \
+perfect cube for all positive integers n, is 1.\
+\>", "Text",
+ CellChangeTimes->{{3.940999754813467*^9, 3.9409997646640396`*^9}, {
+   3.9410030412837753`*^9, 3.941003043962631*^9}, {3.9410030817704296`*^9, 
+   3.9410031701881447`*^9}, 3.941003229482048*^9, {3.9410033601567593`*^9, 
+   3.9410034496942825`*^9}, {3.9410038855584545`*^9, 3.9410039299433384`*^9}, 
+   3.941021713108572*^9},ExpressionUUID->"f96dd1ce-739c-bb40-bb77-\
+1694aa52c659"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 4.", "Subsubsection",
+ CellChangeTimes->{{3.940999731830002*^9, 3.9409997416371593`*^9}, {
+  3.941003223989767*^9, 3.9410032242086544`*^9}, {3.9410216008061104`*^9, 
+  3.941021600910986*^9}},ExpressionUUID->"9db4e5b8-98a3-454c-b3fb-\
+47fac76fc392"],
+
+Cell["\<\
+Let k > 1 be an integer. Show that there exists infinitely many positive \
+integers n such that n|(1^n + 2^n + 3^n + \[CenterDot] \[CenterDot] \
+\[CenterDot] + k^n).\
+\>", "Text",
+ CellChangeTimes->{{3.940999754813467*^9, 3.9409997646640396`*^9}, {
+   3.9410030412837753`*^9, 3.941003043962631*^9}, {3.9410030817704296`*^9, 
+   3.9410031701881447`*^9}, 3.941003229482048*^9, {3.9410033601567593`*^9, 
+   3.9410034496942825`*^9}, {3.9410038855584545`*^9, 
+   3.9410039299433384`*^9}, {3.941021799017277*^9, 
+   3.9410218014514484`*^9}},ExpressionUUID->"653e192e-57aa-2c4e-99fb-\
+e5e663b3e17e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 5.", "Subsubsection",
+ CellChangeTimes->{{3.940999731830002*^9, 3.9409997416371593`*^9}, {
+  3.941003223989767*^9, 3.9410032242086544`*^9}, {3.941021603514538*^9, 
+  3.941021603687187*^9}},ExpressionUUID->"55484f7a-5b3b-6e4d-887a-\
+56eaa8c731ce"],
+
+Cell["\<\
+Show that a^n \[Minus] b^n has a prime divisor which isn\[CloseCurlyQuote]t a \
+divisor of a \[Minus] b.\
+\>", "Text",
+ CellChangeTimes->{{3.940999754813467*^9, 3.9409997646640396`*^9}, {
+   3.9410030412837753`*^9, 3.941003043962631*^9}, {3.9410030817704296`*^9, 
+   3.9410031701881447`*^9}, 3.941003229482048*^9, {3.9410033601567593`*^9, 
+   3.9410034496942825`*^9}, {3.9410038855584545`*^9, 3.9410039299433384`*^9}, 
+   3.941021827445593*^9},ExpressionUUID->"63784207-8e14-dd48-b459-\
+6db5dfe2aae3"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -230,8 +547,8 @@ Cell["Elementary Results on the Distribution of Primes", "Chapter",
   3.9400958637452335`*^9}},ExpressionUUID->"0305b1a8-6536-8640-8bb1-\
 84e35b1856a7"]
 },
-WindowSize->{994.5, 599.25},
-WindowMargins->{{189.75, Automatic}, {Automatic, 24}},
+WindowSize->{1055.25, 599.25},
+WindowMargins->{{77.25, Automatic}, {Automatic, 12}},
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"b4522bcc-8270-4846-bd0b-5f1c6c9448f4"
@@ -259,38 +576,57 @@ Cell[1308, 47, 171, 3, 56, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f
 Cell[CellGroupData[{
 Cell[1504, 54, 171, 3, 66, "Section",ExpressionUUID->"7304bf97-1c9e-0143-9b11-7347490a25a3"],
 Cell[CellGroupData[{
-Cell[1700, 61, 160, 3, 53, "Subsection",ExpressionUUID->"35269abb-d1f2-a048-987e-cdd62dae44c9"],
+Cell[1700, 61, 335, 5, 53, "Subsection",ExpressionUUID->"ba212af7-b119-7944-a5d8-5bcbc63f0bb5"],
 Cell[CellGroupData[{
-Cell[1885, 68, 289, 6, 30, "Input",ExpressionUUID->"e760268f-787a-0940-9e2f-c5783ec4da82"],
-Cell[2177, 76, 597, 16, 32, "Output",ExpressionUUID->"b100a1c4-51fa-7748-8fa6-a9401ea31e68"]
+Cell[2060, 70, 178, 3, 43, "Subsubsection",ExpressionUUID->"4d735113-65cd-b74c-a2dc-fb55e7fa3047"],
+Cell[2241, 75, 1769, 36, 449, "Text",ExpressionUUID->"1b846ce5-0c5d-ce45-beb7-6bfef8f26b78"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2811, 97, 291, 6, 30, "Input",ExpressionUUID->"5aed1358-45ac-ba46-b3c1-d538cc8bc48e"],
-Cell[3105, 105, 631, 19, 32, "Output",ExpressionUUID->"135c0986-533e-9341-af66-fcd773ff3bdb"]
+Cell[4047, 116, 277, 4, 43, "Subsubsection",ExpressionUUID->"90050a6c-1466-e849-9913-991ca4e16896"],
+Cell[4327, 122, 630, 18, 33, "Text",ExpressionUUID->"fbc260b9-05b9-ec41-9c3c-229fb24fb57b"],
+Cell[CellGroupData[{
+Cell[4982, 144, 260, 4, 28, "Input",ExpressionUUID->"410efd79-793e-cf4c-8ad3-e8828f32f35f"],
+Cell[5245, 150, 7918, 194, 35, "Output",ExpressionUUID->"af9f0224-733a-7149-a8c1-adf79f0cba14"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3773, 129, 342, 7, 30, "Input",ExpressionUUID->"89b9e6de-0086-0f4f-a8e1-dacc0d1389a4"],
-Cell[4118, 138, 501, 14, 32, "Output",ExpressionUUID->"860676f3-7576-fd46-a29f-d2ceb24a362d"]
+Cell[13200, 349, 444, 7, 28, "Input",ExpressionUUID->"40c00b6b-df6f-b340-b4bc-0afa5998d3f7"],
+Cell[13647, 358, 522, 10, 32, "Output",ExpressionUUID->"77a3eccb-19e5-4348-827c-12c23175ad1f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4656, 157, 212, 3, 28, "Input",ExpressionUUID->"03e45c63-28a0-b74d-a759-d99766722750"],
-Cell[4871, 162, 291, 8, 32, "Output",ExpressionUUID->"117a0688-009f-4b4a-b6ee-c91175f5b219"]
+Cell[14206, 373, 554, 11, 61, "Input",ExpressionUUID->"ea4a953c-0690-0240-aaf1-f2ea6e6a7176",
+ InitializationCell->True],
+Cell[14763, 386, 277, 4, 32, "Output",ExpressionUUID->"4c63b965-a030-904a-8b7b-2c2a7f070f42"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5199, 175, 215, 3, 28, "Input",ExpressionUUID->"8e8c7a4f-bf42-2e48-973a-6d3bfd514a35"],
-Cell[5417, 180, 291, 8, 32, "Output",ExpressionUUID->"1e32cd6d-559c-3d40-8742-b4079ccbc7b5"]
-}, Open  ]],
-Cell[5723, 191, 333, 7, 28, "Input",ExpressionUUID->"d700f44d-b58f-574a-836e-13f90e680259"],
+Cell[15101, 397, 214, 4, 53, "Subsection",ExpressionUUID->"104db9c5-57a1-f94d-bc81-33a0d05e78fc"],
 Cell[CellGroupData[{
-Cell[6081, 202, 197, 3, 28, "Input",ExpressionUUID->"f33e66c3-1de6-e244-a42b-ab518e3796e9"],
-Cell[6281, 207, 172, 3, 46, "Output",ExpressionUUID->"a1b20601-a707-7447-b154-cb9b626b5e55"]
+Cell[15340, 405, 163, 3, 43, "Subsubsection",ExpressionUUID->"662f191d-7ae7-ae44-93ef-491a2df06ca3"],
+Cell[15506, 410, 814, 22, 33, "Text",ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-45c494682d45"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16357, 437, 214, 4, 43, "Subsubsection",ExpressionUUID->"344a0c0e-293e-714a-882c-954d684f41be"],
+Cell[16574, 443, 897, 22, 33, "Text",ExpressionUUID->"cca782c0-3614-ad43-b216-4c704b419273"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17508, 470, 260, 4, 43, "Subsubsection",ExpressionUUID->"122e24b1-b309-a544-ab3a-177aec74b30d"],
+Cell[17771, 476, 529, 9, 33, "Text",ExpressionUUID->"f96dd1ce-739c-bb40-bb77-1694aa52c659"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18337, 490, 262, 4, 43, "Subsubsection",ExpressionUUID->"9db4e5b8-98a3-454c-b3fb-47fac76fc392"],
+Cell[18602, 496, 602, 11, 33, "Text",ExpressionUUID->"653e192e-57aa-2c4e-99fb-e5e663b3e17e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19241, 512, 260, 4, 43, "Subsubsection",ExpressionUUID->"55484f7a-5b3b-6e4d-887a-56eaa8c731ce"],
+Cell[19504, 518, 511, 9, 33, "Text",ExpressionUUID->"63784207-8e14-dd48-b459-6db5dfe2aae3"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[6504, 216, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
-Cell[6674, 221, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
-Cell[6858, 226, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+Cell[20066, 533, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
+Cell[20236, 538, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
+Cell[20420, 543, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
 }
 ]
 *)
