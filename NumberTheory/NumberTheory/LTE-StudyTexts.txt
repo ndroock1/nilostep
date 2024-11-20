@@ -1,0 +1,9 @@
+We define ||x||_p to be the greatest power of a prime p that divides x;
+
+We can define v_p in terms of ||x||_p, So that ||x||_p = p^−v_p(x).
+
+
+Example...:
+
+The greatest power of 3 that divides 63 is 3^2, because 3^2 = 9 |(divides) 63 but 3^3 = 27 ∤ (does not divide) 63.  i.e. we write v_3(63) = 2.
+
