@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     31035,        849]
-NotebookOptionsPosition[     26680,        763]
-NotebookOutlinePosition[     27092,        779]
-CellTagsIndexPosition[     27049,        776]
+NotebookDataLength[     33111,        889]
+NotebookOptionsPosition[     28660,        802]
+NotebookOutlinePosition[     29072,        818]
+CellTagsIndexPosition[     29029,        815]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -644,7 +644,46 @@ Cell[TextData[{
   3.9410031701881447`*^9}, {3.941003270288601*^9, 3.9410032741506786`*^9}, {
   3.941003329532089*^9, 
   3.94100333735157*^9}},ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-\
-45c494682d45"]
+45c494682d45"],
+
+Cell["\<\
+Possible approach to try ...\[LineSeparator]\[LineSeparator]To approach the \
+problem of finding all natural numbers \\( n \\) such that \\( 3^k \\) \
+divides \\( 2^n - 1 \\), you can follow these steps:
+
+1. **Understand the divisibility condition**: You need to determine when \\( \
+2^n - 1 \\) is divisible by \\( 3^k \\). This involves understanding the \
+properties of the expression \\( 2^n - 1 \\) in relation to powers of 3.
+
+2. **Use the Lifting The Exponent Lemma (LTE)**: This lemma can help you find \
+the highest power of a prime \\( p \\) that divides expressions of the form \
+\\( a^n - b^n \\). In your case, you can apply it to \\( 2^n - 1^n \\) with \
+\\( a = 2 \\), \\( b = 1 \\), and \\( p = 3 \\).
+
+3. **Calculate the order of 2 modulo \\( 3^k \\)**: The order of 2 modulo \\( \
+3^k \\) will give you insight into the values of \\( n \\) for which \\( 2^n \
+\\equiv 1 \\mod 3^k \\). The order is the smallest integer \\( d \\) such \
+that \\( 2^d \\equiv 1 \\mod 3^k \\).
+
+4. **Find the relationship between \\( n \\) and the order**: If \\( d \\) is \
+the order of 2 modulo \\( 3^k \\), then \\( n \\) must be a multiple of \\( d \
+\\) for \\( 2^n - 1 \\) to be divisible by \\( 3^k \\).
+
+5. **Consider the specific cases for \\( k \\)**: Depending on the value of \
+\\( k \\), the order \\( d \\) may change. You can compute \\( d \\) for \
+small values of \\( k \\) to identify a pattern or a general formula.
+
+6. **List the multiples of \\( d \\)**: Once you have determined \\( d \\), \
+the natural numbers \\( n \\) that satisfy the condition will be of the form \
+\\( n = m \\cdot d \\) for \\( m \\in \\mathbb{N} \\).
+
+By following this approach, you can systematically find all natural numbers \
+\\( n \\) such that \\( 3^k \\) divides \\( 2^n - 1 \\) without directly \
+calculating the values.\
+\>", "Text",
+ CellChangeTimes->{{3.9413520533200417`*^9, 
+  3.9413520681891384`*^9}},ExpressionUUID->"f5f77ab7-7d77-db4b-9207-\
+979cd8939f19"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -741,7 +780,7 @@ divisor of a \[Minus] b.\
    3.941021827445593*^9},ExpressionUUID->"63784207-8e14-dd48-b459-\
 6db5dfe2aae3"]
 }, Open  ]]
-}, Closed]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -827,30 +866,31 @@ Cell[CellGroupData[{
 Cell[21112, 611, 214, 4, 37, "Subsection",ExpressionUUID->"104db9c5-57a1-f94d-bc81-33a0d05e78fc"],
 Cell[CellGroupData[{
 Cell[21351, 619, 163, 3, 43, "Subsubsection",ExpressionUUID->"662f191d-7ae7-ae44-93ef-491a2df06ca3"],
-Cell[21517, 624, 814, 22, 33, "Text",ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-45c494682d45"]
+Cell[21517, 624, 814, 22, 33, "Text",ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-45c494682d45"],
+Cell[22334, 648, 1977, 37, 536, "Text",ExpressionUUID->"f5f77ab7-7d77-db4b-9207-979cd8939f19"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22368, 651, 214, 4, 43, "Subsubsection",ExpressionUUID->"344a0c0e-293e-714a-882c-954d684f41be"],
-Cell[22585, 657, 897, 22, 33, "Text",ExpressionUUID->"cca782c0-3614-ad43-b216-4c704b419273"]
+Cell[24348, 690, 214, 4, 43, "Subsubsection",ExpressionUUID->"344a0c0e-293e-714a-882c-954d684f41be"],
+Cell[24565, 696, 897, 22, 33, "Text",ExpressionUUID->"cca782c0-3614-ad43-b216-4c704b419273"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23519, 684, 260, 4, 43, "Subsubsection",ExpressionUUID->"122e24b1-b309-a544-ab3a-177aec74b30d"],
-Cell[23782, 690, 529, 9, 33, "Text",ExpressionUUID->"f96dd1ce-739c-bb40-bb77-1694aa52c659"]
+Cell[25499, 723, 260, 4, 43, "Subsubsection",ExpressionUUID->"122e24b1-b309-a544-ab3a-177aec74b30d"],
+Cell[25762, 729, 529, 9, 33, "Text",ExpressionUUID->"f96dd1ce-739c-bb40-bb77-1694aa52c659"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24348, 704, 262, 4, 43, "Subsubsection",ExpressionUUID->"9db4e5b8-98a3-454c-b3fb-47fac76fc392"],
-Cell[24613, 710, 602, 11, 33, "Text",ExpressionUUID->"653e192e-57aa-2c4e-99fb-e5e663b3e17e"]
+Cell[26328, 743, 262, 4, 43, "Subsubsection",ExpressionUUID->"9db4e5b8-98a3-454c-b3fb-47fac76fc392"],
+Cell[26593, 749, 602, 11, 33, "Text",ExpressionUUID->"653e192e-57aa-2c4e-99fb-e5e663b3e17e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25252, 726, 260, 4, 43, "Subsubsection",ExpressionUUID->"55484f7a-5b3b-6e4d-887a-56eaa8c731ce"],
-Cell[25515, 732, 511, 9, 33, "Text",ExpressionUUID->"63784207-8e14-dd48-b459-6db5dfe2aae3"]
+Cell[27232, 765, 260, 4, 43, "Subsubsection",ExpressionUUID->"55484f7a-5b3b-6e4d-887a-56eaa8c731ce"],
+Cell[27495, 771, 511, 9, 33, "Text",ExpressionUUID->"63784207-8e14-dd48-b459-6db5dfe2aae3"]
 }, Open  ]]
-}, Closed]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[26077, 747, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
-Cell[26247, 752, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
-Cell[26431, 757, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+Cell[28057, 786, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
+Cell[28227, 791, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
+Cell[28411, 796, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
 }
 ]
 *)
