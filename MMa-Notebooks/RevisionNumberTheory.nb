@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     34001,        900]
-NotebookOptionsPosition[     29548,        813]
-NotebookOutlinePosition[     29960,        829]
-CellTagsIndexPosition[     29917,        826]
+NotebookDataLength[     37125,        960]
+NotebookOptionsPosition[     32475,        871]
+NotebookOutlinePosition[     32887,        887]
+CellTagsIndexPosition[     32844,        884]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -45,10 +45,68 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Elementary Number Theory", "Chapter",
- CellChangeTimes->{{3.940095765951008*^9, 
-  3.9400957743036194`*^9}},ExpressionUUID->"598a92d9-73ca-f646-a89a-\
+Cell["Congruences", "Chapter",
+ CellChangeTimes->{{3.940095765951008*^9, 3.9400957743036194`*^9}, {
+  3.9416028742746353`*^9, 
+  3.941602879934675*^9}},ExpressionUUID->"598a92d9-73ca-f646-a89a-\
 8f3c2de31537"],
+
+Cell["\<\
+There are several types of congruence equations, each with its own method of \
+solution. Here\[CloseCurlyQuote]s an overview:
+
+\[Bullet] **Linear Congruence**: A linear congruence is of the form ax \
+\[Congruent] b (mod m), where a, b, and m are integers, and x is the \
+variable. To solve a linear congruence, you can use the following methods:
+  \[Bullet] The Euclidean Algorithm: This method involves finding the \
+greatest common divisor (gcd) of a and m, and then using the gcd to find the \
+solution.
+  \[Bullet] The Extended Euclidean Algorithm: This method is an extension of \
+the Euclidean Algorithm and is used to find the modular inverse of a modulo m.
+  \[Bullet] The Chinese Remainder Theorem (CRT): If the modulus m is a \
+product of pairwise coprime numbers, the CRT can be used to solve the \
+congruence.
+
+\[Bullet] **Quadratic Congruence**: A quadratic congruence is of the form \
+ax^2 + bx + c \[Congruent] 0 (mod m), where a, b, c, and m are integers, and \
+x is the variable. To solve a quadratic congruence, you can use the following \
+methods:
+  \[Bullet] Factoring: If the quadratic expression can be factored, the \
+congruence can be solved by solving the resulting linear congruences.
+  \[Bullet] The Quadratic Formula: The quadratic formula can be used to solve \
+quadratic congruences, but it requires the computation of square roots modulo \
+m.
+  \[Bullet] The Tonelli-Shanks Algorithm: This algorithm is used to compute \
+square roots modulo a prime number.
+
+\[Bullet] **Polynomial Congruence**: A polynomial congruence is of the form \
+f(x) \[Congruent] 0 (mod m), where f(x) is a polynomial with integer \
+coefficients, and m is an integer. To solve a polynomial congruence, you can \
+use the following methods:
+  \[Bullet] Factoring: If the polynomial can be factored, the congruence can \
+be solved by solving the resulting linear or quadratic congruences.
+  \[Bullet] The Hensel\[CloseCurlyQuote]s Lemma: This lemma is used to lift \
+solutions of a polynomial congruence modulo a prime power to solutions modulo \
+a higher power of the prime.
+
+\[Bullet] **Systems of Congruences**: A system of congruences is a set of \
+congruences of the form x \[Congruent] a1 (mod m1), x \[Congruent] a2 (mod \
+m2), ..., x \[Congruent] an (mod mn), where a1, a2, ..., an and m1, m2, ..., \
+mn are integers. To solve a system of congruences, you can use the Chinese \
+Remainder Theorem (CRT).
+
+These are some of the main types of congruence equations and their methods of \
+solution. The choice of method depends on the specific form of the congruence \
+and the modulus.\
+\>", "Text",
+ CellChangeTimes->{
+  3.941604945300764*^9},ExpressionUUID->"5179d447-cb76-2e4c-b3b2-\
+9feb8b6ca129"],
+
+Cell["Congruence Equations", "Section",
+ CellChangeTimes->{{3.941603037844801*^9, 
+  3.9416030519550133`*^9}},ExpressionUUID->"8c33f97f-16e3-6949-98ef-\
+3bbbe52fe4cf"],
 
 Cell[CellGroupData[{
 
@@ -791,8 +849,8 @@ divisor of a \[Minus] b.\
    3.941021827445593*^9},ExpressionUUID->"63784207-8e14-dd48-b459-\
 6db5dfe2aae3"]
 }, Open  ]]
-}, Open  ]]
-}, Open  ]]
+}, Closed]]
+}, Closed]]
 }, Open  ]],
 
 Cell["Arithmetic Functions", "Chapter",
@@ -836,72 +894,74 @@ Cell[846, 31, 413, 10, 47, "Input",ExpressionUUID->"add42faf-3023-9347-b7b1-905e
 }, Closed]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[1308, 47, 171, 3, 56, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
+Cell[1308, 47, 209, 4, 56, "Chapter",ExpressionUUID->"598a92d9-73ca-f646-a89a-8f3c2de31537"],
+Cell[1520, 53, 2716, 50, 580, "Text",ExpressionUUID->"5179d447-cb76-2e4c-b3b2-9feb8b6ca129"],
+Cell[4239, 105, 167, 3, 66, "Section",ExpressionUUID->"8c33f97f-16e3-6949-98ef-3bbbe52fe4cf"],
 Cell[CellGroupData[{
-Cell[1504, 54, 171, 3, 66, "Section",ExpressionUUID->"7304bf97-1c9e-0143-9b11-7347490a25a3"],
+Cell[4431, 112, 171, 3, 52, "Section",ExpressionUUID->"7304bf97-1c9e-0143-9b11-7347490a25a3"],
 Cell[CellGroupData[{
-Cell[1700, 61, 853, 17, 73, "Input",ExpressionUUID->"1692f4e5-559a-f745-ae5a-f63796086d1d"],
-Cell[2556, 80, 640, 16, 32, "Output",ExpressionUUID->"860c12bb-cbf5-9645-b2bf-136e13d521ec"],
-Cell[3199, 98, 878, 24, 32, "Output",ExpressionUUID->"3fcc577a-4b90-2441-acb1-739fe6e7330b"],
-Cell[4080, 124, 767, 20, 32, "Output",ExpressionUUID->"27417229-0d0c-2f45-ae28-cf8bc7bacc23"]
+Cell[4627, 119, 853, 17, 73, "Input",ExpressionUUID->"1692f4e5-559a-f745-ae5a-f63796086d1d"],
+Cell[5483, 138, 640, 16, 32, "Output",ExpressionUUID->"860c12bb-cbf5-9645-b2bf-136e13d521ec"],
+Cell[6126, 156, 878, 24, 32, "Output",ExpressionUUID->"3fcc577a-4b90-2441-acb1-739fe6e7330b"],
+Cell[7007, 182, 767, 20, 32, "Output",ExpressionUUID->"27417229-0d0c-2f45-ae28-cf8bc7bacc23"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4884, 149, 461, 13, 28, "Input",ExpressionUUID->"7fe36446-cd36-e442-99dd-b5c4dc90d834"],
-Cell[5348, 164, 2033, 98, 1387, "Output",ExpressionUUID->"fd6978e9-8736-a347-b009-ae43d804786d"]
+Cell[7811, 207, 461, 13, 28, "Input",ExpressionUUID->"7fe36446-cd36-e442-99dd-b5c4dc90d834"],
+Cell[8275, 222, 2033, 98, 1387, "Output",ExpressionUUID->"fd6978e9-8736-a347-b009-ae43d804786d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7418, 267, 335, 5, 53, "Subsection",ExpressionUUID->"ba212af7-b119-7944-a5d8-5bcbc63f0bb5"],
+Cell[10345, 325, 335, 5, 53, "Subsection",ExpressionUUID->"ba212af7-b119-7944-a5d8-5bcbc63f0bb5"],
 Cell[CellGroupData[{
-Cell[7778, 276, 178, 3, 43, "Subsubsection",ExpressionUUID->"4d735113-65cd-b74c-a2dc-fb55e7fa3047"],
-Cell[7959, 281, 1769, 36, 449, "Text",ExpressionUUID->"1b846ce5-0c5d-ce45-beb7-6bfef8f26b78"]
+Cell[10705, 334, 178, 3, 43, "Subsubsection",ExpressionUUID->"4d735113-65cd-b74c-a2dc-fb55e7fa3047"],
+Cell[10886, 339, 1769, 36, 449, "Text",ExpressionUUID->"1b846ce5-0c5d-ce45-beb7-6bfef8f26b78"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[9765, 322, 277, 4, 35, "Subsubsection",ExpressionUUID->"90050a6c-1466-e849-9913-991ca4e16896"],
-Cell[10045, 328, 630, 18, 33, "Text",ExpressionUUID->"fbc260b9-05b9-ec41-9c3c-229fb24fb57b"],
+Cell[12692, 380, 277, 4, 35, "Subsubsection",ExpressionUUID->"90050a6c-1466-e849-9913-991ca4e16896"],
+Cell[12972, 386, 630, 18, 33, "Text",ExpressionUUID->"fbc260b9-05b9-ec41-9c3c-229fb24fb57b"],
 Cell[CellGroupData[{
-Cell[10700, 350, 318, 6, 28, "Input",ExpressionUUID->"410efd79-793e-cf4c-8ad3-e8828f32f35f"],
-Cell[11021, 358, 7889, 194, 35, "Output",ExpressionUUID->"ee398865-784e-8342-bf30-5c02945379b4"]
+Cell[13627, 408, 318, 6, 28, "Input",ExpressionUUID->"410efd79-793e-cf4c-8ad3-e8828f32f35f"],
+Cell[13948, 416, 7889, 194, 35, "Output",ExpressionUUID->"ee398865-784e-8342-bf30-5c02945379b4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[18947, 557, 551, 9, 28, "Input",ExpressionUUID->"40c00b6b-df6f-b340-b4bc-0afa5998d3f7"],
-Cell[19501, 568, 549, 11, 32, "Output",ExpressionUUID->"0641210e-df54-b241-ac7f-5a1f743be184"]
+Cell[21874, 615, 551, 9, 28, "Input",ExpressionUUID->"40c00b6b-df6f-b340-b4bc-0afa5998d3f7"],
+Cell[22428, 626, 549, 11, 32, "Output",ExpressionUUID->"0641210e-df54-b241-ac7f-5a1f743be184"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20087, 584, 606, 12, 61, "Input",ExpressionUUID->"ea4a953c-0690-0240-aaf1-f2ea6e6a7176",
+Cell[23014, 642, 606, 12, 61, "Input",ExpressionUUID->"ea4a953c-0690-0240-aaf1-f2ea6e6a7176",
  InitializationCell->True],
-Cell[20696, 598, 355, 6, 51, "Output",ExpressionUUID->"c84533dc-2cf7-5d44-a719-3b788e4fda97"]
+Cell[23623, 656, 355, 6, 51, "Output",ExpressionUUID->"c84533dc-2cf7-5d44-a719-3b788e4fda97"]
 }, Open  ]]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[21112, 611, 214, 4, 37, "Subsection",ExpressionUUID->"104db9c5-57a1-f94d-bc81-33a0d05e78fc"],
+Cell[24039, 669, 214, 4, 37, "Subsection",ExpressionUUID->"104db9c5-57a1-f94d-bc81-33a0d05e78fc"],
 Cell[CellGroupData[{
-Cell[21351, 619, 163, 3, 43, "Subsubsection",ExpressionUUID->"662f191d-7ae7-ae44-93ef-491a2df06ca3"],
-Cell[21517, 624, 1702, 33, 361, "Text",ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-45c494682d45"],
-Cell[23222, 659, 1977, 37, 536, "Text",ExpressionUUID->"f5f77ab7-7d77-db4b-9207-979cd8939f19"]
+Cell[24278, 677, 163, 3, 43, "Subsubsection",ExpressionUUID->"662f191d-7ae7-ae44-93ef-491a2df06ca3"],
+Cell[24444, 682, 1702, 33, 361, "Text",ExpressionUUID->"64d7cd17-c7b4-3b43-aeae-45c494682d45"],
+Cell[26149, 717, 1977, 37, 536, "Text",ExpressionUUID->"f5f77ab7-7d77-db4b-9207-979cd8939f19"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25236, 701, 214, 4, 43, "Subsubsection",ExpressionUUID->"344a0c0e-293e-714a-882c-954d684f41be"],
-Cell[25453, 707, 897, 22, 33, "Text",ExpressionUUID->"cca782c0-3614-ad43-b216-4c704b419273"]
+Cell[28163, 759, 214, 4, 43, "Subsubsection",ExpressionUUID->"344a0c0e-293e-714a-882c-954d684f41be"],
+Cell[28380, 765, 897, 22, 33, "Text",ExpressionUUID->"cca782c0-3614-ad43-b216-4c704b419273"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26387, 734, 260, 4, 43, "Subsubsection",ExpressionUUID->"122e24b1-b309-a544-ab3a-177aec74b30d"],
-Cell[26650, 740, 529, 9, 33, "Text",ExpressionUUID->"f96dd1ce-739c-bb40-bb77-1694aa52c659"]
+Cell[29314, 792, 260, 4, 43, "Subsubsection",ExpressionUUID->"122e24b1-b309-a544-ab3a-177aec74b30d"],
+Cell[29577, 798, 529, 9, 33, "Text",ExpressionUUID->"f96dd1ce-739c-bb40-bb77-1694aa52c659"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[27216, 754, 262, 4, 43, "Subsubsection",ExpressionUUID->"9db4e5b8-98a3-454c-b3fb-47fac76fc392"],
-Cell[27481, 760, 602, 11, 33, "Text",ExpressionUUID->"653e192e-57aa-2c4e-99fb-e5e663b3e17e"]
+Cell[30143, 812, 262, 4, 43, "Subsubsection",ExpressionUUID->"9db4e5b8-98a3-454c-b3fb-47fac76fc392"],
+Cell[30408, 818, 602, 11, 33, "Text",ExpressionUUID->"653e192e-57aa-2c4e-99fb-e5e663b3e17e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28120, 776, 260, 4, 43, "Subsubsection",ExpressionUUID->"55484f7a-5b3b-6e4d-887a-56eaa8c731ce"],
-Cell[28383, 782, 511, 9, 33, "Text",ExpressionUUID->"63784207-8e14-dd48-b459-6db5dfe2aae3"]
+Cell[31047, 834, 260, 4, 43, "Subsubsection",ExpressionUUID->"55484f7a-5b3b-6e4d-887a-56eaa8c731ce"],
+Cell[31310, 840, 511, 9, 33, "Text",ExpressionUUID->"63784207-8e14-dd48-b459-6db5dfe2aae3"]
 }, Open  ]]
-}, Open  ]]
-}, Open  ]]
+}, Closed]]
+}, Closed]]
 }, Open  ]],
-Cell[28945, 797, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
-Cell[29115, 802, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
-Cell[29299, 807, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+Cell[31872, 855, 167, 3, 67, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
+Cell[32042, 860, 181, 3, 56, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
+Cell[32226, 865, 245, 4, 56, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
 }
 ]
 *)
