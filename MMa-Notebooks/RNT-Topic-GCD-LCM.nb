@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     42828,       1187]
-NotebookOptionsPosition[     37073,       1080]
-NotebookOutlinePosition[     37483,       1096]
-CellTagsIndexPosition[     37440,       1093]
+NotebookDataLength[    188183,       5051]
+NotebookOptionsPosition[    163193,       4681]
+NotebookOutlinePosition[    163600,       4697]
+CellTagsIndexPosition[    163557,       4694]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1034,52 +1034,3653 @@ Cell[BoxData[
   "Out[495]=",ExpressionUUID->"4073c447-7664-834f-b07d-9775685c0d24"]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
- SuperscriptBox["E", 
-  RowBox[{"I", " ", "2", " ", 
-   RowBox[{"Log", "[", "3.2", "]"}]}]]], "Input",
- CellChangeTimes->{{3.9436032883457565`*^9, 3.943603348496073*^9}},
- CellLabel->
-  "In[508]:=",ExpressionUUID->"6040d359-364d-5343-95db-dc010c2d4403"],
+ RowBox[{
+  RowBox[{"mp", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "a", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"a", ":=", 
+      RowBox[{
+       RowBox[{"FactorInteger", "[", "n", "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"len", ":=", 
+      RowBox[{"Length", "[", "a", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Times", "@@", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{"Binomial", "[", 
+            RowBox[{"#", ",", "k"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "0", ",", "#"}], "}"}]}], "]"}], "&"}], ",", 
+        "a"}], "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.94395536631036*^9, 3.943955392077135*^9}, {
+  3.943955479996912*^9, 3.943955490107828*^9}, {3.943955543555258*^9, 
+  3.943955559878971*^9}, {3.9439555947393723`*^9, 3.9439556090218163`*^9}, {
+  3.9439556990192757`*^9, 3.943955721045542*^9}, {3.943956420438202*^9, 
+  3.943956446781395*^9}, {3.9439564997437687`*^9, 3.9439565218935356`*^9}, {
+  3.9439565799177914`*^9, 3.9439565805515385`*^9}, {3.9439566306397724`*^9, 
+  3.9439566313927193`*^9}, {3.94395667886709*^9, 3.9439566867191544`*^9}, {
+  3.9439567383814125`*^9, 3.9439567436247406`*^9}, {3.9439572958295517`*^9, 
+  3.9439573284434185`*^9}, {3.943957431630533*^9, 3.9439574628858585`*^9}, {
+  3.943957612715227*^9, 
+  3.9439576182537594`*^9}},ExpressionUUID->"5a664929-e958-6047-a634-\
+49b00701e6da"],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"-", "0.6856565715367677`"}], "+", 
-  RowBox[{"0.7279251787844994`", " ", "\[ImaginaryI]"}]}]], "Output",
- CellChangeTimes->{{3.943603311597454*^9, 3.9436033492939644`*^9}},
+  RowBox[{"mp1", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "a", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"a", ":=", 
+      RowBox[{
+       RowBox[{"FactorInteger", "[", "n", "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"len", ":=", 
+      RowBox[{"Length", "[", "a", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Times", "@@", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{"Binomial", "[", 
+            RowBox[{"#", ",", "k"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "0", ",", "#"}], "}"}]}], "]"}], "&"}], ",", 
+        "a"}], "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.9439576252661743`*^9, {3.943958486541609*^9, 3.9439584906172123`*^9}, {
+   3.943958534604681*^9, 3.943958535334303*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"4ef4a1a9-20d5-c141-9890-38056edac4d9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp2", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "exponents", ",", "partitions"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"IntegerPartitions", "[", 
+         RowBox[{
+          RowBox[{"Total", "[", "exponents", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"Length", "[", "pf", "]"}], "}"}], ",", 
+          RowBox[{"Range", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"Max", "[", "exponents", "]"}]}], "]"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"And", "@@", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"#", ">=", "1"}], "&"}], "/@", "#"}], ")"}]}], "&"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", "partitions", "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9439623690448074`*^9, 3.9439623748881054`*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"f302957e-2bb1-0944-8b9e-8f7244620c99"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp3", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Tuples", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Range", "[", 
+            RowBox[{"1", ",", "e"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{"primes", ",", "#"}], "]"}]}], "==", "n"}], "&"}]}], 
+       "]"}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9439554927229576`*^9, 3.943955523828411*^9}, {
+   3.9439556157883205`*^9, 3.9439556651813736`*^9}, {3.94395572950646*^9, 
+   3.9439557339018936`*^9}, {3.943956458715538*^9, 3.943956472349415*^9}, {
+   3.943956542421381*^9, 3.9439566523728657`*^9}, 3.94395744653236*^9, {
+   3.9439574798459167`*^9, 3.9439575050117016`*^9}, {3.943957542773407*^9, 
+   3.943957565511404*^9}, {3.943958493261198*^9, 3.9439585249841976`*^9}, {
+   3.9439623782471657`*^9, 3.943962434476597*^9}, {3.94396249450667*^9, 
+   3.9439625002860794`*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"b0adb01e-e270-944e-b49f-490c755c48c2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp4", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Tuples", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Range", "[", 
+          RowBox[{"1", ",", "e"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Total", "[", "#", "]"}], "==", 
+           RowBox[{"Total", "[", "exponents", "]"}]}], "&&", 
+          RowBox[{
+           RowBox[{"Times", "@@", 
+            RowBox[{"Power", "[", 
+             RowBox[{"primes", ",", "#"}], "]"}]}], "==", "n"}]}], "&"}]}], 
+       "]"}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.943962626826483*^9, 3.9439626331261063`*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"5d409504-6eff-9043-8ed0-5d935ebbdaa4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp5", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "partitions"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Outer", "[", 
+           RowBox[{"Times", ",", "##"}], "]"}], "&"}], "@@", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Power", "[", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", 
+              RowBox[{"Range", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "]"}], "&"}], "/@",
+            "pf"}], ")"}]}], ",", 
+        RowBox[{
+         RowBox[{"Depth", "[", "pf", "]"}], "-", "1"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Times", "@@", "#"}], "==", "n"}], "&"}]}], "]"}], 
+      "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.943962725017639*^9, 3.943962729812643*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"3b342909-aa83-a946-9149-66fe61e1d55f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp6", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "partitions"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Outer", "[", 
+           RowBox[{"Times", ",", "##"}], "]"}], "&"}], "@@", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Power", "[", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", 
+              RowBox[{"Range", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"#", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "]"}], "&"}], "/@",
+            "pf"}], ")"}]}], ",", 
+        RowBox[{
+         RowBox[{"Length", "[", "pf", "]"}], "-", "1"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9439629228479366`*^9, 3.943962941107231*^9}, {
+  3.94396299693758*^9, 3.9439630023730354`*^9}, {3.943963042622364*^9, 
+  3.943963047766657*^9}, {3.9439631671706448`*^9, 3.943963174217455*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"7941ffa4-3bd8-4647-b845-d6a7e9b871e0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp6", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9439625086444817`*^9, 3.9439625519562855`*^9}, {
+  3.9439626152867184`*^9, 3.943962643963707*^9}, {3.9439627326545887`*^9, 
+  3.943962739403612*^9}, {3.943962933637373*^9, 3.94396295039513*^9}, {
+  3.943963054422224*^9, 3.943963059013323*^9}, {3.9439631811346664`*^9, 
+  3.9439631853821297`*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"8ffbf083-7c9c-e744-a75f-323d39f4e89b"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.9439625122908897`*^9, 3.9439625524449577`*^9}, {
+   3.9439626226983223`*^9, 3.943962644462782*^9}, {3.943962733663721*^9, 
+   3.94396274012166*^9}, {3.9439629347406597`*^9, 3.943962951093916*^9}, 
+   3.943963005259779*^9, {3.9439630509090385`*^9, 3.943963059410816*^9}, {
+   3.943963177140827*^9, 3.9439631861072216`*^9}},
+ CellLabel->"Out[98]=",ExpressionUUID->"a03b0c67-0e19-5549-9323-512a35a57653"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mp7", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "pf", ",", "primes", ",", "exponents", ",", "powers", ",", 
+       "allCombinations", ",", "partitions"}], "}"}], ",", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "1"}], ":", 
+       RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+     RowBox[{
+      RowBox[{"pf", "=", 
+       RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+        "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "2"}], ":", 
+        RowBox[{
+        "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+         "exponents"}]}], "*)"}], 
+      RowBox[{"primes", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"exponents", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Step", " ", "3"}], ":", 
+         RowBox[{
+         "Generate", " ", "all", " ", "possible", " ", "powers", " ", "for", 
+          " ", "each", " ", "prime"}]}], ",", 
+        RowBox[{
+         RowBox[{"ensuring", " ", "each", " ", "factor"}], ">", "1"}]}], 
+       "*)"}], 
+      RowBox[{"powers", "=", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Power", "[", 
+           RowBox[{"#1", ",", 
+            RowBox[{"Range", "[", 
+             RowBox[{"1", ",", "#2"}], "]"}]}], "]"}], "&"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"primes", ",", "exponents"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Powers of primes: \>\"", ",", "powers"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "4"}], ":", 
+        RowBox[{
+        "Generate", " ", "all", " ", "combinations", " ", "of", " ", "these", 
+         " ", "powers"}]}], "*)"}], 
+      RowBox[{"allCombinations", "=", 
+       RowBox[{"Tuples", "[", "powers", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<All combinations of powers: \>\"", ",", "allCombinations"}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "5"}], ":", 
+        RowBox[{
+        "Calculate", " ", "the", " ", "product", " ", "of", " ", "each", " ", 
+         "combination", " ", "to", " ", "form", " ", "partitions"}]}], "*)"}], 
+      RowBox[{"partitions", "=", 
+       RowBox[{"Times", "@@@", "allCombinations"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Partitions formed: \>\"", ",", "partitions"}], "]"}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "6"}], ":", 
+        RowBox[{
+        "Count", " ", "how", " ", "many", " ", "of", " ", "these", " ", 
+         "partitions", " ", "equal", " ", "n"}]}], "*)"}], 
+      RowBox[{"count", "=", 
+       RowBox[{"Count", "[", 
+        RowBox[{"partitions", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+        ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]",
+       "count"}]}], "]"}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.94409681080052*^9, 3.944096818453764*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"adcd52d8-4088-b04b-b517-f6a66a1e2674"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp7", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.944096828167906*^9, 3.9440968312532253`*^9}},
  CellLabel->
-  "Out[508]=",ExpressionUUID->"53f627f7-b39e-7c4f-8534-c6f2b88d34f1"]
+  "In[100]:=",ExpressionUUID->"39304c4e-7aa1-9c4e-8007-399a0219b3f6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944096832345188*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"ba9ae97a-4a31-9f40-8852-6d7d7c1f28b4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440968323510323`*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"032851b4-7166-7b46-ac6a-58c5c3400cb0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944096832356001*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"5d6029de-ad6c-c84c-9715-255a7bbb7fd3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Powers of primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "2", "}"}], ",", 
+     RowBox[{"{", "3", "}"}]}], "}"}]}],
+  SequenceForm["Powers of primes: ", {{2}, {3}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440968323569927`*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"bacf5779-fae8-fb41-b20d-a9fdd4773e78"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All combinations of powers: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3"}], "}"}], "}"}]}],
+  SequenceForm["All combinations of powers: ", {{2, 3}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.94409683235894*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"603c8c55-fe34-d641-bc16-acd6fecd6a6b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "6", "}"}]}],
+  SequenceForm["Partitions formed: ", {6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944096832359995*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"29e039db-a270-8442-9dba-f1dd052661b4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440968323619366`*^9},
+ CellLabel->
+  "During evaluation of \
+In[100]:=",ExpressionUUID->"8ddb00bd-f97d-e642-9d11-edd1f2e18897"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.944096832364004*^9},
+ CellLabel->
+  "Out[100]=",ExpressionUUID->"0dd5101f-9ec0-a94a-8e3b-9a692cdf5df3"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp8", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "pf", ",", "primes", ",", "exponents", ",", "powers", ",", 
+      "combinations", ",", "partitions"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Step", " ", "1"}], ":", 
+      RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+       "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "2"}], ":", 
+       RowBox[{
+       "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+        "exponents"}]}], "*)"}], 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Step", " ", "3"}], ":", 
+        RowBox[{
+        "Generate", " ", "all", " ", "possible", " ", "powers", " ", "for", 
+         " ", "each", " ", "prime"}]}], ",", 
+       RowBox[{
+        RowBox[{"ensuring", " ", "each", " ", "factor"}], ">", "1"}]}], 
+      "*)"}], 
+     RowBox[{"powers", "=", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Power", "[", 
+          RowBox[{"#1", ",", 
+           RowBox[{"Range", "[", 
+            RowBox[{"1", ",", "#2"}], "]"}]}], "]"}], "&"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"primes", ",", "exponents"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Powers of primes: \>\"", ",", "powers"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "4"}], ":", 
+       RowBox[{
+       "Generate", " ", "all", " ", "combinations", " ", "where", " ", "each",
+         " ", "prime", " ", "appears", " ", "at", " ", "least", " ", 
+        "once"}]}], "*)"}], 
+     RowBox[{"combinations", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Outer", "[", 
+           RowBox[{"List", ",", "##"}], "]"}], "&"}], "@@", "powers"}], ",", 
+        RowBox[{
+         RowBox[{"Length", "[", "primes", "]"}], "-", "1"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<All combinations of powers: \>\"", ",", "combinations"}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "5"}], ":", 
+       RowBox[{
+       "Calculate", " ", "the", " ", "product", " ", "of", " ", "each", " ", 
+        "combination", " ", "to", " ", "form", " ", "partitions"}]}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Times", "@@@", "combinations"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Partitions formed: \>\"", ",", "partitions"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "6"}], ":", 
+       RowBox[{
+       "Count", " ", "how", " ", "many", " ", "of", " ", "these", " ", 
+        "partitions", " ", "equal", " ", "n"}]}], "*)"}], 
+     RowBox[{"count", "=", 
+      RowBox[{"Count", "[", 
+       RowBox[{"partitions", ",", "n"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+       ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]", 
+     "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9440971053276234`*^9, 3.944097111833004*^9}, {
+  3.944097207453104*^9, 3.944097216497408*^9}},
+ CellLabel->
+  "In[103]:=",ExpressionUUID->"c48b526a-fbd0-2c42-925b-3191a8eb036a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp8", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9440971188690968`*^9, 3.9440971225923424`*^9}},
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"933794c5-2d56-1c4c-9402-bfd7dadd3907"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.9440972237033405`*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"2031bd2f-0d82-654f-b8b4-c7cedf59276b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.9440972237063217`*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"8043c70f-f44c-0d4d-8db8-ca8036b2cdca"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.944097223711031*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"debd40ee-8cde-c540-80fb-dbdbb94016a1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Powers of primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "2", "}"}], ",", 
+     RowBox[{"{", "3", "}"}]}], "}"}]}],
+  SequenceForm["Powers of primes: ", {{2}, {3}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.944097223712034*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"da9c46c1-42f0-804b-9d71-d8d7038d4823"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All combinations of powers: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3"}], "}"}], "}"}]}],
+  SequenceForm["All combinations of powers: ", {{2, 3}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.944097223713028*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"96078367-fe12-154e-9194-b43a59d6bdc9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "6", "}"}]}],
+  SequenceForm["Partitions formed: ", {6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.9440972237140102`*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"8851436a-8230-dd44-bad3-c26240cd00d9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097126223364*^9, 3.944097223716028*^9},
+ CellLabel->
+  "During evaluation of \
+In[104]:=",ExpressionUUID->"ae83ffbe-aa7a-4241-981c-9d99f7a2c2d8"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9440971262370872`*^9, 3.9440972237170105`*^9},
+ CellLabel->
+  "Out[104]=",ExpressionUUID->"cf5548d8-25a5-b54a-8b83-db875eaa21c2"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp9", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Step", " ", "1"}], ":", 
+      RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+       "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "2"}], ":", 
+       RowBox[{
+       "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+        "exponents"}]}], "*)"}], 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "3"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Generate", " ", "all", " ", "possible", " ", "partitions", " ", 
+         "where", " ", "each", " ", "factor"}], ">", "1"}]}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", "primes", "]"}], "==", "1"}], ",", 
+        RowBox[{"{", "n", "}"}], ",", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+           RowBox[{"{", "n", "}"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"Times", "@@", 
+              RowBox[{"Power", "[", 
+               RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"p", ",", 
+               RowBox[{"Tuples", "[", 
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"Range", "[", 
+                   RowBox[{"1", ",", "e"}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+              "}"}]}], "]"}]}], "]"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Partitions formed: \>\"", ",", "partitions"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "4"}], ":", 
+       RowBox[{
+       "Count", " ", "how", " ", "many", " ", "unique", " ", "partitions", 
+        " ", "equal", " ", "n"}]}], "*)"}], 
+     RowBox[{"count", "=", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+       ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]", 
+     "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9440973731494884`*^9, 3.944097378467993*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"2d38156d-dec7-bf42-b968-784e1b60f13c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp9", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9440973939733143`*^9, 3.944097397652815*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"68772b2d-769b-f646-b4ed-84bd9c62c829"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097398725403*^9},
+ CellLabel->
+  "During evaluation of \
+In[106]:=",ExpressionUUID->"37eb0cd6-ea83-ef43-9ee9-90816bb5fb0a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440973987273827`*^9},
+ CellLabel->
+  "During evaluation of \
+In[106]:=",ExpressionUUID->"5b10737b-2bd5-734c-be6b-1b06eb68c46a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440973987316914`*^9},
+ CellLabel->
+  "During evaluation of \
+In[106]:=",ExpressionUUID->"9a4e0f30-f480-e94a-a747-fb5c4fea7cba"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "6"}], "}"}]}],
+  SequenceForm["Partitions formed: ", {6, 6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440973987327614`*^9},
+ CellLabel->
+  "During evaluation of \
+In[106]:=",ExpressionUUID->"aab05120-188d-9442-b1f1-d3151bf23bd8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "2"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 2],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440973987347145`*^9},
+ CellLabel->
+  "During evaluation of \
+In[106]:=",ExpressionUUID->"02419d44-ed40-3f4a-bf6b-b62ac1789309"]
+}, Open  ]],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{3.9440973987357464`*^9},
+ CellLabel->
+  "Out[106]=",ExpressionUUID->"b85bc826-daac-9440-a7ad-647e1ad44461"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Abs", "[", 
-  SuperscriptBox["E", 
-   RowBox[{"I", " ", "2", " ", 
-    RowBox[{"Log", "[", "3.2", "]"}]}]], "]"}]], "Input",
- CellChangeTimes->{{3.9436033624914474`*^9, 3.943603366430752*^9}},
+ RowBox[{"mp9", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.9440974014536057`*^9, 3.9440974038444424`*^9}},
  CellLabel->
-  "In[509]:=",ExpressionUUID->"40dc7813-8494-8141-878e-7dc7496ec085"],
+  "In[107]:=",ExpressionUUID->"0a0e7a63-b980-864a-b3fd-0957dec5b14f"],
 
-Cell[BoxData["0.9999999999999999`"], "Output",
- CellChangeTimes->{3.943603368111969*^9},
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 12, ": ", {{2, 2}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097404596489*^9},
  CellLabel->
-  "Out[509]=",ExpressionUUID->"524141a4-e442-6f49-baf7-95f5e53a7cc6"]
+  "During evaluation of \
+In[107]:=",ExpressionUUID->"7defc565-bc77-ef49-978f-e730950e54c9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097404598486*^9},
+ CellLabel->
+  "During evaluation of \
+In[107]:=",ExpressionUUID->"945f4ea5-27d7-9743-be46-90ee9d1480b6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {2, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097404602463*^9},
+ CellLabel->
+  "During evaluation of \
+In[107]:=",ExpressionUUID->"92ed4ef7-2054-fa46-a670-e2e378b0c493"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"12", ",", "6", ",", "12"}], "}"}]}],
+  SequenceForm["Partitions formed: ", {12, 6, 12}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097404603487*^9},
+ CellLabel->
+  "During evaluation of \
+In[107]:=",ExpressionUUID->"0798b8f0-9d9d-0241-a65a-c3ace446b38e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "12", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "2"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 12, "): ", 2],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944097404605484*^9},
+ CellLabel->
+  "During evaluation of \
+In[107]:=",ExpressionUUID->"2a6f7187-2ea1-1f40-bb15-21e6fa1f9cfc"]
 }, Open  ]],
 
-Cell[BoxData["SumC"], "Input",
- CellChangeTimes->{{3.943771730060871*^9, 
-  3.943771731944765*^9}},ExpressionUUID->"098f3e87-332f-dd40-8e69-\
-96f3e7ffb4d5"]
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{3.9440974046065254`*^9},
+ CellLabel->
+  "Out[107]=",ExpressionUUID->"f135035a-6356-ee48-a25a-3829031e4555"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp10", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Step", " ", "1"}], ":", 
+      RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+       "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "2"}], ":", 
+       RowBox[{
+       "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+        "exponents"}]}], "*)"}], 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "3"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Generate", " ", "all", " ", "possible", " ", "partitions", " ", 
+         "where", " ", "each", " ", "factor"}], ">", "1"}]}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"{", "n", "}"}], ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Times", "@@", 
+            RowBox[{"Power", "[", 
+             RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"p", ",", 
+             RowBox[{"Tuples", "[", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"Range", "[", 
+                 RowBox[{"1", ",", "e"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+            "}"}]}], "]"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Remove", " ", "duplicates", " ", "by", " ", "converting", " ", "to", 
+       " ", "sets"}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"DeleteDuplicates", "[", "partitions", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Partitions formed: \>\"", ",", "partitions"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "4"}], ":", 
+       RowBox[{
+       "Count", " ", "how", " ", "many", " ", "unique", " ", "partitions", 
+        " ", "equal", " ", "n"}]}], "*)"}], 
+     RowBox[{"count", "=", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+       ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]", 
+     "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.944098200674412*^9, 3.944098209024788*^9}},
+ CellLabel->
+  "In[108]:=",ExpressionUUID->"99bfea5d-5a41-e84c-b3e0-27e0b82691c1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"mp10", "[", "6", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"mp10", "[", "12", "]"}]}], "Input",
+ CellChangeTimes->{{3.9440982151903114`*^9, 3.944098225028572*^9}},
+ CellLabel->
+  "In[109]:=",ExpressionUUID->"6493dc63-b6e0-954a-81b9-c313b7d6bbcf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098225536293*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"9f46484d-e6a3-2f4d-803c-f29875ab846d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440982255393047`*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"6f338738-cd58-3143-8058-a3f274cc05f1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098225545288*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"bef59571-4901-6843-a756-0145aa4bad59"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "6", "}"}]}],
+  SequenceForm["Partitions formed: ", {6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440982255462856`*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"8c8f3bbf-7b53-b64e-8682-0989cc0c0ab4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098225547287*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"1b570bd5-f915-9f4f-882d-1e39b5ec871e"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.944098225548296*^9},
+ CellLabel->
+  "Out[109]=",ExpressionUUID->"bed3f547-74d9-7b46-9369-e1a16dcec271"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 12, ": ", {{2, 2}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098225552309*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"980ec4fb-41c5-7f4b-bb89-6705a3136a79"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440982255542946`*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"4b2b73d3-36e0-1f4a-ad90-e87ba6e7cc8a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {2, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098225559244*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"630a6aa7-9fbf-d145-a6f4-7e6189634a74"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"12", ",", "6"}], "}"}]}],
+  SequenceForm["Partitions formed: ", {12, 6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440982255603046`*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"a5118bd4-52fe-4447-bdfe-4153bcf95750"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "12", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 12, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440982255612926`*^9},
+ CellLabel->
+  "During evaluation of \
+In[109]:=",ExpressionUUID->"e9702c6d-0e43-0c40-ab54-77b97e3eff5e"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9440982255623016`*^9},
+ CellLabel->
+  "Out[110]=",ExpressionUUID->"cd29670b-d6c6-df4a-a16e-79a54435d252"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp11", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Step", " ", "1"}], ":", 
+      RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+       "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "2"}], ":", 
+       RowBox[{
+       "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+        "exponents"}]}], "*)"}], 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "3"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Generate", " ", "all", " ", "possible", " ", "partitions", " ", 
+         "where", " ", "each", " ", "factor"}], ">", "1"}]}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Times", "@@", 
+          RowBox[{"Power", "[", 
+           RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"p", ",", 
+           RowBox[{"Tuples", "[", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Range", "[", 
+               RowBox[{"1", ",", "e"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+          "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Remove", " ", "duplicates"}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"DeleteDuplicates", "[", "partitions", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "4"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Filter", " ", "partitions", " ", "where", " ", "each", " ", 
+         "factor"}], ">", "1"}]}], "*)"}], 
+     RowBox[{"validPartitions", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{"And", "@@", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"FactorInteger", "[", "#", "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "2"}], "]"}], "]"}], ">", "0"}], "&"}], "/@", 
+            RowBox[{"FactorInteger", "[", "#", "]"}]}], ")"}]}], "&"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Partitions formed: \>\"", ",", "validPartitions"}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "5"}], ":", 
+       RowBox[{
+       "Count", " ", "how", " ", "many", " ", "unique", " ", "partitions", 
+        " ", "equal", " ", "n"}]}], "*)"}], 
+     RowBox[{"count", "=", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"validPartitions", ",", 
+         RowBox[{
+          RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+       ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]", 
+     "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.944098633803295*^9, 3.944098639228115*^9}},
+ CellLabel->
+  "In[113]:=",ExpressionUUID->"4232b790-678e-cc4e-92a0-42c9c7f5a533"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp11", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.944098644150503*^9, 3.9440986465567417`*^9}},
+ CellLabel->
+  "In[114]:=",ExpressionUUID->"ae050ec8-44fb-2f4d-9c11-ed8c7c0f0c68"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440986470971603`*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"1fff65b6-d4bd-6444-bb8c-26ef58e0839c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440986471001625`*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"ac566b24-7002-c449-b5bd-281e2f77863e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098647106127*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"862e49a2-e46d-0849-a7ef-100aaeead502"]
+}, Open  ]],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partw", 
+   "\"Part \\!\\(\\*RowBox[{\\\"2\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"2\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\
+\"}\\\"}]\\) does not exist.\"", 2, 114, 17, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9440986471081257`*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"48867205-71f5-c74b-88d6-83db113f4680"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partw", 
+   "\"Part \\!\\(\\*RowBox[{\\\"2\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"3\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}], \\\
+\"}\\\"}]\\) does not exist.\"", 2, 114, 18, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944098647118124*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"0a61b15c-deaa-6043-9e7b-3dea7d75e7a5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "}"}]}],
+  SequenceForm["Partitions formed: ", {}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944098647123123*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"af5db4b3-f139-6047-816f-04c410974421"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "0"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 0],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9440986471241264`*^9},
+ CellLabel->
+  "During evaluation of \
+In[114]:=",ExpressionUUID->"e9bc353e-4b5b-6b4a-b9ce-4daf47eadbed"]
+}, Open  ]],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.944098647130123*^9},
+ CellLabel->
+  "Out[114]=",ExpressionUUID->"7a0d8914-8b5f-e148-8d07-5045f7172faf"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mp12", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+      "}"}], ",", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "1"}], ":", 
+       RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+     RowBox[{
+      RowBox[{"pf", "=", 
+       RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+        "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "2"}], ":", 
+        RowBox[{
+        "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+         "exponents"}]}], "*)"}], 
+      RowBox[{"primes", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"exponents", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "3"}], ":", 
+        RowBox[{
+         RowBox[{
+         "Generate", " ", "all", " ", "possible", " ", "partitions", " ", 
+          "where", " ", "each", " ", "factor"}], ">", "1"}]}], "*)"}], 
+      RowBox[{"partitions", "=", 
+       RowBox[{"DeleteDuplicates", "[", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Times", "@@", 
+            RowBox[{"Power", "[", 
+             RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"p", ",", 
+             RowBox[{"Tuples", "[", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"Range", "[", 
+                 RowBox[{"1", ",", "e"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+            "}"}]}], "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "4"}], ":", 
+        RowBox[{
+         RowBox[{
+         "Filter", " ", "partitions", " ", "where", " ", "each", " ", 
+          "factor"}], ">", "1"}]}], "*)"}], 
+      RowBox[{"validPartitions", "=", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{"AllTrue", "[", 
+           RowBox[{
+            RowBox[{"FactorInteger", "[", "#", "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ">=", "1"}], "&"}]}], "]"}], 
+          "&"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Partitions formed: \>\"", ",", "validPartitions"}], "]"}],
+       ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "5"}], ":", 
+        RowBox[{
+        "Count", " ", "how", " ", "many", " ", "unique", " ", "partitions", 
+         " ", "equal", " ", "n"}]}], "*)"}], 
+      RowBox[{"count", "=", 
+       RowBox[{"Length", "[", 
+        RowBox[{"Select", "[", 
+         RowBox[{"validPartitions", ",", 
+          RowBox[{
+           RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+        ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]",
+       "count"}]}], "]"}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.9441000721837883`*^9, 3.9441000788137417`*^9}},
+ CellLabel->
+  "In[115]:=",ExpressionUUID->"314ab7d4-512f-0a47-8932-82ed4719a7cf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"mp12", "[", "6", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"mp12", "[", "12", "]"}]}], "Input",
+ CellChangeTimes->{{3.9441000829005184`*^9, 3.9441000921321087`*^9}},
+ CellLabel->
+  "In[116]:=",ExpressionUUID->"52f38f08-abd5-9c4f-8465-c3f6bfb65ad3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927487907`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"5b322b05-91d9-fc49-b05f-ff43ddde8da0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927508335`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"412794c4-182e-6348-ade6-05218ed0f3fc"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927568455`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"60c7680c-abf2-b64c-8e49-aa61b7c895a9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "6", "}"}]}],
+  SequenceForm["Partitions formed: ", {6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944100092757841*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"a4db6714-f6d8-ab45-8328-9b1aebe6be29"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927588387`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"6b46da39-32f3-d143-9ec6-93527e1d86ea"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9441000927608395`*^9},
+ CellLabel->
+  "Out[116]=",ExpressionUUID->"9c870a84-5470-314f-9819-628fc0d7cd3f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 12, ": ", {{2, 2}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927658997`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"ca5551dc-64dd-5743-8f12-b178bc649db1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927678986`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"fe0c2927-f715-854f-a6be-24084ff30e79"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {2, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927728996`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"22f2117f-6971-7b42-8633-555b40dbec0a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "12"}], "}"}]}],
+  SequenceForm["Partitions formed: ", {6, 12}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441000927739162`*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"fc166ae6-ca6c-b445-aa70-13506ea47939"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "12", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 12, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944100092775921*^9},
+ CellLabel->
+  "During evaluation of \
+In[116]:=",ExpressionUUID->"88731c48-35fc-324b-9b20-a9c51c106e31"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9441000927768993`*^9},
+ CellLabel->
+  "Out[117]=",ExpressionUUID->"c31171ce-ea7c-6943-bba3-4d9fb0dc0c85"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp13", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Step", " ", "1"}], ":", 
+      RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+       "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "2"}], ":", 
+       RowBox[{
+       "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+        "exponents"}]}], "*)"}], 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "3"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Generate", " ", "all", " ", "possible", " ", "partitions", " ", 
+         "where", " ", "each", " ", "factor"}], ">", "1"}]}], "*)"}], 
+     RowBox[{"partitions", "=", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"p", ",", 
+            RowBox[{"Tuples", "[", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Range", "[", 
+                RowBox[{"1", ",", "e"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+           "}"}]}], "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "4"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Filter", " ", "partitions", " ", "where", " ", "each", " ", 
+         "factor"}], ">", "1"}]}], "*)"}], 
+     RowBox[{"validPartitions", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"And", "@@", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], ">=", "1"}], "&"}], "/@", 
+             RowBox[{"FactorInteger", "[", "x", "]"}]}], ")"}]}]}], "]"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Partitions formed: \>\"", ",", "validPartitions"}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "5"}], ":", 
+       RowBox[{
+       "Count", " ", "how", " ", "many", " ", "unique", " ", "partitions", 
+        " ", "equal", " ", "n"}]}], "*)"}], 
+     RowBox[{"count", "=", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"validPartitions", ",", 
+         RowBox[{
+          RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+       ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]", 
+     "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441028921677246`*^9, 3.944102908238577*^9}},
+ CellLabel->
+  "In[118]:=",ExpressionUUID->"c0e5b469-7dd4-ca4d-98bb-1cb0ec5b58e3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp13", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9441029128743477`*^9, 3.944102916724556*^9}},
+ CellLabel->
+  "In[119]:=",ExpressionUUID->"d493e6fe-cbd5-b34c-b49e-87e61a4506a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029176007385`*^9},
+ CellLabel->
+  "During evaluation of \
+In[119]:=",ExpressionUUID->"85531037-ad00-304d-90d2-048e75d86e54"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944102917603716*^9},
+ CellLabel->
+  "During evaluation of \
+In[119]:=",ExpressionUUID->"2366b9c4-a7fd-bc4d-bc0a-8157e6892185"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029176099453`*^9},
+ CellLabel->
+  "During evaluation of \
+In[119]:=",ExpressionUUID->"106ccf2f-ec9e-df42-993f-c54b7614e1b8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "6", "}"}]}],
+  SequenceForm["Partitions formed: ", {6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944102917611946*^9},
+ CellLabel->
+  "During evaluation of \
+In[119]:=",ExpressionUUID->"38e6e3fa-08a7-ee41-83a1-2da0699d06c3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029176129456`*^9},
+ CellLabel->
+  "During evaluation of \
+In[119]:=",ExpressionUUID->"7023c979-b8eb-8d4b-98b8-a9043177fd2b"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.944102917613945*^9},
+ CellLabel->
+  "Out[119]=",ExpressionUUID->"d7afee3e-e81a-9540-830e-c3c7ca466407"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp13", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.944102922101164*^9, 3.944102926077717*^9}},
+ CellLabel->
+  "In[120]:=",ExpressionUUID->"b6e2b7c0-88d9-144e-9ea9-2e7857907fbb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 12, ": ", {{2, 2}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029269015465`*^9},
+ CellLabel->
+  "During evaluation of \
+In[120]:=",ExpressionUUID->"3f71f3e8-53ad-1243-825d-8364fb9c9d66"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029269035416`*^9},
+ CellLabel->
+  "During evaluation of \
+In[120]:=",ExpressionUUID->"8fd26f5c-b3ee-1a4e-9b30-6505d3a975a2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {2, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029269101124`*^9},
+ CellLabel->
+  "During evaluation of \
+In[120]:=",ExpressionUUID->"be14e3f7-d4af-5640-80fc-0f1bcd13aa6c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Partitions formed: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "12"}], "}"}]}],
+  SequenceForm["Partitions formed: ", {6, 12}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441029269121113`*^9},
+ CellLabel->
+  "During evaluation of \
+In[120]:=",ExpressionUUID->"a0914b60-0a62-244b-9838-a62e18c3eafb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "12", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 12, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944102926913149*^9},
+ CellLabel->
+  "During evaluation of \
+In[120]:=",ExpressionUUID->"c9479f93-287b-4c44-9a99-360be82303ad"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9441029269141483`*^9},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"17589e78-0afa-994c-a6a6-68d164242695"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp14", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "pf", ",", "primes", ",", "exponents", ",", "allPartitions", ",", 
+      "validPartitions"}], "}"}], ",", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"Step", " ", "1"}], ":", 
+      RowBox[{"Get", " ", "prime", " ", "factorization"}]}], "*)"}], 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Prime factorization of \>\"", ",", "n", ",", "\"\<: \>\"", ",", 
+       "pf"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "2"}], ":", 
+       RowBox[{
+       "Separate", " ", "primes", " ", "and", " ", "their", " ", 
+        "exponents"}]}], "*)"}], 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Primes: \>\"", ",", "primes"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Exponents: \>\"", ",", "exponents"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "3"}], ":", 
+       RowBox[{
+       "Generate", " ", "all", " ", "possible", " ", "combinations", " ", 
+        "of", " ", "primes", " ", "and", " ", "their", " ", "powers"}]}], 
+      "*)"}], 
+     RowBox[{"allPartitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Times", "@@", 
+          RowBox[{"Power", "[", 
+           RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"p", ",", 
+           RowBox[{"Tuples", "[", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Range", "[", 
+               RowBox[{"1", ",", "e"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+          "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "4"}], ":", 
+       RowBox[{
+        RowBox[{
+        "Filter", " ", "to", " ", "keep", " ", "only", " ", "partitions", " ",
+          "where", " ", "all", " ", "factors", " ", "are"}], ">", "1"}]}], 
+      "*)"}], 
+     RowBox[{"validPartitions", "=", 
+      RowBox[{"Select", "[", 
+       RowBox[{"allPartitions", ",", 
+        RowBox[{"Function", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"AllTrue", "[", 
+           RowBox[{
+            RowBox[{"FactorInteger", "[", "x", "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ">=", "1"}], "&"}]}], "]"}]}], 
+         "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "5"}], ":", 
+       RowBox[{
+       "Print", " ", "and", " ", "count", " ", "valid", " ", "partitions"}]}],
+       "*)"}], 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Valid partitions: \>\"", ",", "validPartitions"}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"count", "=", 
+      RowBox[{"Count", "[", 
+       RowBox[{"validPartitions", ",", "n"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<Number of valid partitions (where product equals \>\"", ",", "n", 
+       ",", "\"\<): \>\"", ",", "count"}], "]"}], ";", "\[IndentingNewLine]", 
+     "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441049125587025`*^9, 3.944104922423729*^9}},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"601d7082-f3c8-674d-82b0-e0335002f08c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp14", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.944104925443247*^9, 3.944104928749031*^9}},
+ CellLabel->
+  "In[122]:=",ExpressionUUID->"cff1a0cc-8dde-4a4f-bbf4-9f4863ec203d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 6, ": ", {{2, 1}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049298880367`*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"678e17de-f65e-a14c-a63a-4762f9dba04c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944104929890045*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"344b4eb8-c802-0f47-b1d1-84c9bd71624a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {1, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049298950424`*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"116bc53d-f06d-704e-ab65-593d2c1cb46a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Valid partitions: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", "6", "}"}]}],
+  SequenceForm["Valid partitions: ", {6}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944104929896019*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"aee843fc-e2e8-7a44-ac44-7d4e7d5e05d7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "6", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 6, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.944104929898031*^9},
+ CellLabel->
+  "During evaluation of \
+In[122]:=",ExpressionUUID->"3dab5685-c9ad-2244-9cd1-4c1c34b4d948"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.9441049298990345`*^9},
+ CellLabel->
+  "Out[122]=",ExpressionUUID->"ff919e5a-460a-ac4d-80f1-9ead3bfd397c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp14", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.944104934335327*^9, 3.944104940229599*^9}},
+ CellLabel->
+  "In[123]:=",ExpressionUUID->"1498a2a9-8dc2-4f43-a7ce-f387393a6db2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prime factorization of \"\>", "\[InvisibleSpace]", "12", 
+   "\[InvisibleSpace]", "\<\": \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}]}], "}"}]}],
+  SequenceForm["Prime factorization of ", 12, ": ", {{2, 2}, {3, 1}}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049411894054`*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"06050acc-87d6-d342-86fd-eee27947825b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Primes: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}]}],
+  SequenceForm["Primes: ", {2, 3}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049411913986`*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"65192aa3-d326-0249-9d3f-994367be194c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Exponents: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "1"}], "}"}]}],
+  SequenceForm["Exponents: ", {2, 1}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049411964035`*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"bc7cd3e1-eabc-774a-93e9-58a25304f689"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Valid partitions: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "12"}], "}"}]}],
+  SequenceForm["Valid partitions: ", {6, 12}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049411974163`*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"c63f8832-c42c-8345-a0d4-2e42441bf263"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number of valid partitions (where product equals \"\>", 
+   "\[InvisibleSpace]", "12", "\[InvisibleSpace]", "\<\"): \"\>", 
+   "\[InvisibleSpace]", "1"}],
+  SequenceForm[
+  "Number of valid partitions (where product equals ", 12, "): ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9441049411984024`*^9},
+ CellLabel->
+  "During evaluation of \
+In[123]:=",ExpressionUUID->"201be583-60ad-214f-949c-5423efaf79ce"]
+}, Open  ]],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.944104941199402*^9},
+ CellLabel->
+  "Out[123]=",ExpressionUUID->"9fe0dbd4-6610-a84a-a2ff-71a73983810e"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"generatingFunction", "[", "s_", "]"}], ":=", 
+   RowBox[{"Product", "[", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"k", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "s"}], ")"}]}]}], ")"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "2", ",", "Infinity"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Function", " ", "to", " ", "extract", " ", "coefficients"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"mp15", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "series", "}"}], ",", 
+    RowBox[{
+     RowBox[{"series", "=", 
+      RowBox[{"Normal", "[", 
+       RowBox[{"Series", "[", 
+        RowBox[{
+         RowBox[{"generatingFunction", "[", "s", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"s", ",", "0", ",", "n"}], "}"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Coefficient", "[", 
+      RowBox[{"series", ",", "s", ",", "0"}], "]"}]}]}], " ", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"a_", "1", " ", "is", " ", "1", " ", "by", " ", "convention"}], 
+     ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"we", "'"}], "re", " ", "interested", " ", "in", " ", "a_n", 
+       " ", "for", " ", "n"}], ">", "1"}]}], "*)"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9441065315039024`*^9, 3.944106544366131*^9}},
+ CellLabel->
+  "In[126]:=",ExpressionUUID->"469d6ff8-041b-384a-83e9-855c33453da2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp15", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.94410655357514*^9, 3.9441065563893833`*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"29f1daa8-7f37-6946-ad1f-be6e4e14cc1f"],
+
+Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Product]", 
+   RowBox[{"k", "=", "2"}], "\[Infinity]"], 
+  FractionBox["1", 
+   RowBox[{"1", "-", 
+    SuperscriptBox["k", 
+     RowBox[{"-", "s"}]]}]]}]], "Output",
+ CellChangeTimes->{3.944106569628689*^9},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"d91c6a71-cdaf-684a-9448-05717d4f2aeb"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"productGeneratingFunction", "[", "s_", "]"}], ":=", 
+   RowBox[{"Product", "[", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"k", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "s"}], ")"}]}]}], ")"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "2", ",", "Infinity"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Convert", " ", "to", " ", "sum", " ", "generating", " ", "function", " ", 
+    "using", " ", "log", " ", "and", " ", "exponential"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sumGeneratingFunction", "[", "s_", "]"}], ":=", 
+   RowBox[{"Exp", "[", 
+    RowBox[{"Sum", "[", 
+     RowBox[{
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "/", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"k", "^", 
+           RowBox[{"(", 
+            RowBox[{"-", "s"}], ")"}]}]}], ")"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", "2", ",", "Infinity"}], "}"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Extract", " ", "coefficient", " ", "for", " ", "a_n"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"mp16", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "series", "}"}], ",", 
+    RowBox[{
+     RowBox[{"series", "=", 
+      RowBox[{"Normal", "[", 
+       RowBox[{"Series", "[", 
+        RowBox[{
+         RowBox[{"sumGeneratingFunction", "[", "s", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"s", ",", "0", ",", "n"}], "}"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Coefficient", "[", 
+      RowBox[{"series", ",", "s", ",", "0"}], "]"}]}]}], 
+   "]"}]}], "\n"}], "Input",
+ CellChangeTimes->{{3.94410669850914*^9, 3.9441067081575603`*^9}},
+ CellLabel->
+  "In[132]:=",ExpressionUUID->"de7627b2-6a11-1a41-9ce1-b0faf90ef868"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp16", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9441067131574306`*^9, 3.9441067169501324`*^9}},
+ CellLabel->
+  "In[135]:=",ExpressionUUID->"c002fe2a-25ea-de47-b9b1-831ffd1b1b75"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Sum", "div", "\"Sum does not converge.\"", 2, 135, 19, 
+   27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441067336410866`*^9},
+ CellLabel->
+  "During evaluation of \
+In[135]:=",ExpressionUUID->"2005a836-c087-714a-878e-bc58ddc86a8d"],
+
+Cell[BoxData[
+ SuperscriptBox["\[ExponentialE]", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", 
+    RowBox[{"k", "=", "2"}], "\[Infinity]"], 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", "s", " ", 
+      RowBox[{"Log", "[", "k", "]"}]}], "-", 
+     RowBox[{
+      FractionBox["1", "24"], " ", 
+      SuperscriptBox["s", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"Log", "[", "k", "]"}], "2"]}], "+", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["s", "4"], " ", 
+       SuperscriptBox[
+        RowBox[{"Log", "[", "k", "]"}], "4"]}], "2880"], "-", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["s", "6"], " ", 
+       SuperscriptBox[
+        RowBox[{"Log", "[", "k", "]"}], "6"]}], "181440"], "+", 
+     RowBox[{"Log", "[", 
+      FractionBox["1", 
+       RowBox[{"s", " ", 
+        RowBox[{"Log", "[", "k", "]"}]}]], "]"}]}], ")"}]}]]], "Output",
+ CellChangeTimes->{3.9441067336480846`*^9},
+ CellLabel->
+  "Out[135]=",ExpressionUUID->"a697a769-7132-8e41-9439-7993064d92e0"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp17", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "count"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"count", "=", 
+      RowBox[{"Product", "[", 
+       RowBox[{
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{"Binomial", "[", 
+           RowBox[{"e", ",", "j"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "e"}], "}"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"e", ",", 
+          RowBox[{"pf", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "count"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441069355179977`*^9, 3.944106945589279*^9}},
+ CellLabel->
+  "In[136]:=",ExpressionUUID->"1d41c2a7-32d8-ce4d-9578-78d2ecc5f846"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp17", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.94410694754875*^9, 3.944106954782133*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"7705d429-98a2-6f4e-b091-e6a7a6645d1c"],
+
+Cell[BoxData["3"], "Output",
+ CellChangeTimes->{{3.944106952027958*^9, 3.9441069553325233`*^9}},
+ CellLabel->
+  "Out[138]=",ExpressionUUID->"276193f3-c286-1041-96a4-10ba4d4e38ba"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mp18", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pf", ",", "partitions"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"pf", "=", 
+       RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"partitions", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Tuples", "@@", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "p"}], "}"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "1", ",", "e"}], "}"}]}], "]"}], "&"}], "@@@",
+             "pf"}], ")"}]}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", "pf", "]"}], "-", "1"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Times", "@@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "1"}], "]"}], "]"}], "^", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ")"}]}], "==", 
+           "n"}], "&"}]}], "]"}], "]"}]}]}], "]"}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.9441070825509644`*^9, 3.9441070889732513`*^9}},
+ CellLabel->
+  "In[139]:=",ExpressionUUID->"2ba43772-b339-9846-9014-d3b0003616fb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp18", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.944107091829609*^9, 3.94410710716531*^9}},
+ CellLabel->
+  "In[141]:=",ExpressionUUID->"13fefb5e-b3cd-d64b-8eb6-99d74b7ba993"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Tuples", "ilsmn", 
+   "\"Single or list of non-negative machine-sized integers expected at \
+position \\!\\(\\*RowBox[{\\\"2\\\"}]\\) of \\!\\(\\*RowBox[{\\\"Tuples\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Table\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \
+\\\"p\\\"}], \\\"}\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\
+\\\"i\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \\\"}\\\"}]}], \\\"]\
+\\\"}], \\\",\\\", RowBox[{\\\"Table\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \
+\\\"p\\\"}], \\\"}\\\"}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\
+\\\"i\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \\\"}\\\"}]}], \\\"]\
+\\\"}]}], \\\"]\\\"}]\\).\"", 2, 141, 27, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.944107097446171*^9, 3.944107108316719*^9}},
+ CellLabel->
+  "During evaluation of \
+In[141]:=",ExpressionUUID->"b61af6cc-a030-474f-91e6-bd697ea07eee"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"i\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 141, 28, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.944107097446171*^9, 3.9441071083228493`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[141]:=",ExpressionUUID->"a6496696-56dd-494b-acd1-39db173f55fd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partw", 
+   "\"Part \\!\\(\\*RowBox[{\\\"2\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \\\"p\\\"}], \\\"}\\\"}], \\\
+\"}\\\"}]\\) does not exist.\"", 2, 141, 29, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.944107097446171*^9, 3.9441071083277645`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[141]:=",ExpressionUUID->"eeee30ab-758b-6c49-bdde-84aad78064f2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"i\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 141, 30, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.944107097446171*^9, 3.9441071083317738`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[141]:=",ExpressionUUID->"0c91f005-beba-5448-a10a-a4b36523a274"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partw", 
+   "\"Part \\!\\(\\*RowBox[{\\\"2\\\"}]\\) of \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \\\"p\\\"}], \\\"}\\\"}], \\\
+\"}\\\"}]\\) does not exist.\"", 2, 141, 31, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.944107097446171*^9, 3.9441071083363953`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[141]:=",ExpressionUUID->"c7fbd669-e390-7749-b993-38a190703067"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Tuples", "argt", 
+   "\"\\!\\(\\*RowBox[{\\\"Tuples\\\"}]\\) called with \\!\\(\\*RowBox[{\\\"0\
+\\\"}]\\) arguments; \\!\\(\\*RowBox[{\\\"1\\\"}]\\) or \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) arguments are expected.\"", 2, 141, 32, 
+   27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.944107097446171*^9, 3.9441071083403606`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[141]:=",ExpressionUUID->"2304fa4b-6dee-2644-ac46-03cd3cf2b52a"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.9441070975280952`*^9, 3.9441071083473606`*^9}},
+ CellLabel->
+  "Out[141]=",ExpressionUUID->"ba9f72ac-cb8f-ad4c-8344-03861f65ef3d"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mp19", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pf", ",", "partitions"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"pf", "=", 
+       RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"partitions", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Outer", "[", 
+            RowBox[{"List", ",", "##"}], "]"}], "&"}], "@@", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"i", ",", "p"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "1", ",", "e"}], "}"}]}], "]"}], "&"}], "@@@",
+             "pf"}], ")"}]}], ",", 
+         RowBox[{
+          RowBox[{"Length", "[", "pf", "]"}], "-", "1"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Times", "@@", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "1"}], "]"}], "]"}], "^", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ")"}]}], "==", 
+           "n"}], "&"}]}], "]"}], "]"}]}]}], "]"}]}], "\n"}]], "Input",
+ CellChangeTimes->{{3.9441071638056946`*^9, 3.9441071702949066`*^9}},
+ CellLabel->
+  "In[142]:=",ExpressionUUID->"1dffab8e-c0f8-894a-9b25-6251feec6bd1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"mp19", "[", "6", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"mp19", "[", "12", "]"}]}], "Input",
+ CellChangeTimes->{{3.944107179110094*^9, 3.9441071978222504`*^9}},
+ CellLabel->
+  "In[144]:=",ExpressionUUID->"97e9b199-1f33-7646-bb46-1fda96227cfc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"List\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"i\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \
+\\\"}\\\"}]\\) is Protected.\"", 2, 144, 38, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.9441071987782745`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"482b964a-894c-c04b-b74e-43e2d446e8a6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"Table\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \\\"p\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"i\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"e\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) at \
+position \\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric \
+value.\"", 2, 144, 39, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.944107198784275*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"7f081e8d-7430-284e-bb79-17bbe9db51c9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"List\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"i\\\", \\\",\\\", \\\"p\\\"}], \\\"}\\\"}]\\) is Protected.\"", 2,
+    144, 40, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.944107198789276*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"89950618-dcef-d24a-9833-5e98d1545a9e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "argm", 
+   "\"\\!\\(\\*RowBox[{\\\"Table\\\"}]\\) called with \
+\\!\\(\\*RowBox[{\\\"0\\\"}]\\) arguments; \\!\\(\\*RowBox[{\\\"1\\\"}]\\) or \
+more arguments are expected.\"", 2, 144, 41, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.944107198796852*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"512ef575-a690-c34b-ac23-90f4c16c988e"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.9441071842309933`*^9, 3.944107198803871*^9}},
+ CellLabel->
+  "Out[144]=",ExpressionUUID->"ddcc3bca-6a29-0a44-8164-f794d136f667"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"List\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"i\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \
+\\\"}\\\"}]\\) is Protected.\"", 2, 145, 42, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.944107198805809*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"d5fc1402-7607-7a47-9ff1-f2fcd9e081f3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"Table\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \
+\\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \\\"p\\\"}], \\\"}\\\"}]}], \
+\\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"i\\\", \\\",\\\", \\\"1\\\", \\\",\\\", \\\"e\\\"}], \\\"}\\\"}], \
+\\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"i\\\", \\\",\\\", \\\"1\\\", \
+\\\",\\\", \\\"e\\\"}], \\\"}\\\"}]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) at \
+position \\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric \
+value.\"", 2, 145, 43, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.9441071988128643`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"47499f58-644e-1c40-a4ed-303119be634f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"List\\\"}]\\) in \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{\\\"i\\\", \\\",\\\", \\\"p\\\"}], \\\"}\\\"}]\\) is Protected.\"", 2,
+    145, 44, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.944107198817875*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"90112ca4-b242-5d4f-9a37-c26265c13696"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "argm", 
+   "\"\\!\\(\\*RowBox[{\\\"Table\\\"}]\\) called with \
+\\!\\(\\*RowBox[{\\\"0\\\"}]\\) arguments; \\!\\(\\*RowBox[{\\\"1\\\"}]\\) or \
+more arguments are expected.\"", 2, 145, 45, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9441071842028904`*^9, 3.9441071988228073`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[144]:=",ExpressionUUID->"ff52aa12-476d-684c-b2c3-70d2d02d5490"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.9441071842309933`*^9, 3.944107198828806*^9}},
+ CellLabel->
+  "Out[145]=",ExpressionUUID->"bf0472eb-0100-c94c-964a-84c7e4f78fba"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp20", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "partitions", ",", "primes", ",", "exponents"}], 
+     "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Outer", "[", 
+           RowBox[{"List", ",", "##"}], "]"}], "&"}], "@@", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"i", ",", "p"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", "#2"}], "}"}]}], "]"}], "&"}], "@@@", 
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"primes", ",", "exponents"}], "}"}], "]"}]}], ")"}]}], 
+        ",", 
+        RowBox[{
+         RowBox[{"Length", "[", "primes", "]"}], "-", "1"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "1"}], "]"}], "]"}], "^", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ")"}]}], "==", 
+          "n"}], "&"}]}], "]"}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441072863329086`*^9, 3.9441072932757816`*^9}},
+ CellLabel->
+  "In[146]:=",ExpressionUUID->"4469a05a-b6fc-ca44-be8a-34167436463d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp20", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.9441072957894897`*^9, 3.9441073031901226`*^9}},
+ CellLabel->
+  "In[148]:=",ExpressionUUID->"ca5b6d31-5e0a-9b4b-9bfb-ec603b421df3"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.9441072998683643`*^9, 3.944107303683489*^9}},
+ CellLabel->
+  "Out[148]=",ExpressionUUID->"b35a2a82-55ae-ad41-888b-8e862b61087d"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mp21", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+      "}"}], ",", 
+     RowBox[{
+      RowBox[{"pf", "=", 
+       RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"primes", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"exponents", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"partitions", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"p", ",", 
+            RowBox[{"Tuples", "[", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Range", "[", 
+                RowBox[{"1", ",", "#"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"#", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+           "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}]}], "]"}]}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.944107416311165*^9, 3.944107422293852*^9}},
+ CellLabel->
+  "In[149]:=",ExpressionUUID->"5b817f67-d4d6-0b40-a8b5-81b8b01c3b06"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp21", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9441074258336945`*^9, 3.944107428885153*^9}},
+ CellLabel->
+  "In[150]:=",ExpressionUUID->"e8ea7b36-bf19-8440-b703-a95a7968367f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Slot\\\"}]\\) in \\!\\(\\*RowBox[{\\\"#1\\\"}]\
+\\) is Protected.\"", 2, 150, 46, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107429929142*^9},
+ CellLabel->
+  "During evaluation of \
+In[150]:=",ExpressionUUID->"1e062494-4fcd-5943-a667-e2db2ee288fe"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Slot\\\"}]\\) in \\!\\(\\*RowBox[{\\\"#1\\\"}]\
+\\) is Protected.\"", 2, 150, 47, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107429937147*^9},
+ CellLabel->
+  "During evaluation of \
+In[150]:=",ExpressionUUID->"c8641658-9729-924a-ac45-443ec9335107"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"#1\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 150, 48, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441074299421444`*^9},
+ CellLabel->
+  "During evaluation of \
+In[150]:=",ExpressionUUID->"90dbf3c2-39e2-9c4f-862d-3668dee2964b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "itraw", 
+   "\"Raw object \\!\\(\\*RowBox[{\\\"1\\\"}]\\) cannot be used as an \
+iterator.\"", 2, 150, 49, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441074299491367`*^9},
+ CellLabel->
+  "During evaluation of \
+In[150]:=",ExpressionUUID->"0e931156-b800-3548-821b-3c417cdf622e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"#1\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 150, 50, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441074299585915`*^9},
+ CellLabel->
+  "During evaluation of \
+In[150]:=",ExpressionUUID->"340d93ca-8d80-6648-95e8-23d1116644ff"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "itraw", 
+   "\"Raw object \\!\\(\\*RowBox[{\\\"1\\\"}]\\) cannot be used as an \
+iterator.\"", 2, 150, 51, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441074299639015`*^9},
+ CellLabel->
+  "During evaluation of \
+In[150]:=",ExpressionUUID->"83d2baa5-dfd8-5047-95ae-d23a18b9b6b8"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.944107429969*^9},
+ CellLabel->
+  "Out[150]=",ExpressionUUID->"d54dbf3e-f263-e64f-b175-f53525c7131a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp22", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Times", "@@", 
+          RowBox[{"Power", "[", 
+           RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"p", ",", 
+           RowBox[{"Tuples", "[", 
+            RowBox[{"MapThread", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Range", "[", 
+                RowBox[{"1", ",", "#2"}], "]"}], "&"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"primes", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+          "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441075491328945`*^9, 3.9441075655417023`*^9}},
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"ac04a054-90c4-6945-a1b3-ee568cbf96e6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp22", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.944107567338871*^9, 3.944107575416235*^9}},
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"a6a01134-b966-a34f-8835-9cca4668f941"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.944107571812166*^9, 3.9441075759014072`*^9}},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"8cd9ce7f-806e-9046-80b5-2a6ad87aa8a1"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mp23", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "partitions", ",", "primes", ",", "exponents"}], 
+     "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"p", ",", 
+            RowBox[{"Tuples", "[", 
+             RowBox[{"MapThread", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Range", "[", 
+                 RowBox[{"1", ",", "#2"}], "]"}], "&"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"primes", ",", "exponents"}], "}"}]}], "]"}], "]"}]}],
+            "}"}]}], "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.94410765014056*^9, 3.9441076630775547`*^9}},
+ CellLabel->
+  "In[154]:=",ExpressionUUID->"2193df4f-6427-f34e-b3d0-ea6cd9b1c593"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp23", "[", "12", "]"}]], "Input",
+ CellChangeTimes->{{3.9441076671518497`*^9, 3.944107675662451*^9}},
+ CellLabel->
+  "In[156]:=",ExpressionUUID->"7a0ee41b-c7a4-2c47-8c9c-b0f639ce791b"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.9441076707740593`*^9, 3.944107676187971*^9}},
+ CellLabel->
+  "Out[156]=",ExpressionUUID->"6d984f3b-86c9-b24a-a2b5-77017a24dcfc"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"mp24", "[", "n_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+      "}"}], ",", 
+     RowBox[{
+      RowBox[{"pf", "=", 
+       RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"primes", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"exponents", "=", 
+       RowBox[{"pf", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"partitions", "=", 
+       RowBox[{"DeleteDuplicates", "[", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Times", "@@", 
+            RowBox[{"Power", "[", 
+             RowBox[{"primes", ",", "p"}], "]"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"p", ",", 
+             RowBox[{"Tuples", "[", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"Range", "[", 
+                 RowBox[{"1", ",", "#"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"#", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], 
+            "}"}]}], "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"partitions", ",", 
+         RowBox[{
+          RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}]}], "]"}]}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.9441078239913177`*^9, 3.944107830526964*^9}},
+ CellLabel->
+  "In[157]:=",ExpressionUUID->"86daffd5-add6-cf48-a162-eba3963a7bea"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"mp24", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9441078323830376`*^9, 3.944107835589119*^9}},
+ CellLabel->
+  "In[158]:=",ExpressionUUID->"20e2d622-ef15-634f-8b94-de63227dcf90"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Slot\\\"}]\\) in \\!\\(\\*RowBox[{\\\"#1\\\"}]\
+\\) is Protected.\"", 2, 158, 52, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107836741783*^9},
+ CellLabel->
+  "During evaluation of \
+In[158]:=",ExpressionUUID->"0bac6c91-9b79-2941-9168-1e20d213bf61"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Slot\\\"}]\\) in \\!\\(\\*RowBox[{\\\"#1\\\"}]\
+\\) is Protected.\"", 2, 158, 53, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107836748783*^9},
+ CellLabel->
+  "During evaluation of \
+In[158]:=",ExpressionUUID->"f98d5894-b85f-a044-ba6a-8ad54bca8667"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"#1\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 158, 54, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441078367528343`*^9},
+ CellLabel->
+  "During evaluation of \
+In[158]:=",ExpressionUUID->"05a2b74c-c896-a846-a1f0-ec5fa519f9e9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "itraw", 
+   "\"Raw object \\!\\(\\*RowBox[{\\\"1\\\"}]\\) cannot be used as an \
+iterator.\"", 2, 158, 55, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107836758833*^9},
+ CellLabel->
+  "During evaluation of \
+In[158]:=",ExpressionUUID->"68bac604-c975-e94b-9367-adefc1fc02cb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"#1\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 158, 56, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107836763836*^9},
+ CellLabel->
+  "During evaluation of \
+In[158]:=",ExpressionUUID->"80e56970-d112-0a4c-b630-79f515d1f123"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "itraw", 
+   "\"Raw object \\!\\(\\*RowBox[{\\\"1\\\"}]\\) cannot be used as an \
+iterator.\"", 2, 158, 57, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944107836767828*^9},
+ CellLabel->
+  "During evaluation of \
+In[158]:=",ExpressionUUID->"f267e541-08f1-a24d-bb21-b713ce6415b6"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.944107836771837*^9},
+ CellLabel->
+  "Out[158]=",ExpressionUUID->"ca9916aa-8375-3549-ab09-9024ce4e31d0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["p"], "Input",
+ CellChangeTimes->{3.94410792273942*^9},
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"2654a305-7c69-9341-a348-c60213c61dd8"],
+
+Cell[BoxData["p"], "Output",
+ CellChangeTimes->{3.9441079233499603`*^9},
+ CellLabel->
+  "Out[159]=",ExpressionUUID->"27d05563-a4d4-2047-87c3-7b60a5b18e6c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"multiplicativePartitions", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "primes", ",", "exponents", ",", "partitions"}], 
+     "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"primes", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"exponents", "=", 
+      RowBox[{"pf", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{"primes", ",", "exponentCombination"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"exponentCombination", ",", 
+            RowBox[{"Tuples", "[", 
+             RowBox[{"MapThread", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Range", "[", 
+                 RowBox[{"1", ",", "#2"}], "]"}], "&"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"primes", ",", "exponents"}], "}"}]}], "]"}], "]"}]}],
+            "}"}]}], "]"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}], ";", 
+     "\[IndentingNewLine]", "partitions"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.944108113841242*^9, 3.9441081413355255`*^9}},
+ CellLabel->
+  "In[162]:=",ExpressionUUID->"3c2236db-d77a-e445-9b04-ff93285c8d5e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"multiplicativePartitions", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9441081180840034`*^9, 3.9441081224054756`*^9}},
+ CellLabel->
+  "In[163]:=",ExpressionUUID->"d8880536-8b2a-1a41-b571-811faa5cb68e"],
+
+Cell[BoxData[
+ RowBox[{"{", "6", "}"}]], "Output",
+ CellChangeTimes->{{3.9441081234260273`*^9, 3.9441081467161064`*^9}},
+ CellLabel->
+  "Out[163]=",ExpressionUUID->"302383d9-ce32-824a-8d2b-b644aa23804a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"generatePartitions", "[", 
+    RowBox[{"primes_", ",", "exponents_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"combs", ",", "allPart"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"combs", "=", 
+       RowBox[{"Tuples", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Range", "[", 
+           RowBox[{"1", ",", "e"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"e", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"allPart", "=", 
+       RowBox[{"DeleteDuplicates", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{"primes", ",", "comb"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"comb", ",", "combs"}], "}"}]}], "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Select", "[", 
+       RowBox[{"allPart", ",", 
+        RowBox[{
+         RowBox[{"#", "==", "n"}], "&"}]}], "]"}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.94410851664258*^9, 3.94410851664258*^9}, {
+  3.9441086403339767`*^9, 3.944108696214863*^9}},
+ CellLabel->
+  "In[171]:=",ExpressionUUID->"279bd95b-26ed-8a4d-960a-57a33004b31d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"generatePartitions", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"FactorInteger", "[", "6", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", 
+   RowBox[{
+    RowBox[{"FactorInteger", "[", "6", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.944108521521532*^9, 3.9441085498060265`*^9}, {
+  3.944108602071451*^9, 3.9441086278854523`*^9}},
+ CellLabel->
+  "In[172]:=",ExpressionUUID->"a81c54ce-6445-cf40-8e0a-55bbf73ad3ed"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.944108535356907*^9, 3.9441085526492577`*^9}, 
+   3.9441086287306995`*^9, {3.9441086824628677`*^9, 3.9441086993433647`*^9}},
+ CellLabel->
+  "Out[172]=",ExpressionUUID->"284e86d0-5d55-3244-84f9-3a25ae726799"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"multiplicativePartitions", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "partitions", ",", "result"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Function", " ", "to", " ", "generate", " ", "partitions"}], 
+      "*)"}], 
+     RowBox[{
+      RowBox[{"generatePartitions", "[", 
+       RowBox[{"primes_", ",", "exponents_"}], "]"}], ":=", 
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"combs", ",", "allPart"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"combs", "=", 
+          RowBox[{"Tuples", "[", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"Range", "[", 
+              RowBox[{"1", ",", "#"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"#", ",", "exponents"}], "}"}]}], "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"allPart", "=", 
+          RowBox[{"DeleteDuplicates", "[", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"Times", "@@", 
+              RowBox[{"Power", "[", 
+               RowBox[{"primes", ",", "comb"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"comb", ",", "combs"}], "}"}]}], "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Select", "[", 
+          RowBox[{"allPart", ",", 
+           RowBox[{
+            RowBox[{"#", "==", "n"}], "&"}]}], "]"}]}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Generate", " ", "and", " ", "count", " ", "partitions"}], 
+      "*)"}], 
+     RowBox[{"result", "=", 
+      RowBox[{"generatePartitions", "[", 
+       RowBox[{
+        RowBox[{"pf", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", 
+        RowBox[{"pf", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", "result", "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441090533983784`*^9, 3.944109053399376*^9}},
+ CellLabel->
+  "In[173]:=",ExpressionUUID->"3dd8c4ad-91ee-154a-bb25-a601f70a0944"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"multiplicativePartitions", "[", "6", "]"}]], "Input",
+ CellChangeTimes->{{3.9441090604220695`*^9, 3.9441090644560814`*^9}},
+ CellLabel->
+  "In[174]:=",ExpressionUUID->"287f6513-f477-3144-a844-4917735bf022"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Slot\\\"}]\\) in \\!\\(\\*RowBox[{\\\"#1\\\"}]\
+\\) is Protected.\"", 2, 174, 59, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441090649240055`*^9},
+ CellLabel->
+  "During evaluation of \
+In[174]:=",ExpressionUUID->"4bac350e-ab0c-b241-901d-5e2953913366"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"#1\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 174, 60, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441090649310055`*^9},
+ CellLabel->
+  "During evaluation of \
+In[174]:=",ExpressionUUID->"1b1597c0-8030-1d42-bbb7-bc61fe1794be"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "itraw", 
+   "\"Raw object \\!\\(\\*RowBox[{\\\"1\\\"}]\\) cannot be used as an \
+iterator.\"", 2, 174, 61, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944109064936512*^9},
+ CellLabel->
+  "During evaluation of \
+In[174]:=",ExpressionUUID->"ecaada4c-2724-7c4d-8cf6-23c17f3520af"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"#1\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 174, 62, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.944109064941511*^9},
+ CellLabel->
+  "During evaluation of \
+In[174]:=",ExpressionUUID->"737b4b00-2385-ac42-aeb9-99125ccce86e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "itraw", 
+   "\"Raw object \\!\\(\\*RowBox[{\\\"1\\\"}]\\) cannot be used as an \
+iterator.\"", 2, 174, 63, 27186843884587418098, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9441090649465065`*^9},
+ CellLabel->
+  "During evaluation of \
+In[174]:=",ExpressionUUID->"f1aa7ddc-87bf-294b-bc35-c4d216601a48"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.9441090649525127`*^9},
+ CellLabel->
+  "Out[174]=",ExpressionUUID->"4ba25f40-2d82-8e4e-b0ea-bb8a9d8ae0c6"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"multiplicativePartitions", "[", "n_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pf", ",", "partitions", ",", "result"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"pf", "=", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"partitions", "=", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Times", "@@", 
+           RowBox[{"Power", "[", 
+            RowBox[{
+             RowBox[{"pf", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", "comb"}], 
+            "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"comb", ",", 
+            RowBox[{"Tuples", "[", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Range", "[", 
+                RowBox[{"1", ",", "exp"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"exp", ",", 
+                 RowBox[{"pf", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "}"}]}], "]"}], 
+             "]"}]}], "}"}]}], "]"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"partitions", ",", 
+        RowBox[{
+         RowBox[{"#", "==", "n"}], "&"}]}], "]"}], "]"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9441091141086807`*^9, 3.9441091141096764`*^9}},
+ CellLabel->
+  "In[175]:=",ExpressionUUID->"ef85371d-c4f3-c549-afaa-fffc7956b0fe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"multiplicativePartitions", "[", "6", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"multiplicativePartitions", "[", "12", "]"}]}], "Input",
+ CellChangeTimes->{{3.9441091210144157`*^9, 3.9441091329803677`*^9}},
+ CellLabel->
+  "In[179]:=",ExpressionUUID->"9ea8d9e1-0a36-3842-b187-0fc1a8803bdf"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.9441091271547165`*^9, 3.944109136436859*^9}},
+ CellLabel->
+  "Out[179]=",ExpressionUUID->"31a9511f-1cf9-214b-af10-b9af3013615f"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.9441091271547165`*^9, 3.94410913643886*^9}},
+ CellLabel->
+  "Out[180]=",ExpressionUUID->"ed3b7624-fe25-5f4c-aa25-c22a46c86fbb"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1065.75, 665.25},
-WindowMargins->{{Automatic, 22.5}, {Automatic, 15.75}},
+WindowMargins->{{87, Automatic}, {Automatic, 2.25}},
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"9e894892-34a3-b445-9c2e-a4d0b6fb4de1"
@@ -1177,15 +4778,278 @@ Cell[CellGroupData[{
 Cell[35257, 1020, 237, 5, 28, "Input",ExpressionUUID->"e4c29199-af72-5647-9bcc-67497d4a330a"],
 Cell[35497, 1027, 258, 6, 32, "Output",ExpressionUUID->"4073c447-7664-834f-b07d-9775685c0d24"]
 }, Open  ]],
+Cell[35770, 1036, 1645, 36, 104, "Input",ExpressionUUID->"5a664929-e958-6047-a634-49b00701e6da"],
+Cell[37418, 1074, 1089, 28, 104, "Input",ExpressionUUID->"4ef4a1a9-20d5-c141-9890-38056edac4d9"],
+Cell[38510, 1104, 1346, 34, 85, "Input",ExpressionUUID->"f302957e-2bb1-0944-8b9e-8f7244620c99"],
+Cell[39859, 1140, 1808, 42, 85, "Input",ExpressionUUID->"b0adb01e-e270-944e-b49f-490c755c48c2"],
+Cell[41670, 1184, 1580, 42, 104, "Input",ExpressionUUID->"5d409504-6eff-9043-8ed0-5d935ebbdaa4"],
+Cell[43253, 1228, 1426, 40, 66, "Input",ExpressionUUID->"3b342909-aa83-a946-9149-66fe61e1d55f"],
+Cell[44682, 1270, 1537, 41, 66, "Input",ExpressionUUID->"7941ffa4-3bd8-4647-b845-d6a7e9b871e0"],
 Cell[CellGroupData[{
-Cell[35792, 1038, 267, 6, 28, "Input",ExpressionUUID->"6040d359-364d-5343-95db-dc010c2d4403"],
-Cell[36062, 1046, 290, 6, 32, "Output",ExpressionUUID->"53f627f7-b39e-7c4f-8534-c6f2b88d34f1"]
+Cell[46244, 1315, 454, 7, 28, "Input",ExpressionUUID->"8ffbf083-7c9c-e744-a75f-323d39f4e89b"],
+Cell[46701, 1324, 452, 6, 32, "Output",ExpressionUUID->"a03b0c67-0e19-5549-9323-512a35a57653"]
+}, Open  ]],
+Cell[47168, 1333, 4150, 106, 351, "Input",ExpressionUUID->"adcd52d8-4088-b04b-b517-f6a66a1e2674"],
+Cell[CellGroupData[{
+Cell[51343, 1443, 207, 4, 28, "Input",ExpressionUUID->"39304c4e-7aa1-9c4e-8007-399a0219b3f6"],
+Cell[CellGroupData[{
+Cell[51575, 1451, 574, 15, 22, "Print",ExpressionUUID->"ba9ae97a-4a31-9f40-8852-6d7d7c1f28b4"],
+Cell[52152, 1468, 356, 10, 22, "Print",ExpressionUUID->"032851b4-7166-7b46-ac6a-58c5c3400cb0"],
+Cell[52511, 1480, 360, 10, 22, "Print",ExpressionUUID->"5d6029de-ad6c-c84c-9715-255a7bbb7fd3"],
+Cell[52874, 1492, 432, 12, 22, "Print",ExpressionUUID->"bacf5779-fae8-fb41-b20d-a9fdd4773e78"],
+Cell[53309, 1506, 421, 11, 22, "Print",ExpressionUUID->"603c8c55-fe34-d641-bc16-acd6fecd6a6b"],
+Cell[53733, 1519, 348, 9, 22, "Print",ExpressionUUID->"29e039db-a270-8442-9dba-f1dd052661b4"],
+Cell[54084, 1530, 467, 11, 22, "Print",ExpressionUUID->"8ddb00bd-f97d-e642-9d11-edd1f2e18897"]
+}, Open  ]],
+Cell[54566, 1544, 153, 3, 32, "Output",ExpressionUUID->"0dd5101f-9ec0-a94a-8e3b-9a692cdf5df3"]
+}, Open  ]],
+Cell[54734, 1550, 4352, 112, 351, "Input",ExpressionUUID->"c48b526a-fbd0-2c42-925b-3191a8eb036a"],
+Cell[CellGroupData[{
+Cell[59111, 1666, 209, 4, 28, "Input",ExpressionUUID->"933794c5-2d56-1c4c-9402-bfd7dadd3907"],
+Cell[CellGroupData[{
+Cell[59345, 1674, 598, 15, 22, "Print",ExpressionUUID->"2031bd2f-0d82-654f-b8b4-c7cedf59276b"],
+Cell[59946, 1691, 378, 10, 22, "Print",ExpressionUUID->"8043c70f-f44c-0d4d-8db8-ca8036b2cdca"],
+Cell[60327, 1703, 382, 10, 22, "Print",ExpressionUUID->"debd40ee-8cde-c540-80fb-dbdbb94016a1"],
+Cell[60712, 1715, 452, 12, 22, "Print",ExpressionUUID->"da9c46c1-42f0-804b-9d71-d8d7038d4823"],
+Cell[61167, 1729, 444, 11, 22, "Print",ExpressionUUID->"96078367-fe12-154e-9194-b43a59d6bdc9"],
+Cell[61614, 1742, 372, 9, 22, "Print",ExpressionUUID->"8851436a-8230-dd44-bad3-c26240cd00d9"],
+Cell[61989, 1753, 487, 11, 22, "Print",ExpressionUUID->"ae83ffbe-aa7a-4241-981c-9d99f7a2c2d8"]
+}, Open  ]],
+Cell[62491, 1767, 179, 3, 32, "Output",ExpressionUUID->"cf5548d8-25a5-b54a-8b83-db875eaa21c2"]
+}, Open  ]],
+Cell[62685, 1773, 3605, 95, 256, "Input",ExpressionUUID->"2d38156d-dec7-bf42-b968-784e1b60f13c"],
+Cell[CellGroupData[{
+Cell[66315, 1872, 207, 4, 28, "Input",ExpressionUUID->"68772b2d-769b-f646-b4ed-84bd9c62c829"],
+Cell[CellGroupData[{
+Cell[66547, 1880, 574, 15, 22, "Print",ExpressionUUID->"37eb0cd6-ea83-ef43-9ee9-90816bb5fb0a"],
+Cell[67124, 1897, 356, 10, 22, "Print",ExpressionUUID->"5b10737b-2bd5-734c-be6b-1b06eb68c46a"],
+Cell[67483, 1909, 362, 10, 22, "Print",ExpressionUUID->"9a4e0f30-f480-e94a-a747-fb5c4fea7cba"],
+Cell[67848, 1921, 378, 10, 22, "Print",ExpressionUUID->"aab05120-188d-9442-b1f1-d3151bf23bd8"],
+Cell[68229, 1933, 467, 11, 22, "Print",ExpressionUUID->"02419d44-ed40-3f4a-bf6b-b62ac1789309"]
+}, Open  ]],
+Cell[68711, 1947, 155, 3, 32, "Output",ExpressionUUID->"b85bc826-daac-9440-a7ad-647e1ad44461"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36389, 1057, 299, 7, 30, "Input",ExpressionUUID->"40dc7813-8494-8141-878e-7dc7496ec085"],
-Cell[36691, 1066, 171, 3, 32, "Output",ExpressionUUID->"524141a4-e442-6f49-baf7-95f5e53a7cc6"]
+Cell[68903, 1955, 210, 4, 28, "Input",ExpressionUUID->"0a0e7a63-b980-864a-b3fd-0957dec5b14f"],
+Cell[CellGroupData[{
+Cell[69138, 1963, 576, 15, 22, "Print",ExpressionUUID->"7defc565-bc77-ef49-978f-e730950e54c9"],
+Cell[69717, 1980, 354, 10, 22, "Print",ExpressionUUID->"945f4ea5-27d7-9743-be46-90ee9d1480b6"],
+Cell[70074, 1992, 360, 10, 22, "Print",ExpressionUUID->"92ed4ef7-2054-fa46-a670-e2e378b0c493"],
+Cell[70437, 2004, 393, 10, 22, "Print",ExpressionUUID->"0798b8f0-9d9d-0241-a65a-c3ace446b38e"],
+Cell[70833, 2016, 467, 11, 22, "Print",ExpressionUUID->"2a6f7187-2ea1-1f40-bb15-21e6fa1f9cfc"]
 }, Open  ]],
-Cell[36877, 1072, 156, 3, 28, "Input",ExpressionUUID->"098f3e87-332f-dd40-8e69-96f3e7ffb4d5"]
+Cell[71315, 2030, 155, 3, 32, "Output",ExpressionUUID->"f135035a-6356-ee48-a25a-3829031e4555"]
+}, Open  ]],
+Cell[71485, 2036, 3658, 96, 256, "Input",ExpressionUUID->"99bfea5d-5a41-e84c-b3e0-27e0b82691c1"],
+Cell[CellGroupData[{
+Cell[75168, 2136, 269, 5, 47, "Input",ExpressionUUID->"6493dc63-b6e0-954a-81b9-c313b7d6bbcf"],
+Cell[CellGroupData[{
+Cell[75462, 2145, 574, 15, 22, "Print",ExpressionUUID->"9f46484d-e6a3-2f4d-803c-f29875ab846d"],
+Cell[76039, 2162, 356, 10, 22, "Print",ExpressionUUID->"6f338738-cd58-3143-8058-a3f274cc05f1"],
+Cell[76398, 2174, 360, 10, 22, "Print",ExpressionUUID->"bef59571-4901-6843-a756-0145aa4bad59"],
+Cell[76761, 2186, 350, 9, 22, "Print",ExpressionUUID->"8c8f3bbf-7b53-b64e-8682-0989cc0c0ab4"],
+Cell[77114, 2197, 465, 11, 22, "Print",ExpressionUUID->"1b570bd5-f915-9f4f-882d-1e39b5ec871e"]
+}, Open  ]],
+Cell[77594, 2211, 153, 3, 32, "Output",ExpressionUUID->"bed3f547-74d9-7b46-9369-e1a16dcec271"],
+Cell[CellGroupData[{
+Cell[77772, 2218, 576, 15, 22, "Print",ExpressionUUID->"980ec4fb-41c5-7f4b-bb89-6705a3136a79"],
+Cell[78351, 2235, 356, 10, 22, "Print",ExpressionUUID->"4b2b73d3-36e0-1f4a-ad90-e87ba6e7cc8a"],
+Cell[78710, 2247, 360, 10, 22, "Print",ExpressionUUID->"630a6aa7-9fbf-d145-a6f4-7e6189634a74"],
+Cell[79073, 2259, 380, 10, 22, "Print",ExpressionUUID->"a5118bd4-52fe-4447-bdfe-4153bcf95750"],
+Cell[79456, 2271, 469, 11, 22, "Print",ExpressionUUID->"e9702c6d-0e43-0c40-ab54-77b97e3eff5e"]
+}, Open  ]],
+Cell[79940, 2285, 155, 3, 32, "Output",ExpressionUUID->"cd29670b-d6c6-df4a-a16e-79a54435d252"]
+}, Open  ]],
+Cell[80110, 2291, 4253, 113, 294, "Input",ExpressionUUID->"4232b790-678e-cc4e-92a0-42c9c7f5a533"],
+Cell[CellGroupData[{
+Cell[84388, 2408, 208, 4, 28, "Input",ExpressionUUID->"ae050ec8-44fb-2f4d-9c11-ed8c7c0f0c68"],
+Cell[CellGroupData[{
+Cell[84621, 2416, 576, 15, 22, "Print",ExpressionUUID->"1fff65b6-d4bd-6444-bb8c-26ef58e0839c"],
+Cell[85200, 2433, 356, 10, 22, "Print",ExpressionUUID->"ac566b24-7002-c449-b5bd-281e2f77863e"],
+Cell[85559, 2445, 360, 10, 22, "Print",ExpressionUUID->"862e49a2-e46d-0849-a7ef-100aaeead502"]
+}, Open  ]],
+Cell[85934, 2458, 471, 10, 26, "Message",ExpressionUUID->"48867205-71f5-c74b-88d6-83db113f4680"],
+Cell[86408, 2470, 469, 10, 26, "Message",ExpressionUUID->"0a61b15c-deaa-6043-9e7b-3dea7d75e7a5"],
+Cell[CellGroupData[{
+Cell[86902, 2484, 342, 9, 22, "Print",ExpressionUUID->"af5db4b3-f139-6047-816f-04c410974421"],
+Cell[87247, 2495, 467, 11, 22, "Print",ExpressionUUID->"e9bc353e-4b5b-6b4a-b9ce-4daf47eadbed"]
+}, Open  ]],
+Cell[87729, 2509, 153, 3, 32, "Output",ExpressionUUID->"7a0d8914-8b5f-e148-8d07-5045f7172faf"]
+}, Open  ]],
+Cell[87897, 2515, 4132, 109, 275, "Input",ExpressionUUID->"314ab7d4-512f-0a47-8932-82ed4719a7cf"],
+Cell[CellGroupData[{
+Cell[92054, 2628, 271, 5, 47, "Input",ExpressionUUID->"52f38f08-abd5-9c4f-8465-c3f6bfb65ad3"],
+Cell[CellGroupData[{
+Cell[92350, 2637, 576, 15, 22, "Print",ExpressionUUID->"5b322b05-91d9-fc49-b05f-ff43ddde8da0"],
+Cell[92929, 2654, 356, 10, 22, "Print",ExpressionUUID->"412794c4-182e-6348-ade6-05218ed0f3fc"],
+Cell[93288, 2666, 362, 10, 22, "Print",ExpressionUUID->"60c7680c-abf2-b64c-8e49-aa61b7c895a9"],
+Cell[93653, 2678, 348, 9, 22, "Print",ExpressionUUID->"a4db6714-f6d8-ab45-8328-9b1aebe6be29"],
+Cell[94004, 2689, 467, 11, 22, "Print",ExpressionUUID->"6b46da39-32f3-d143-9ec6-93527e1d86ea"]
+}, Open  ]],
+Cell[94486, 2703, 155, 3, 32, "Output",ExpressionUUID->"9c870a84-5470-314f-9819-628fc0d7cd3f"],
+Cell[CellGroupData[{
+Cell[94666, 2710, 578, 15, 22, "Print",ExpressionUUID->"ca5551dc-64dd-5743-8f12-b178bc649db1"],
+Cell[95247, 2727, 356, 10, 22, "Print",ExpressionUUID->"fe0c2927-f715-854f-a6be-24084ff30e79"],
+Cell[95606, 2739, 362, 10, 22, "Print",ExpressionUUID->"22f2117f-6971-7b42-8633-555b40dbec0a"],
+Cell[95971, 2751, 380, 10, 22, "Print",ExpressionUUID->"fc166ae6-ca6c-b445-aa70-13506ea47939"],
+Cell[96354, 2763, 467, 11, 22, "Print",ExpressionUUID->"88731c48-35fc-324b-9b20-a9c51c106e31"]
+}, Open  ]],
+Cell[96836, 2777, 155, 3, 32, "Output",ExpressionUUID->"c31171ce-ea7c-6943-bba3-4d9fb0dc0c85"]
+}, Open  ]],
+Cell[97006, 2783, 4078, 108, 275, "Input",ExpressionUUID->"c0e5b469-7dd4-ca4d-98bb-1cb0ec5b58e3"],
+Cell[CellGroupData[{
+Cell[101109, 2895, 208, 4, 28, "Input",ExpressionUUID->"d493e6fe-cbd5-b34c-b49e-87e61a4506a1"],
+Cell[CellGroupData[{
+Cell[101342, 2903, 576, 15, 22, "Print",ExpressionUUID->"85531037-ad00-304d-90d2-048e75d86e54"],
+Cell[101921, 2920, 354, 10, 22, "Print",ExpressionUUID->"2366b9c4-a7fd-bc4d-bc0a-8157e6892185"],
+Cell[102278, 2932, 362, 10, 22, "Print",ExpressionUUID->"106ccf2f-ec9e-df42-993f-c54b7614e1b8"],
+Cell[102643, 2944, 348, 9, 22, "Print",ExpressionUUID->"38e6e3fa-08a7-ee41-83a1-2da0699d06c3"],
+Cell[102994, 2955, 467, 11, 22, "Print",ExpressionUUID->"7023c979-b8eb-8d4b-98b8-a9043177fd2b"]
+}, Open  ]],
+Cell[103476, 2969, 153, 3, 32, "Output",ExpressionUUID->"d7afee3e-e81a-9540-830e-c3c7ca466407"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103666, 2977, 207, 4, 28, "Input",ExpressionUUID->"b6e2b7c0-88d9-144e-9ea9-2e7857907fbb"],
+Cell[CellGroupData[{
+Cell[103898, 2985, 578, 15, 22, "Print",ExpressionUUID->"3f71f3e8-53ad-1243-825d-8364fb9c9d66"],
+Cell[104479, 3002, 356, 10, 22, "Print",ExpressionUUID->"8fd26f5c-b3ee-1a4e-9b30-6505d3a975a2"],
+Cell[104838, 3014, 362, 10, 22, "Print",ExpressionUUID->"be14e3f7-d4af-5640-80fc-0f1bcd13aa6c"],
+Cell[105203, 3026, 380, 10, 22, "Print",ExpressionUUID->"a0914b60-0a62-244b-9838-a62e18c3eafb"],
+Cell[105586, 3038, 467, 11, 22, "Print",ExpressionUUID->"c9479f93-287b-4c44-9a99-360be82303ad"]
+}, Open  ]],
+Cell[106068, 3052, 155, 3, 32, "Output",ExpressionUUID->"17589e78-0afa-994c-a6a6-68d164242695"]
+}, Open  ]],
+Cell[106238, 3058, 3961, 105, 294, "Input",ExpressionUUID->"601d7082-f3c8-674d-82b0-e0335002f08c"],
+Cell[CellGroupData[{
+Cell[110224, 3167, 206, 4, 28, "Input",ExpressionUUID->"cff1a0cc-8dde-4a4f-bbf4-9f4863ec203d"],
+Cell[CellGroupData[{
+Cell[110455, 3175, 576, 15, 22, "Print",ExpressionUUID->"678e17de-f65e-a14c-a63a-4762f9dba04c"],
+Cell[111034, 3192, 354, 10, 22, "Print",ExpressionUUID->"344b4eb8-c802-0f47-b1d1-84c9bd71624a"],
+Cell[111391, 3204, 362, 10, 22, "Print",ExpressionUUID->"116bc53d-f06d-704e-ab65-593d2c1cb46a"],
+Cell[111756, 3216, 346, 9, 22, "Print",ExpressionUUID->"aee843fc-e2e8-7a44-ac44-7d4e7d5e05d7"],
+Cell[112105, 3227, 465, 11, 22, "Print",ExpressionUUID->"3dab5685-c9ad-2244-9cd1-4c1c34b4d948"]
+}, Open  ]],
+Cell[112585, 3241, 155, 3, 32, "Output",ExpressionUUID->"ff919e5a-460a-ac4d-80f1-9ead3bfd397c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[112777, 3249, 207, 4, 28, "Input",ExpressionUUID->"1498a2a9-8dc2-4f43-a7ce-f387393a6db2"],
+Cell[CellGroupData[{
+Cell[113009, 3257, 578, 15, 22, "Print",ExpressionUUID->"06050acc-87d6-d342-86fd-eee27947825b"],
+Cell[113590, 3274, 356, 10, 22, "Print",ExpressionUUID->"65192aa3-d326-0249-9d3f-994367be194c"],
+Cell[113949, 3286, 362, 10, 22, "Print",ExpressionUUID->"bc7cd3e1-eabc-774a-93e9-58a25304f689"],
+Cell[114314, 3298, 378, 10, 22, "Print",ExpressionUUID->"c63f8832-c42c-8345-a0d4-2e42441bf263"],
+Cell[114695, 3310, 469, 11, 22, "Print",ExpressionUUID->"201be583-60ad-214f-949c-5423efaf79ce"]
+}, Open  ]],
+Cell[115179, 3324, 153, 3, 32, "Output",ExpressionUUID->"9fe0dbd4-6610-a84a-a2ff-71a73983810e"]
+}, Open  ]],
+Cell[115347, 3330, 1544, 44, 104, "Input",ExpressionUUID->"469d6ff8-041b-384a-83e9-855c33453da2"],
+Cell[CellGroupData[{
+Cell[116916, 3378, 207, 4, 28, "Input",ExpressionUUID->"29f1daa8-7f37-6946-ad1f-be6e4e14cc1f"],
+Cell[117126, 3384, 338, 10, 54, "Output",ExpressionUUID->"d91c6a71-cdaf-684a-9448-05717d4f2aeb"]
+}, Open  ]],
+Cell[117479, 3397, 1972, 58, 180, "Input",ExpressionUUID->"de7627b2-6a11-1a41-9ce1-b0faf90ef868"],
+Cell[CellGroupData[{
+Cell[119476, 3459, 210, 4, 28, "Input",ExpressionUUID->"c002fe2a-25ea-de47-b9b1-831ffd1b1b75"],
+Cell[119689, 3465, 313, 8, 26, "Message",ExpressionUUID->"2005a836-c087-714a-878e-bc58ddc86a8d"],
+Cell[120005, 3475, 1031, 31, 46, "Output",ExpressionUUID->"a697a769-7132-8e41-9439-7993064d92e0"]
+}, Open  ]],
+Cell[121051, 3509, 981, 27, 66, "Input",ExpressionUUID->"1d41c2a7-32d8-ce4d-9578-78d2ecc5f846"],
+Cell[CellGroupData[{
+Cell[122057, 3540, 206, 4, 28, "Input",ExpressionUUID->"7705d429-98a2-6f4e-b091-e6a7a6645d1c"],
+Cell[122266, 3546, 179, 3, 32, "Output",ExpressionUUID->"276193f3-c286-1041-96a4-10ba4d4e38ba"]
+}, Open  ]],
+Cell[122460, 3552, 1646, 46, 85, "Input",ExpressionUUID->"2ba43772-b339-9846-9014-d3b0003616fb"],
+Cell[CellGroupData[{
+Cell[124131, 3602, 206, 4, 28, "Input",ExpressionUUID->"13fefb5e-b3cd-d64b-8eb6-99d74b7ba993"],
+Cell[124340, 3608, 1072, 18, 26, "Message",ExpressionUUID->"b61af6cc-a030-474f-91e6-bd697ea07eee"],
+Cell[125415, 3628, 462, 10, 26, "Message",ExpressionUUID->"a6496696-56dd-494b-acd1-39db173f55fd"],
+Cell[125880, 3640, 495, 10, 26, "Message",ExpressionUUID->"eeee30ab-758b-6c49-bdde-84aad78064f2"],
+Cell[126378, 3652, 462, 10, 26, "Message",ExpressionUUID->"0c91f005-beba-5448-a10a-a4b36523a274"],
+Cell[126843, 3664, 495, 10, 26, "Message",ExpressionUUID->"c7fbd669-e390-7749-b993-38a190703067"],
+Cell[127341, 3676, 509, 11, 26, "Message",ExpressionUUID->"2304fa4b-6dee-2644-ac46-03cd3cf2b52a"],
+Cell[127853, 3689, 181, 3, 32, "Output",ExpressionUUID->"ba9f72ac-cb8f-ad4c-8344-03861f65ef3d"]
+}, Open  ]],
+Cell[128049, 3695, 1707, 48, 85, "Input",ExpressionUUID->"1dffab8e-c0f8-894a-9b25-6251feec6bd1"],
+Cell[CellGroupData[{
+Cell[129781, 3747, 269, 5, 47, "Input",ExpressionUUID->"97e9b199-1f33-7646-bb46-1fda96227cfc"],
+Cell[130053, 3754, 488, 10, 26, "Message",ExpressionUUID->"482b964a-894c-c04b-b74e-43e2d446e8a6"],
+Cell[130544, 3766, 993, 17, 26, "Message",ExpressionUUID->"7f081e8d-7430-284e-bb79-17bbe9db51c9"],
+Cell[131540, 3785, 466, 10, 26, "Message",ExpressionUUID->"89950618-dcef-d24a-9833-5e98d1545a9e"],
+Cell[132009, 3797, 476, 10, 26, "Message",ExpressionUUID->"512ef575-a690-c34b-ac23-90f4c16c988e"],
+Cell[132488, 3809, 179, 3, 32, "Output",ExpressionUUID->"ddcc3bca-6a29-0a44-8164-f794d136f667"],
+Cell[132670, 3814, 486, 10, 26, "Message",ExpressionUUID->"d5fc1402-7607-7a47-9ff1-f2fcd9e081f3"],
+Cell[133159, 3826, 995, 17, 26, "Message",ExpressionUUID->"47499f58-644e-1c40-a4ed-303119be634f"],
+Cell[134157, 3845, 466, 10, 26, "Message",ExpressionUUID->"90112ca4-b242-5d4f-9a37-c26265c13696"],
+Cell[134626, 3857, 478, 10, 26, "Message",ExpressionUUID->"ff52aa12-476d-684c-b2c3-70d2d02d5490"],
+Cell[135107, 3869, 179, 3, 32, "Output",ExpressionUUID->"bf0472eb-0100-c94c-964a-84c7e4f78fba"]
+}, Open  ]],
+Cell[135301, 3875, 2125, 59, 104, "Input",ExpressionUUID->"4469a05a-b6fc-ca44-be8a-34167436463d"],
+Cell[CellGroupData[{
+Cell[137451, 3938, 211, 4, 28, "Input",ExpressionUUID->"ca5b6d31-5e0a-9b4b-9bfb-ec603b421df3"],
+Cell[137665, 3944, 179, 3, 32, "Output",ExpressionUUID->"b35a2a82-55ae-ad41-888b-8e862b61087d"]
+}, Open  ]],
+Cell[137859, 3950, 1695, 47, 123, "Input",ExpressionUUID->"5b817f67-d4d6-0b40-a8b5-81b8b01c3b06"],
+Cell[CellGroupData[{
+Cell[139579, 4001, 208, 4, 28, "Input",ExpressionUUID->"e8ea7b36-bf19-8440-b703-a95a7968367f"],
+Cell[139790, 4007, 383, 9, 26, "Message",ExpressionUUID->"1e062494-4fcd-5943-a667-e2db2ee288fe"],
+Cell[140176, 4018, 383, 9, 26, "Message",ExpressionUUID->"c8641658-9729-924a-ac45-443ec9335107"],
+Cell[140562, 4029, 439, 10, 26, "Message",ExpressionUUID->"90dbf3c2-39e2-9c4f-862d-3668dee2964b"],
+Cell[141004, 4041, 370, 9, 26, "Message",ExpressionUUID->"0e931156-b800-3548-821b-3c417cdf622e"],
+Cell[141377, 4052, 439, 10, 26, "Message",ExpressionUUID->"340d93ca-8d80-6648-95e8-23d1116644ff"],
+Cell[141819, 4064, 370, 9, 26, "Message",ExpressionUUID->"83d2baa5-dfd8-5047-95ae-d23a18b9b6b8"],
+Cell[142192, 4075, 150, 3, 32, "Output",ExpressionUUID->"d54dbf3e-f263-e64f-b175-f53525c7131a"]
+}, Open  ]],
+Cell[142357, 4081, 1670, 45, 104, "Input",ExpressionUUID->"ac04a054-90c4-6945-a1b3-ee568cbf96e6"],
+Cell[CellGroupData[{
+Cell[144052, 4130, 207, 4, 28, "Input",ExpressionUUID->"a6a01134-b966-a34f-8835-9cca4668f941"],
+Cell[144262, 4136, 179, 3, 32, "Output",ExpressionUUID->"8cd9ce7f-806e-9046-80b5-2a6ad87aa8a1"]
+}, Open  ]],
+Cell[144456, 4142, 1731, 46, 123, "Input",ExpressionUUID->"2193df4f-6427-f34e-b3d0-ea6cd9b1c593"],
+Cell[CellGroupData[{
+Cell[146212, 4192, 209, 4, 28, "Input",ExpressionUUID->"7a0ee41b-c7a4-2c47-8c9c-b0f639ce791b"],
+Cell[146424, 4198, 179, 3, 32, "Output",ExpressionUUID->"6d984f3b-86c9-b24a-a2b5-77017a24dcfc"]
+}, Open  ]],
+Cell[146618, 4204, 1761, 48, 123, "Input",ExpressionUUID->"86daffd5-add6-cf48-a162-eba3963a7bea"],
+Cell[CellGroupData[{
+Cell[148404, 4256, 208, 4, 28, "Input",ExpressionUUID->"20e2d622-ef15-634f-8b94-de63227dcf90"],
+Cell[148615, 4262, 383, 9, 26, "Message",ExpressionUUID->"0bac6c91-9b79-2941-9168-1e20d213bf61"],
+Cell[149001, 4273, 383, 9, 26, "Message",ExpressionUUID->"f98d5894-b85f-a044-ba6a-8ad54bca8667"],
+Cell[149387, 4284, 439, 10, 26, "Message",ExpressionUUID->"05a2b74c-c896-a846-a1f0-ec5fa519f9e9"],
+Cell[149829, 4296, 368, 9, 26, "Message",ExpressionUUID->"68bac604-c975-e94b-9367-adefc1fc02cb"],
+Cell[150200, 4307, 437, 10, 26, "Message",ExpressionUUID->"80e56970-d112-0a4c-b630-79f515d1f123"],
+Cell[150640, 4319, 368, 9, 26, "Message",ExpressionUUID->"f267e541-08f1-a24d-bb21-b713ce6415b6"],
+Cell[151011, 4330, 153, 3, 32, "Output",ExpressionUUID->"ca9916aa-8375-3549-ab09-9024ce4e31d0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[151201, 4338, 151, 3, 28, "Input",ExpressionUUID->"2654a305-7c69-9341-a348-c60213c61dd8"],
+Cell[151355, 4343, 155, 3, 32, "Output",ExpressionUUID->"27d05563-a4d4-2047-87c3-7b60a5b18e6c"]
+}, Open  ]],
+Cell[151525, 4349, 1882, 47, 218, "Input",ExpressionUUID->"3c2236db-d77a-e445-9b04-ff93285c8d5e"],
+Cell[CellGroupData[{
+Cell[153432, 4400, 230, 4, 28, "Input",ExpressionUUID->"d8880536-8b2a-1a41-b571-811faa5cb68e"],
+Cell[153665, 4406, 203, 4, 32, "Output",ExpressionUUID->"302383d9-ce32-824a-8d2b-b644aa23804a"]
+}, Open  ]],
+Cell[153883, 4413, 1316, 37, 66, "Input",ExpressionUUID->"279bd95b-26ed-8a4d-960a-57a33004b31d"],
+Cell[CellGroupData[{
+Cell[155224, 4454, 544, 14, 28, "Input",ExpressionUUID->"a81c54ce-6445-cf40-8e0a-55bbf73ad3ed"],
+Cell[155771, 4470, 274, 5, 32, "Output",ExpressionUUID->"284e86d0-5d55-3244-84f9-3a25ae726799"]
+}, Open  ]],
+Cell[156060, 4478, 2312, 61, 142, "Input",ExpressionUUID->"3dd8c4ad-91ee-154a-bb25-a601f70a0944"],
+Cell[CellGroupData[{
+Cell[158397, 4543, 230, 4, 28, "Input",ExpressionUUID->"287f6513-f477-3144-a844-4917735bf022"],
+Cell[158630, 4549, 385, 9, 26, "Message",ExpressionUUID->"4bac350e-ab0c-b241-901d-5e2953913366"],
+Cell[159018, 4560, 439, 10, 26, "Message",ExpressionUUID->"1b1597c0-8030-1d42-bbb7-bc61fe1794be"],
+Cell[159460, 4572, 368, 9, 26, "Message",ExpressionUUID->"ecaada4c-2724-7c4d-8cf6-23c17f3520af"],
+Cell[159831, 4583, 437, 10, 26, "Message",ExpressionUUID->"737b4b00-2385-ac42-aeb9-99125ccce86e"],
+Cell[160271, 4595, 370, 9, 26, "Message",ExpressionUUID->"f1aa7ddc-87bf-294b-bc35-c4d216601a48"],
+Cell[160644, 4606, 155, 3, 32, "Output",ExpressionUUID->"4ba25f40-2d82-8e4e-b0ea-bb8a9d8ae0c6"]
+}, Open  ]],
+Cell[160814, 4612, 1628, 44, 85, "Input",ExpressionUUID->"ef85371d-c4f3-c549-afaa-fffc7956b0fe"],
+Cell[CellGroupData[{
+Cell[162467, 4660, 311, 5, 47, "Input",ExpressionUUID->"9ea8d9e1-0a36-3842-b187-0fc1a8803bdf"],
+Cell[162781, 4667, 179, 3, 32, "Output",ExpressionUUID->"31a9511f-1cf9-214b-af10-b9af3013615f"],
+Cell[162963, 4672, 178, 3, 32, "Output",ExpressionUUID->"ed3b7624-fe25-5f4c-aa25-c22a46c86fbb"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
