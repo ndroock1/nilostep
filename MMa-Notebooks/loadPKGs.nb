@@ -1,0 +1,64 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      1722,         56]
+NotebookOptionsPosition[      1174,         40]
+NotebookOutlinePosition[      1584,         56]
+CellTagsIndexPosition[      1541,         53]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{
+   "$Path", ",", 
+    "\"\<C:\\\\Users\\\\User\\\\git\\\\nilostep\\\\mma-notebooks\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.9442773975166473`*^9, 3.944277450719532*^9}, {
+  3.9442835996004467`*^9, 
+  3.944283607447735*^9}},ExpressionUUID->"f2afa0c3-0d1d-1245-a377-\
+9b426459dc04"],
+
+Cell[BoxData[
+ RowBox[{"<<", "Geometry`"}]], "Input",ExpressionUUID->"cfdbbc03-d021-a743-b98f-e7db76eab73e"],
+
+Cell[BoxData[
+ RowBox[{"<<", "Combinatorica`"}]], "Input",
+ CellLabel->
+  "In[184]:=",ExpressionUUID->"40892a5a-ab6b-b24d-8606-e610fc8fefae"]
+},
+WindowSize->{950.25, 626.25},
+WindowMargins->{{Automatic, 48.75}, {Automatic, 36.75}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6e9055a9-1e1d-ba46-8bbe-a20c1b273d63"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 361, 10, 28, "Input",ExpressionUUID->"f2afa0c3-0d1d-1245-a377-9b426459dc04"],
+Cell[918, 32, 108, 1, 28, "Input",ExpressionUUID->"cfdbbc03-d021-a743-b98f-e7db76eab73e"],
+Cell[1029, 35, 141, 3, 28, "Input",ExpressionUUID->"40892a5a-ab6b-b24d-8606-e610fc8fefae"]
+}
+]
+*)
+
