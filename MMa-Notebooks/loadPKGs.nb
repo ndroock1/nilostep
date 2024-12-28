@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[      1722,         56]
-NotebookOptionsPosition[      1174,         40]
-NotebookOutlinePosition[      1584,         56]
-CellTagsIndexPosition[      1541,         53]
+NotebookDataLength[      1755,         55]
+NotebookOptionsPosition[      1210,         39]
+NotebookOutlinePosition[      1618,         55]
+CellTagsIndexPosition[      1575,         52]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,20 +26,19 @@ Cell[BoxData[
     "\"\<C:\\\\Users\\\\User\\\\git\\\\nilostep\\\\mma-notebooks\>\""}], 
    "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.9442773975166473`*^9, 3.944277450719532*^9}, {
-  3.9442835996004467`*^9, 
-  3.944283607447735*^9}},ExpressionUUID->"f2afa0c3-0d1d-1245-a377-\
-9b426459dc04"],
+  3.9442835996004467`*^9, 3.944283607447735*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"f2afa0c3-0d1d-1245-a377-9b426459dc04"],
 
 Cell[BoxData[
- RowBox[{"<<", "Geometry`"}]], "Input",ExpressionUUID->"cfdbbc03-d021-a743-b98f-e7db76eab73e"],
+ RowBox[{"<<", "Geometry`"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"cfdbbc03-d021-a743-b98f-e7db76eab73e"],
 
 Cell[BoxData[
  RowBox[{"<<", "Combinatorica`"}]], "Input",
- CellLabel->
-  "In[184]:=",ExpressionUUID->"40892a5a-ab6b-b24d-8606-e610fc8fefae"]
+ CellLabel->"In[1]:=",ExpressionUUID->"40892a5a-ab6b-b24d-8606-e610fc8fefae"]
 },
 WindowSize->{950.25, 626.25},
-WindowMargins->{{Automatic, 48.75}, {Automatic, 36.75}},
+WindowMargins->{{Automatic, 64.5}, {46.5, Automatic}},
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"6e9055a9-1e1d-ba46-8bbe-a20c1b273d63"
@@ -55,9 +54,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[554, 20, 361, 10, 28, "Input",ExpressionUUID->"f2afa0c3-0d1d-1245-a377-9b426459dc04"],
-Cell[918, 32, 108, 1, 28, "Input",ExpressionUUID->"cfdbbc03-d021-a743-b98f-e7db76eab73e"],
-Cell[1029, 35, 141, 3, 28, "Input",ExpressionUUID->"40892a5a-ab6b-b24d-8606-e610fc8fefae"]
+Cell[554, 20, 379, 9, 28, "Input",ExpressionUUID->"f2afa0c3-0d1d-1245-a377-9b426459dc04"],
+Cell[936, 31, 131, 2, 28, "Input",ExpressionUUID->"cfdbbc03-d021-a743-b98f-e7db76eab73e"],
+Cell[1070, 35, 136, 2, 28, "Input",ExpressionUUID->"40892a5a-ab6b-b24d-8606-e610fc8fefae"]
 }
 ]
 *)
