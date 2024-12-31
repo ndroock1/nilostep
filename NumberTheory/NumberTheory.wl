@@ -4,9 +4,9 @@ BeginPackage["NumberTheory`"]
 (* Exported symbols added here with SymbolName::usage *)  
 
 (* Begin Private Context *)
-Begin["`Private`"]  
+Begin["`Private`"] 
 
 End[] 
 (* End Private Context *)
 
-EndPackage[]																																																																																																																																																																																																																																																																																																																																																																																	
+EndPackage[]																																																																																																																																																																																																																																																																																																																																																																														
