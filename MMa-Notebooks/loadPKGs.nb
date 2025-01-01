@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     24254,        633]
-NotebookOptionsPosition[     20597,        576]
-NotebookOutlinePosition[     20999,        592]
-CellTagsIndexPosition[     20956,        589]
+NotebookDataLength[     24874,        651]
+NotebookOptionsPosition[     20994,        590]
+NotebookOutlinePosition[     21397,        606]
+CellTagsIndexPosition[     21354,        603]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -572,10 +572,24 @@ Cell[BoxData["52"], "Output",
  CellChangeTimes->{3.9445534436263523`*^9},
  CellLabel->
   "Out[168]=",ExpressionUUID->"fa977c35-ada4-6f40-a1fa-7d91d19bc863"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"10", "!"}]], "Input",
+ CellChangeTimes->{{3.9446298455764313`*^9, 3.944629847518854*^9}},
+ CellLabel->
+  "In[169]:=",ExpressionUUID->"a816c141-0578-2540-b5d8-0cf6bf6c37eb"],
+
+Cell[BoxData["3628800"], "Output",
+ CellChangeTimes->{3.9446298486593113`*^9},
+ CellLabel->
+  "Out[169]=",ExpressionUUID->"32c181a2-e6de-084d-8f42-d64e99fea5f0"]
 }, Open  ]]
 },
 WindowSize->{819, 626.25},
-WindowMargins->{{Automatic, 63}, {Automatic, 7.5}},
+WindowMargins->{{Automatic, 63}, {Automatic, 3.75}},
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"6e9055a9-1e1d-ba46-8bbe-a20c1b273d63"
@@ -634,6 +648,10 @@ Cell[19950, 555, 156, 3, 32, "Output",ExpressionUUID->"8e344e38-af56-9b41-9501-f
 Cell[20109, 560, 154, 3, 32, "Output",ExpressionUUID->"7ee3e42f-6cf6-6e4a-9e84-4d8ce2f35bf7"],
 Cell[20266, 565, 156, 3, 32, "Output",ExpressionUUID->"08546a41-8eb8-1e4f-b90c-be8701a416d4"],
 Cell[20425, 570, 156, 3, 32, "Output",ExpressionUUID->"fa977c35-ada4-6f40-a1fa-7d91d19bc863"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20618, 578, 196, 4, 28, "Input",ExpressionUUID->"a816c141-0578-2540-b5d8-0cf6bf6c37eb"],
+Cell[20817, 584, 161, 3, 51, "Output",ExpressionUUID->"32c181a2-e6de-084d-8f42-d64e99fea5f0"]
 }, Open  ]]
 }
 ]
