@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     53139,       1363]
-NotebookOptionsPosition[     44823,       1215]
-NotebookOutlinePosition[     45260,       1232]
-CellTagsIndexPosition[     45217,       1229]
+NotebookDataLength[     52246,       1344]
+NotebookOptionsPosition[     44221,       1199]
+NotebookOutlinePosition[     44658,       1216]
+CellTagsIndexPosition[     44615,       1213]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1195,23 +1195,7 @@ divisor of a \[Minus] b.\
 }, Open  ]]
 }, Closed]]
 }, Closed]]
-}, Closed]],
-
-Cell["Arithmetic Functions", "Chapter",
- CellChangeTimes->{{3.9400957793816376`*^9, 
-  3.940095787545141*^9}},ExpressionUUID->"757e0270-a788-6d4c-b94e-\
-3f40f4e8f34a"],
-
-Cell["Averages of Arithmetic Functions", "Chapter",
- CellChangeTimes->{{3.9400957793816376`*^9, 
-  3.9400958163533516`*^9}},ExpressionUUID->"f170ed23-26c6-8c45-a777-\
-4968feac83e0"],
-
-Cell["Elementary Results on the Distribution of Primes", "Chapter",
- CellChangeTimes->{{3.9400957793816376`*^9, 3.940095787545141*^9}, {
-  3.94009584450037*^9, 
-  3.9400958637452335`*^9}},ExpressionUUID->"0305b1a8-6536-8640-8bb1-\
-84e35b1856a7"]
+}, Closed]]
 },
 WindowSize->{1055.25, 661.5},
 WindowMargins->{{Automatic, 27}, {Automatic, 13.5}},
@@ -1361,10 +1345,7 @@ Cell[43658, 1184, 511, 9, 24, "Text",ExpressionUUID->"63784207-8e14-dd48-b459-6d
 }, Open  ]]
 }, Closed]]
 }, Closed]]
-}, Closed]],
-Cell[44220, 1199, 167, 3, 43, "Chapter",ExpressionUUID->"757e0270-a788-6d4c-b94e-3f40f4e8f34a"],
-Cell[44390, 1204, 181, 3, 43, "Chapter",ExpressionUUID->"f170ed23-26c6-8c45-a777-4968feac83e0"],
-Cell[44574, 1209, 245, 4, 43, "Chapter",ExpressionUUID->"0305b1a8-6536-8640-8bb1-84e35b1856a7"]
+}, Closed]]
 }
 ]
 *)
