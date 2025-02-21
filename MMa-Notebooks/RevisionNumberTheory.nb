@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     63316,       1596]
+NotebookDataLength[     63311,       1596]
 NotebookOptionsPosition[     53065,       1418]
-NotebookOutlinePosition[     53513,       1435]
-CellTagsIndexPosition[     53470,       1432]
+NotebookOutlinePosition[     53508,       1435]
+CellTagsIndexPosition[     53465,       1432]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1414,10 +1414,10 @@ Cell[BoxData[
  CellLabel->"Out[74]=",ExpressionUUID->"a3f557b5-5813-eb47-a8d5-000470f56d21"]
 }, Open  ]]
 }, Open  ]]
-}, Open  ]]
+}, Closed]]
 },
-WindowSize->{1055.25, 661.5},
-WindowMargins->{{Automatic, 39}, {Automatic, 13.5}},
+WindowSize->{864, 574.5},
+WindowMargins->{{102, Automatic}, {Automatic, 57}},
 TaggingRules-><|"TryRealOnly" -> False|>,
 FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
@@ -1597,7 +1597,7 @@ Cell[52608, 1403, 242, 5, 28, "Input",ExpressionUUID->"c161e5e6-115b-3c4b-b18b-b
 Cell[52853, 1410, 172, 3, 46, "Output",ExpressionUUID->"a3f557b5-5813-eb47-a8d5-000470f56d21"]
 }, Open  ]]
 }, Open  ]]
-}, Open  ]]
+}, Closed]]
 }
 ]
 *)

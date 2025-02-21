@@ -1,0 +1,114 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3638,        106]
+NotebookOptionsPosition[      2380,         77]
+NotebookOutlinePosition[      2815,         94]
+CellTagsIndexPosition[      2772,         91]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Equivalents of the Riemann Hypothesis", "Chapter",
+ CellChangeTimes->{{3.940095765951008*^9, 3.9400957743036194`*^9}, {
+  3.9416028742746353`*^9, 3.941602879934675*^9}, {3.949127768600889*^9, 
+  3.949127791968237*^9}},ExpressionUUID->"d132892a-c565-3a4c-80d8-\
+d4d35a679c68"],
+
+Cell[CellGroupData[{
+
+Cell["People", "Section",
+ CellChangeTimes->{{3.949128363482237*^9, 3.9491283855361214`*^9}, {
+  3.9491435679394913`*^9, 
+  3.9491435755303993`*^9}},ExpressionUUID->"bdd87ba1-c5a5-b547-94b1-\
+c68f12fb7231"],
+
+Cell["Euclid", "Subsection",
+ CellChangeTimes->{{3.94914359085252*^9, 
+  3.949143594369667*^9}},ExpressionUUID->"e1d0e64c-5e42-2040-9204-\
+51caf8b4142c"],
+
+Cell["Euler", "Subsection",
+ CellChangeTimes->{{3.94914359085252*^9, 
+  3.949143621246353*^9}},ExpressionUUID->"798e2d48-cbfc-d147-a1b0-\
+95d4d62c1761"],
+
+Cell["Gauss", "Subsection",
+ CellChangeTimes->{{3.94914359085252*^9, 3.949143594369667*^9}, {
+  3.94914362791831*^9, 
+  3.9491436314988155`*^9}},ExpressionUUID->"4747fe26-9756-4e4e-b893-\
+2e04223313b1"],
+
+Cell["Dirichlet", "Subsection",
+ CellChangeTimes->{{3.94914359085252*^9, 3.949143594369667*^9}, {
+  3.9491436392515087`*^9, 
+  3.949143644033386*^9}},ExpressionUUID->"b9fc4147-8d37-b045-88e4-\
+0a5bf6e17a3e"],
+
+Cell["Riemann", "Subsection",
+ CellChangeTimes->{{3.94914359085252*^9, 3.949143594369667*^9}, {
+  3.9491436535379944`*^9, 
+  3.9491436580874825`*^9}},ExpressionUUID->"fa96ddb4-999a-8941-95c6-\
+6d368535c59f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Prime Numbers", "Section",
+ CellChangeTimes->{{3.949128363482237*^9, 3.9491283855361214`*^9}, {
+  3.9491435580406017`*^9, 
+  3.949143565219578*^9}},ExpressionUUID->"dec020e9-d1c1-2e4e-bf63-\
+5a57d69846f8"],
+
+Cell["", "Subsection",ExpressionUUID->"519a552a-7ce2-d843-840c-bd986d024e8f"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{864, 516.75},
+WindowMargins->{{Automatic, 8.25}, {1.5, Automatic}},
+Magnification:>0.75 Inherited,
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d09f09bf-f8a9-2c44-8354-c14334eb9d5a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 281, 4, 50, "Chapter",ExpressionUUID->"d132892a-c565-3a4c-80d8-d4d35a679c68"],
+Cell[CellGroupData[{
+Cell[882, 30, 206, 4, 49, "Section",ExpressionUUID->"bdd87ba1-c5a5-b547-94b1-c68f12fb7231"],
+Cell[1091, 36, 153, 3, 39, "Subsection",ExpressionUUID->"e1d0e64c-5e42-2040-9204-51caf8b4142c"],
+Cell[1247, 41, 152, 3, 28, "Subsection",ExpressionUUID->"798e2d48-cbfc-d147-a1b0-95d4d62c1761"],
+Cell[1402, 46, 202, 4, 28, "Subsection",ExpressionUUID->"4747fe26-9756-4e4e-b893-2e04223313b1"],
+Cell[1607, 52, 207, 4, 28, "Subsection",ExpressionUUID->"b9fc4147-8d37-b045-88e4-0a5bf6e17a3e"],
+Cell[1817, 58, 207, 4, 28, "Subsection",ExpressionUUID->"fa96ddb4-999a-8941-95c6-6d368535c59f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2061, 67, 211, 4, 49, "Section",ExpressionUUID->"dec020e9-d1c1-2e4e-bf63-5a57d69846f8"],
+Cell[2275, 73, 77, 0, 39, "Subsection",ExpressionUUID->"519a552a-7ce2-d843-840c-bd986d024e8f"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
